@@ -9,9 +9,6 @@ export default function Ingreso() {
             <Navbar></Navbar>
             <div className={css.container}>
             
-                <div className={css.form}>
-                    <h1>Ingreso de tropa</h1>    
-                </div>
                 
                 
                 <div className={css.form}>
@@ -21,7 +18,12 @@ export default function Ingreso() {
 
                     <div className={css.input}>
                             <label for="productor">Productor</label>
-                            <input type="date" id="productor" placeholder="Productor..."/>
+                            <select name="productor" id="productor">
+                                <option value=""> Seleccionar... </option>
+                                <option value="frigorifico"> Frigorifico </option>
+                                <option value="pirulo"> pirulo</option>
+                                <option value="mengano"> mengano </option>
+                            </select>
                         </div>
                         <div className={css.input}>
                             <label for="tropa">Tropa</label>

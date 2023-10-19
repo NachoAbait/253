@@ -1,0 +1,43 @@
+.card{
+    background-color: rgb(226, 221, 181);
+    height: 140px;
+    width: 120px;
+    margin: 30px;
+    border: solid 4px;
+}
+
+.data1{
+    background-color: rgb(9, 79, 4);
+    height: 40%;
+    display: flex;
+}
+
+.icono{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: solid;
+}
+
+.peso{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
+    border-left: solid;
+    border-bottom: solid;
+}
+h4{
+    color: red;
+}
+
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: ease 0.8s;
+}

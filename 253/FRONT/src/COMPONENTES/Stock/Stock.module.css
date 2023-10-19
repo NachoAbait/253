@@ -1,4 +1,42 @@
+
 .container{
+    position: relative;
     background-color: rgb(41, 39, 43);
     height: 83.9vh;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 10% 80%;
+    border: solid 4px yellow;
+    grid-template-areas:
+    "filtros main2"
+    "main main2"
+}
+
+.main{
+    background-color:rgba(38, 38, 36, 0.645) ;
+    border: solid 5px white;
+    border-radius: 10px;
+    height: 100%;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    grid-area: main;
+}
+
+.main2{
+    background-color:rgba(38, 38, 36, 0.645) ;
+    border: solid 5px white;
+    border-radius: 10px;
+    grid-area: main2;
+    height: 100%;
+    margin: 20px;
+}
+
+.filtros{
+    height: 100%;
+    border: solid white 3px;
+    grid-area: filtros;
+    margin: 20px;
 }
