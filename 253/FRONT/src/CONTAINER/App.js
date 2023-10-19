@@ -1,0 +1,27 @@
+import "./App.css";
+import Home from "../COMPONENTES/Home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+// COMPONENTES //
+import Landing from "../COMPONENTES/Landing/Landing";
+import Ingreso from "../COMPONENTES/Ingreso/Ingreso";
+import Stock from "../COMPONENTES/Stock/Stock";
+import Panel from "../COMPONENTES/Panel/Panel";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/ingreso" element={<Ingreso />} />
+          <Route exact path="/stock" element={<Stock />} />
+          <Route exact path="/panel" element={<Panel />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;

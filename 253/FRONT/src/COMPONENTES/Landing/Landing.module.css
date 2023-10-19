@@ -1,0 +1,43 @@
+.container{
+    position: absolute;
+    background-image: url("https://www.clarin.com/img/2020/12/01/T0vKKYFca_1256x620__1.jpg");
+    height: 100vh;
+    width: 100%;
+    background-size: cover;     
+    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+    background-position: center; 
+    justify-content: center;
+}
+
+.btn{
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.415);
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    bottom: 120px;
+    cursor: pointer;
+    right: 47%;
+}
+
+.btn:hover{ /* Nota la eliminación del espacio */
+    transform: scale(1.2); /* Asumiendo que deseas ampliar el botón en un 20% */
+    transition: transform 0.5s ease; /* Agrega la transición para un efecto suave */
+    background-color: red;
+    color: white;
+}
+
+.num{
+    position: relative;
+    font-weight: bold;
+    font-family: Bahnschrift SemiBold;
+    margin-top: 160px;
+    font-size: 120px;
+    color: white;
+    text-shadow: 15px 12px 5px black; /* Desplazamiento horizontal, desplazamiento vertical, desenfoque y color */
+    width: auto;
+}

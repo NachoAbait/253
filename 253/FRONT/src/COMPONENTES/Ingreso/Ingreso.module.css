@@ -1,0 +1,61 @@
+.container{
+    position: relative;
+    background-color: rgb(41, 39, 43);
+    height: 83.9vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+h1{
+    color: red;
+}
+
+.form{
+    background-color:rgba(38, 38, 36, 0.645) ;
+    border: solid 5px white;
+    border-radius: 10px;
+    width: 35%;
+    height: 80%;
+}
+
+.form h1{
+    margin: 10px;
+}
+
+input{
+    height: 30px;
+    justify-content: center;
+}
+
+select{
+    height: 30px;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    font-size: x-large;
+    font-weight: bold;
+    color: yellow;
+}
+
+.input{
+    margin: 30px;
+}
+
+.btn{
+        background-color: rgba(255, 0, 0, 0.415);
+        color: black;
+        font-size: large;
+        font-weight: bold;
+        border-radius: 15px;
+        padding: 7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+     
+    
+}
