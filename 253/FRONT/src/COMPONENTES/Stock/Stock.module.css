@@ -7,10 +7,15 @@
     display: grid;
     grid-template-columns: 80% 20%;
     grid-template-rows: 10% 80%;
-    border: solid 4px yellow;
     grid-template-areas:
     "filtros main2"
     "main main2"
+}
+
+.filtros{
+    height: 100%;
+    grid-area: filtros;
+    margin: 20px;
 }
 
 .main{
@@ -34,9 +39,3 @@
     margin: 20px;
 }
 
-.filtros{
-    height: 100%;
-    border: solid white 3px;
-    grid-area: filtros;
-    margin: 20px;
-}
