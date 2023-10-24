@@ -1,10 +1,8 @@
-const { MediaRes, Tropa } = require("../DB/index.js");
+const { MediaRes, Tropa, Distribuidor } = require("../DB/index.js");
 
 const getStock = async (req, res) => {
   try {
-    const stock = await MediaRes.find()
-      .populate("tropa")
-      .populate("distribuidor");
+    const stock = await MediaRes.find().populate("tropa");
     res.status(200).json(stock);
   } catch (error) {
     console.error("Error al recuperar el stock:", error.message);
@@ -33,10 +31,23 @@ const deleteMediaRes = async (req, res) => {
 };
 
 /////// TROPA ////////////////
+
+const getTropa = async (req, res) => {
+  try {
+    const tropa = await Tropa.find();
+    res.status(200).json(tropa);
+  } catch (error) {
+    console.error("Error al recuperar el tropa:", error.message);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
 const postTropa = async (req, res) => {
   try {
+    console.log("en controllers");
     const newTropa = new Tropa(req.body);
     await newTropa.save();
+
     res.status(201).json(newTropa);
   } catch (error) {
     res
@@ -54,10 +65,23 @@ const deleteTropa = async (req, res) => {
   }
 };
 
+/////// DISTRIBUIDORES ////////////////
+const getDistribuidores = async (req, res) => {
+  try {
+    const distribuidores = await Distribuidor.find();
+    res.status(200).json(distribuidores);
+  } catch (error) {
+    console.error("Error al recuperar el distribuidores:", error.message);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
 module.exports = {
   getStock,
   postMediaRes,
   deleteMediaRes,
+  getTropa,
   postTropa,
   deleteTropa,
+  getDistribuidores,
 };

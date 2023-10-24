@@ -13,20 +13,25 @@ export default function Navbar() {
     function navigateToStock() {
         navigate('/stock');
     }
+    function navigateToTropas() {
+        navigate('/tropas');
+    }
     function navigateToPanel() {
         navigate('/panel');
     }
+    
     
 
     return (
         <div className={css.container}>
             <div className={css.logo}>
-                253
+                53
             </div>
             <div className={css.lista}>
                 <ul>
                     <li onClick={navigateToIngreso}>Ingreso</li>
                     <li onClick={navigateToStock}>Stock</li>
+                    <li onClick={navigateToTropas}>Tropas</li>
                     <li onClick={navigateToPanel}>Panel</li>
                 </ul>
             </div>

@@ -7,6 +7,7 @@ import Landing from "../COMPONENTES/Landing/Landing";
 import Ingreso from "../COMPONENTES/Ingreso/Ingreso";
 import Stock from "../COMPONENTES/Stock/Stock";
 import Panel from "../COMPONENTES/Panel/Panel";
+import Tropa from "../COMPONENTES/Tropa/Tropa";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/ingreso" element={<Ingreso />} />
           <Route exact path="/stock" element={<Stock />} />
+          <Route exact path="/tropas" element={<Tropa />} />
           <Route exact path="/panel" element={<Panel />} />
         </Routes>
       </div>

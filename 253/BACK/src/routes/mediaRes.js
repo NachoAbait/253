@@ -6,6 +6,8 @@ const {
   deleteMediaRes,
   deleteTropa,
   postTropa,
+  getDistribuidores,
+  getTropa
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -19,5 +21,11 @@ router.delete("/res", deleteMediaRes);
 router.post("/tropa", postTropa);
 
 router.delete("/tropa", deleteTropa);
+
+router.get("/tropa", getTropa);
+
+
+////////// DISTRIBUIDORES  ///////////////
+router.get("/distribuidor", getDistribuidores);
 
 module.exports = router;

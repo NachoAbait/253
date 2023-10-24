@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { requiredPaths } = require("./DB/Schemas/distribuidorSchema");
+const cors = require("cors");
 
 // SERVIDOR
 const server = express();
@@ -18,6 +19,7 @@ server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(express.json());
+server.use(cors());
 
 //RUTAS
 server.use("/", mediaRes);

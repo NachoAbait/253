@@ -16,7 +16,6 @@ h1{
     border: solid 5px white;
     border-radius: 10px;
     width: 35%;
-    height: 80%;
 }
 
 .form h1{
@@ -26,10 +25,13 @@ h1{
 input{
     height: 30px;
     justify-content: center;
+    text-align: center;
 }
 
 select{
     height: 30px;
+    justify-content: center;
+    width: 30%;
     justify-content: center;
 }
 
@@ -37,15 +39,16 @@ label {
     display: block;
     font-size: x-large;
     font-weight: bold;
-    color: yellow;
+    color: #e2c469;
 }
+
 
 .input{
     margin: 30px;
 }
 
 .btn{
-        background-color: rgba(255, 0, 0, 0.415);
+        background-color:red;
         color: black;
         font-size: large;
         font-weight: bold;
@@ -53,8 +56,16 @@ label {
         padding: 7px;
         padding-left: 15px;
         padding-right: 15px;
-        margin-top: 10px;
+        margin: 20px;
         cursor: pointer;
-     
-    
+        
+}
+
+option{
+
+    text-align: center;
+}
+
+input{
+    width: 50%;
 }

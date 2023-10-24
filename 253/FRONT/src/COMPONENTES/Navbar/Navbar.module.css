@@ -52,7 +52,7 @@
 .lista li:after{
     content: "";
     position: absolute;
-    background-color: yellow;
+    background-color: #e2c469;
     height: 5px;
     width: 0%;
     left: 0;
@@ -66,7 +66,7 @@
   }
 
 .lista li:hover{
-    color: yellow;
+    color: #e2c469;
     transition: .5s;
     cursor: pointer;
 }

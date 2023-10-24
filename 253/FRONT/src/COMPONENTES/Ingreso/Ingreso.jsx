@@ -17,18 +17,12 @@ export default function Ingreso() {
                     <form>
 
                     <div className={css.input}>
-                            <label for="productor">Productor</label>
-                            <select name="productor" id="productor">
+                            <label for="Tropa">Tropa</label>
+                            <select name="Tropa" id="Tropa">
                                 <option value=""> Seleccionar... </option>
-                                <option value="frigorifico"> Frigorifico </option>
-                                <option value="pirulo"> pirulo</option>
-                                <option value="mengano"> mengano </option>
                             </select>
                         </div>
-                        <div className={css.input}>
-                            <label for="tropa">Tropa</label>
-                            <input type="text" id="tropa" placeholder="Tropa..."/>
-                        </div>
+                       
 
                         <div className={css.input}>
                             <label for="animal">Animal</label>
@@ -46,9 +40,11 @@ export default function Ingreso() {
                             <input type="number" id="Kg" placeholder="Kg..."/>
                         </div>
 
+                    
+
                         <div className={css.input}>
-                            <label for="faena">Fecha faena</label>
-                            <input type="date" id="faena" placeholder="Fecha faena..."/>
+                            <label for="Observaciones">Observaciones</label>
+                            <input type="text" id="Observaciones" placeholder="Observacion..."/>
                         </div>
 
                         <button type="submit" className={css.btn}> Guardar </button>
@@ -57,6 +53,7 @@ export default function Ingreso() {
 
                 </div>
                
+                
             </div>
         </div>
         
