@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const getTropas = (data) => async (dispatch) => {
+export const getStock = (data) => async (dispatch) => {
   try {
-    const response = await axios.get("/tropa", data);
+    const response = await axios.get("/stock", data);
     dispatch({
-      type: "GET_TROPAS",
+      type: "GET_STOCK",
       payload: response.data,
     });
   } catch (error) {

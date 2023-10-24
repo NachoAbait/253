@@ -1,16 +1,18 @@
 import React from "react";
-import css from "./Card.module.css"
+import css from "./SelectedCard.module.css"
 
-export default function Card({tropa, categoria, peso, observaciones, onClick}) {
+export default function SelectedCard({ data }) {
+    
+
     return (
         <div>
-            <div className={css.card} onClick={onClick}>
+            <div className={css.card} >
                 <div className={css.data1}>
                     <div className={css.icono}>
-                        {categoria}
+                        {data.categoria}
                     </div>
                     <div className={css.peso}>
-                        { peso}
+                        { data.peso}
                     </div>
                 </div>
 
@@ -19,10 +21,11 @@ export default function Card({tropa, categoria, peso, observaciones, onClick}) {
                         Tropa
                     </h4>
                     <h5>
-                        {tropa.numero}
+                        {data.tropa.numero}
                     </h5>
+                    
                 </div>
-                { observaciones ? <div className={css.alert}>
+                { data.observaciones ? <div className={css.alert}>
                     ⚠
                 </div>: null}
                 

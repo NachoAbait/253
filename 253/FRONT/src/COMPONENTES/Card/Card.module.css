@@ -1,15 +1,20 @@
 .card{
-    background-color: rgb(226, 221, 181);
-    height: 140px;
     width: 120px;
-    margin: 30px;
-    border: solid 4px;
+    margin: 10px;
+    border: solid 4px ;
+    position: relative;
 }
 
 .data1{
     background-color: rgb(9, 79, 4);
     height: 40%;
     display: flex;
+}
+
+
+.data2 h5{
+    color: white;
+    padding: 3px;
 }
 
 .icono{
@@ -32,12 +37,20 @@
     border-left: solid;
     border-bottom: solid;
 }
-h4{
-    color: red;
+
+.card h4{
+    color: #CBB26A;
 }
 
 .card:hover{
     cursor: pointer;
     transform: scale(1.2);
     transition: ease 0.8s;
+}
+
+.alert{
+    color: red;
+    position: absolute;
+    bottom: 0px;
+    right: 3px;
 }

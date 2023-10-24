@@ -1,50 +1,108 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar"
 import css from "./Ingreso.module.css"
-
+import { useDispatch, useSelector } from "react-redux";
+import { getTropas } from "../../REDUX/ACTIONS/getTropas";
+import {postRes} from "../../REDUX/ACTIONS/postRes"
 
 export default function Ingreso() {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getTropas());
+    }, [dispatch]);
+
+    const Tropas = useSelector((state) => state.Tropas)
+   
+
+
+    const [formData, setFormData] = useState({
+        tropa: '',
+        categoria: '',
+        peso: '',
+        observaciones: ''
+    });
+    console.log(formData)
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+    
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        try {
+            await dispatch(postRes(formData)); // Asumiendo que postRes es una operación asíncrona
+            alert(`Se agrego una nueva res a la tropa ${formData.tropa}`);
+            setFormData({
+                tropa: '',
+                categoria: '',
+                peso: '',
+                observaciones: ''
+            });
+        } catch (error) {
+            // Puedes mostrar un mensaje al usuario aquí, por ejemplo:
+            alert('Ocurrió un error al agregar la res. Por favor, verifica los datos y vuelve a intentarlo.');
+            // También puedes, por ejemplo, guardar el error en el estado para mostrarlo en la interfaz de usuario.
+            console.error("Error al agregar la res:", error); // Esto es útil para debugging
+        }
+    }
+    
+
     return (
         <div>
             <Navbar></Navbar>
             <div className={css.container}>
             
+
                 
                 
                 <div className={css.form}>
                     <h1>Ingreso de ½ </h1>
 
-                    <form>
+                    <form onSubmit={handleSubmit}>
 
                     <div className={css.input}>
-                            <label for="Tropa">Tropa</label>
-                            <select name="Tropa" id="Tropa">
+                            <label for="tropa"> N° Tropa</label>
+                            <select name="tropa" id="tropa" value={formData.tropa} onChange={handleChange}>
                                 <option value=""> Seleccionar... </option>
+                                { Tropas.map(tropa => (
+                                    <option value={tropa._id}>{tropa.numero}</option>
+                                ))}
+
+                                
                             </select>
                         </div>
                        
 
                         <div className={css.input}>
-                            <label for="animal">Animal</label>
-                            <select name="animal" id="animal">
-                                <option value="NTO">Seleccionar...</option>
-                                <option value="NTO">Novillo</option>
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria" value={formData.categoria} onChange={handleChange}>
+                                <option value="">Seleccionar...</option>
+                                <option value="NO">Novillo</option>
                                 <option value="NTO">Novillito</option>
-                                <option value="NTO">Vaca</option>
-                                <option value="NTO">Vaquillona</option>
+                                <option value="VA">Vaca</option>
+                                <option value="VQ">Vaquillona</option>
                             </select>
                         </div>
 
                         <div className={css.input}>
-                            <label for="Kg">Kg</label>
-                            <input type="number" id="Kg" placeholder="Kg..."/>
+                            <label for="peso">Kg</label>
+                            <input type="number" name="peso" id="peso" value={formData.peso}  placeholder="****" onChange={handleChange}/>
                         </div>
 
                     
+                        
 
                         <div className={css.input}>
-                            <label for="Observaciones">Observaciones</label>
-                            <input type="text" id="Observaciones" placeholder="Observacion..."/>
+                            <label for="observaciones">Observaciones</label>
+                            <input type="text" id="observaciones" name="observaciones" value={formData.observaciones} placeholder="****" onChange={handleChange}/>
                         </div>
 
                         <button type="submit" className={css.btn}> Guardar </button>

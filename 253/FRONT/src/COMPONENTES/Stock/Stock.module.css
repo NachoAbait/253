@@ -20,19 +20,22 @@
 
 .main{
     background-color:rgba(38, 38, 36, 0.645) ;
-    border: solid 5px white;
+    border: solid 5px #CBB26A;
     border-radius: 10px;
     height: 100%;
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    overflow-y: auto;
     grid-area: main;
+    align-items: flex-start; 
+    align-content: flex-start;
+    justify-content: space-between;
 }
 
 .main2{
     background-color:rgba(38, 38, 36, 0.645) ;
-    border: solid 5px white;
+    border: solid 5px #CBB26A;
     border-radius: 10px;
     grid-area: main2;
     height: 100%;

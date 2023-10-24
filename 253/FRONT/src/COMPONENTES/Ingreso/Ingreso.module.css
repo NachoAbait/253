@@ -13,7 +13,7 @@ h1{
 
 .form{
     background-color:rgba(38, 38, 36, 0.645) ;
-    border: solid 5px white;
+    border: solid 5px #CBB26A;
     border-radius: 10px;
     width: 35%;
 }
