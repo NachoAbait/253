@@ -7,13 +7,16 @@ const {
   deleteTropa,
   postTropa,
   getDistribuidores,
-  getTropa
+  getTropa,
+  putMediaRes,
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
 router.get("/stock", getStock);
 
 router.post("/res", postMediaRes);
+
+router.put("/res/:id", putMediaRes);
 
 router.delete("/res", deleteMediaRes);
 
@@ -23,7 +26,6 @@ router.post("/tropa", postTropa);
 router.delete("/tropa", deleteTropa);
 
 router.get("/tropa", getTropa);
-
 
 ////////// DISTRIBUIDORES  ///////////////
 router.get("/distribuidor", getDistribuidores);

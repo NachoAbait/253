@@ -2,7 +2,7 @@ const { MediaRes, Tropa, Distribuidor } = require("../DB/index.js");
 
 const getStock = async (req, res) => {
   try {
-    const stock = await MediaRes.find().populate("tropa");
+    const stock = await MediaRes.find({ estado: "camara" }).populate("tropa");
     res.status(200).json(stock);
   } catch (error) {
     console.error("Error al recuperar el stock:", error.message);
@@ -29,6 +29,30 @@ const deleteMediaRes = async (req, res) => {
     res.status(400).json({ message: "Error al eliminar media res", error });
   }
 };
+
+const putMediaRes = async (req, res) => {
+  const id = req.params.id;  // Obtiene el ID desde la URL
+
+  try {
+      // Encuentra la 'res' por ID y actualiza el estado
+      const updatedRes = await MediaRes.findByIdAndUpdate(
+          id, 
+          { estado: "despachada" }, 
+          { new: true }  // Esta opción retorna el documento modificado
+      );
+
+      // Si no se encuentra la 'res' con ese ID, se envía un error 404
+      if (!updatedRes) {
+          return res.status(404).json({ message: "Res no encontrada" });
+      }
+
+      res.status(200).json(updatedRes);
+  } catch (error) {
+      console.error("Error al actualizar la res:", error.message);
+      res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
 
 /////// TROPA ////////////////
 
@@ -84,4 +108,5 @@ module.exports = {
   postTropa,
   deleteTropa,
   getDistribuidores,
+  putMediaRes
 };
