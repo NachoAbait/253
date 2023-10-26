@@ -12,7 +12,7 @@ const tropaSchema = new Schema({
   precio_venta: { type: Number, min: 0 },
   precio_faena: { type: Number, min: 0 },
   diferencia: Number, // Considera calcularlo en la aplicación si es posible.
-//  animales: [{ type: mongoose.Schema.Types.ObjectId, ref: "mediares" }],
+  animales: [{ type: Schema.Types.ObjectId, ref: "mediares", required: true }],
 });
 
 module.exports = tropaSchema;

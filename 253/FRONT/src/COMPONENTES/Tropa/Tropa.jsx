@@ -13,7 +13,7 @@ export default function Tropa() {
     }, [dispatch]);
 
     const Tropas = useSelector((state) => state.Tropas)
-    console.log(Tropas)
+    
 
     const [formData, setFormData] = useState({
         numero: null,
@@ -49,6 +49,7 @@ export default function Tropa() {
         precio_venta: null
         })
         alert("Se creó una nueva tropa")
+        dispatch(getTropas());
     }
     
 
@@ -61,7 +62,7 @@ export default function Tropa() {
 
                     </div>
                     <div className={css.main}>
-  {Tropas.map(tropa => (
+  { Tropas.length ? Tropas.map(tropa => (
       <div key={tropa._id} className={css.tropaDiv}>
           
 
@@ -78,7 +79,11 @@ export default function Tropa() {
       <div className={css.divisor}><h3>Precio Venta</h3> <h5>{tropa.precio_venta}</h5></div>
       {/* Agrega aquí cualquier otro dato que quieras mostrar */}
     </div>
-  ))}
+  )) :
+    <div className={css.loaderContainer}>
+        <div className={css.loader}></div>
+    </div>
+}
 </div>
 
                     <div className={css.main2}>

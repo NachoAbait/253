@@ -104,7 +104,7 @@ export default function Ingreso() {
                             <label for="observaciones">Observaciones</label>
                             <input type="text" id="observaciones" name="observaciones" value={formData.observaciones} placeholder="****" onChange={handleChange}/>
                         </div>
-
+                       
                         <button type="submit" className={css.btn}> Guardar </button>
                     </form>
 

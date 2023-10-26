@@ -4,6 +4,7 @@ const getStock = async (req, res) => {
   try {
     const stock = await MediaRes.find({ estado: "camara" }).populate("tropa");
     res.status(200).json(stock);
+    console.log(stock)
   } catch (error) {
     console.error("Error al recuperar el stock:", error.message);
     res.status(500).json({ message: "Error interno del servidor" });
@@ -14,11 +15,20 @@ const postMediaRes = async (req, res) => {
   try {
     const newMediaRes = new MediaRes(req.body);
     await newMediaRes.save();
+    
+    // Aquí, después de guardar la nueva mediaRes, actualiza la tropa correspondiente
+    const tropa = await Tropa.findById(req.body.tropa); // suponiendo que Tropa es el modelo correspondiente a tropaSchema
+    if (tropa) {
+      tropa.animales.push(newMediaRes._id);
+      await tropa.save();
+    }
+
     res.status(201).json(newMediaRes);
   } catch (error) {
     res.status(400).json({ message: "Error al agregar media res", error });
   }
 };
+
 
 const deleteMediaRes = async (req, res) => {
   try {

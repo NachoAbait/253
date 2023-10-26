@@ -29,6 +29,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         Stock: action.payload,
       };
+    case "UPDATE_RES_SUCCESS":
+      return {
+        ...state,
+        Stock: state.Stock.map(res => 
+          res._id === action.payload._id ? action.payload : res
+        )
+      };
+    case "UPDATE_RES_FAILURE":
+      // Aquí podrías manejar el error como quieras.
+      return {
+        ...state
+      };
 
     /*//////  DISTRIBUIDORES  //////////////*/
     case "GET_DISTRIBUIDORES":
