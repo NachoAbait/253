@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar"
 import css from "./Stock.module.css"
 import Card from "../Card/Card.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useMemo} from "react";
 import { getStock } from "../../REDUX/ACTIONS/getStock.js"
 import SelectedCard from "../SelectedCard/SelectedCard";
 import { getDistribuidores } from "../../REDUX/ACTIONS/getDistribuidores"
@@ -12,12 +12,23 @@ export default function Stock() {
     const dispatch = useDispatch();
     
  
+    const rawStock = useSelector((state) => state.Stock);
 
-    const Stock = useSelector((state) => state.Stock)
+    const Stock = useMemo(() => {
+        return rawStock.slice().sort((b, a) => new Date(b.tropa.fecha_ingreso) - new Date(a.tropa.fecha_ingreso));
+    }, [rawStock]);
     
-   useEffect(() => {
+    
+    const [selectedFilter, setSelectedFilter] = useState("todas");
+    const [filteredStock, setFilteredStock] = useState(Stock);
+console.log(filteredStock)
+    useEffect(() => {
         dispatch(getStock());
-    }, [dispatch])
+    }, [dispatch]);
+    
+    useEffect(() => {
+        applyFilter(selectedFilter);
+    }, [Stock, selectedFilter]);
     
     const [selectedCard, setSelectedCard] = useState(null);  // 1. Estado Local para el Detalle
 
@@ -29,28 +40,60 @@ export default function Stock() {
         setSelectedCard(cardData);
     }
 
-    // Calcula el número total de reses en stock
-const totalMedias = Stock.length;
-
-// Calcula el total de kg
-const totalKg = Stock.reduce((total, res) => total + res.peso, 0);
 
 
-// Calcula el número de reses entre 0 y 90kg
-const menos90 = Stock.filter(res => res.peso <= 90).length;
+    ///////// FILTROS ///////////////////////////////
 
-// Calcula el número de reses más de 90kg pero no más de 100kg
-const entre90y100 = Stock.filter(res => res.peso > 90 && res.peso <= 100).length;
 
-// Calcula el número de reses más de 100kg pero no más de 110kg
-const entre100y110 = Stock.filter(res => res.peso > 100 && res.peso <= 110).length;
+    function applyFilter(filterName) {
+        switch(filterName) {
+            case "todas":
+                setFilteredStock(Stock);
+                break;
+            case "-90":
+                setFilteredStock(Stock.filter(res => res.peso <= 90));
+                break;
+            case "-100":
+                setFilteredStock(Stock.filter(res => res.peso > 90 && res.peso <= 100));
+                break;
+            case "-110":
+                setFilteredStock(Stock.filter(res => res.peso > 100 && res.peso <= 110));
+                break;
+            case "-120":
+                setFilteredStock(Stock.filter(res => res.peso > 110 && res.peso <= 120));
+                break;
+                case "+120":
+                    setFilteredStock(Stock.filter(res => res.peso > 120 ));
+                    break;
+            default:
+                setFilteredStock(Stock);
+        }
+    }
+    
 
-// Calcula el número de reses más de 110kg pero no más de 120kg
-const entre110y120 = Stock.filter(res => res.peso > 110 && res.peso <= 120).length;
+    function handleFilter(filterName){
+        setSelectedFilter(filterName);
+        applyFilter(filterName);
+    }
+    
 
-// Calcula el número de reses más de 120kg pero no más de 130kg
-const entre120y130 = Stock.filter(res => res.peso > 120 && res.peso <= 130).length;
 
+    /////////////////////////////// MAIN3 //////////////////////////////////////
+    const totalMedias = useMemo(() => Stock.length, [Stock]);
+
+    const totalKg = useMemo(() => Stock.reduce((total, res) => total + res.peso, 0), [Stock]);
+    
+    const menos90 = useMemo(() => Stock.filter(res => res.peso <= 90).length, [Stock]);
+    
+    const entre90y100 = useMemo(() => Stock.filter(res => res.peso > 90 && res.peso <= 100).length, [Stock]);
+    
+    const entre100y110 = useMemo(() => Stock.filter(res => res.peso > 100 && res.peso <= 110).length, [Stock]);
+    
+    const entre110y120 = useMemo(() => Stock.filter(res => res.peso > 110 && res.peso <= 120).length, [Stock]);
+    
+    const entre120y130 = useMemo(() => Stock.filter(res => res.peso > 120 && res.peso <= 130).length, [Stock]);
+
+    const mas120 = useMemo(() => Stock.filter(res => res.peso > 120).length, [Stock]);
     
 
         return (
@@ -59,11 +102,18 @@ const entre120y130 = Stock.filter(res => res.peso > 120 && res.peso <= 130).leng
             
                 <div className={css.container}>
                     <div className={css.filtros}>
-
+                    <ul>
+                        <li className={selectedFilter === "todas" ? css.filtroSelected : ""}  onClick={() => handleFilter("todas")}>Todas</li>
+                        <li className={selectedFilter === "-90" ? css.filtroSelected : ""} onClick={() => handleFilter("-90")}>-90</li>
+                        <li className={selectedFilter === "-100" ? css.filtroSelected : ""} onClick={() => handleFilter("-100")}>-100</li>
+                        <li className={selectedFilter === "-110" ? css.filtroSelected : ""} onClick={() => handleFilter("-110")}>-110</li>
+                            <li className={selectedFilter === "-120" ? css.filtroSelected : ""} onClick={() => handleFilter("-120")}>-120</li>
+                            <li className={selectedFilter === "+120" ? css.filtroSelected : ""} onClick={() => handleFilter("+120")}>+120</li>
+                    </ul>
                     </div>
                     <div className={css.main}>
                        
-                        {Stock.length >= 0 ? Stock.map((res) => (
+                        {filteredStock.length > 0 ? filteredStock.map((res) => (
                             <Card
                                 key={res._id}
                                 tropa={res.tropa}
@@ -74,7 +124,7 @@ const entre120y130 = Stock.filter(res => res.peso > 120 && res.peso <= 130).leng
 
                             />
                         )) :   <div className={css.loaderContainer}>
-                        <div className={css.loader}></div>
+                        <div className={css.loader}> </div>
                     </div>
                         
                        
@@ -111,8 +161,8 @@ const entre120y130 = Stock.filter(res => res.peso > 120 && res.peso <= 130).leng
                             <h4>{entre110y120 }</h4>
                         </div>
                         <div>
-                        <h3>½ -130</h3>
-                            <h4>{entre120y130 }</h4>
+                        <h3>½ +120</h3>
+                            <h4>{mas120}</h4>
                         </div>
                     </div>
 

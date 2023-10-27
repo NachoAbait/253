@@ -68,7 +68,7 @@ export default function SelectedCard({ data , deselectRes }) {
 
                     <div className={css.item}>
                         <h4>
-                        Ingreso
+                        Fecha faena
                     </h4>
                     <h5>
                     {new Date(data.tropa.fecha_ingreso).toLocaleDateString()}

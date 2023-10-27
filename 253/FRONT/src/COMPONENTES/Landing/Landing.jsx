@@ -7,12 +7,12 @@ export default function Landing() {
     let navigate = useNavigate();
 
     function navigateToHome() {
-        navigate('/home');
+        navigate('/stock');
     }
     
     return (
         <div className={css.container}>
-            <div className={css.num}>253</div>
+            <div className={css.num}>53</div>
             
              <button className={css.btn} onClick={navigateToHome}>Ingresar </button>
            

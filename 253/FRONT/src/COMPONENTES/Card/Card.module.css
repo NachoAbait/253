@@ -3,6 +3,7 @@
     margin: 10px;
     border: solid 4px ;
     position: relative;
+    user-select: none;
 }
 
 .data1{

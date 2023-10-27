@@ -1,7 +1,8 @@
 import React from "react";
 import css from "./Card.module.css"
 
-export default function Card({tropa, categoria, peso, observaciones, onClick}) {
+export default function Card({ tropa, categoria, peso, observaciones, onClick,  }) {
+    console.log()
     return (
         <div>
             <div className={css.card} onClick={onClick}>
@@ -19,7 +20,13 @@ export default function Card({tropa, categoria, peso, observaciones, onClick}) {
                         Tropa
                     </h4>
                     <h5>
-                        {tropa.numero}
+                        {tropa ? tropa.numero : ""}
+                    </h5>
+                    <h4>
+                        Faena
+                    </h4>
+                    <h5>
+                    { tropa ? new Date(tropa.fecha_ingreso).toLocaleDateString() : ""}
                     </h5>
                 </div>
                 { observaciones ? <div className={css.alert}>
