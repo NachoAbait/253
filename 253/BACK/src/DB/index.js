@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+const DB_DEPLOY = process.env.DB_DEPLOY;
 const MONGO_URI = process.env.MONGO_URI;
 
-const conn = mongoose.createConnection(MONGO_URI);
+// const conn = mongoose.createConnection(MONGO_URI);
+
+const conn = mongoose.createConnection(DB_DEPLOY);
 
 module.exports = {
   Distribuidor: conn.model(
