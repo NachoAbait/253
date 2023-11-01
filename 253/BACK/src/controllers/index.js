@@ -1,10 +1,9 @@
-const { MediaRes, Tropa, Distribuidor } = require("../DB/index.js");
+const { MediaRes, Tropa, Distribuidor, Salida } = require("../DB/index.js");
 
 const getStock = async (req, res) => {
   try {
     const stock = await MediaRes.find({ estado: "camara" }).populate("tropa");
     res.status(200).json(stock);
-    console.log(stock);
   } catch (error) {
     console.error("Error al recuperar el stock:", error.message);
     res.status(500).json({ message: "Error interno del servidor" });
@@ -41,7 +40,9 @@ const deleteMediaRes = async (req, res) => {
 
 const putMediaRes = async (req, res) => {
   const id = req.params.id; // Obtiene el ID desde la URL
+  const { fecha, distribuidorId } = req.body; // Datos del formulario de salida
 
+  console.log("aca en la contro", fecha, distribuidorId);
   try {
     // Encuentra la 'res' por ID y actualiza el estado
     const updatedRes = await MediaRes.findByIdAndUpdate(
@@ -53,6 +54,26 @@ const putMediaRes = async (req, res) => {
     // Si no se encuentra la 'res' con ese ID, se envía un error 404
     if (!updatedRes) {
       return res.status(404).json({ message: "Res no encontrada" });
+    }
+
+    // Ahora, registra la salida con fecha y distribuidor
+    const salidaExistente = await Salida.findOne({
+      fecha: fecha,
+      distribuidor: distribuidorId,
+    });
+
+    if (salidaExistente) {
+      // Si la salida existe, agrega el ID de la media res a la propiedad 'animales'
+      salidaExistente.animales.push(updatedRes._id);
+      await salidaExistente.save();
+    } else {
+      // Si no existe, crea una nueva salida
+      const nuevaSalida = new Salida({
+        fecha: fecha,
+        distribuidor: distribuidorId,
+        animales: [updatedRes._id],
+      });
+      await nuevaSalida.save();
     }
 
     res.status(200).json(updatedRes);
@@ -122,6 +143,19 @@ const getDistribuidores = async (req, res) => {
   }
 };
 
+/////// SALIDAS ////////////////
+const getSalidas = async (req, res) => {
+  try {
+    const salidas = await Salida.find()
+      .populate("animales")
+      .populate("distribuidor");
+    res.status(200).json(salidas);
+  } catch (error) {
+    console.error("Error al recuperar el salidas:", error.message);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
 module.exports = {
   getStock,
   postMediaRes,
@@ -132,4 +166,5 @@ module.exports = {
   getDistribuidores,
   putMediaRes,
   getDetalleTropa,
+  getSalidas,
 };

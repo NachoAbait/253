@@ -3,6 +3,7 @@ const initialState = {
   Tropas: [],
   Distribuidores: [],
   DetalleTropa: {},
+  Salidas: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -53,6 +54,13 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         Distribuidores: action.payload,
+      };
+
+    /*//////  SALIDAS  //////////////*/
+    case "GET_SALIDAS":
+      return {
+        ...state,
+        Salidas: action.payload,
       };
 
     default:

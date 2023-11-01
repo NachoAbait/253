@@ -12,7 +12,7 @@
 
 
 .main{
-    background-color:white;
+    background-color:white ;
     border: solid 5px #CBB26A;
     border-radius: 10px;
     height: 98%;
@@ -44,86 +44,21 @@
     background-color: #a09358;  /* Color de fondo del pulgar del scrollbar cuando se pasa el cursor sobre él */
 }
 
+
 .main2{
-    background-color:rgba(38, 38, 36, 0.645) ;
+    background-color:white;
     border: solid 5px #CBB26A;
     border-radius: 10px;
     grid-area: main2;
     height: 98%;
     margin: 10px;
-}
-
-select{
-    height: 30px;
-    justify-content: center;
-    width: 30%;
-    justify-content: center;
-    font-weight: bolder;
-    font-size: large;
-}
-
-input{
-    font-weight: bolder;
-    font-size: large;
-}
-
-select{
-    height: 30px;
-    width: 50%;
- 
-}
-
-.input{
-    margin: 8px;
-}
-
-.btn{
-    background-color: red;
-    color: black;
-    font-size: large;
-    font-weight: bold;
-    border-radius: 15px;
-    padding: 7px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.tropaDiv{
-    width: 100%;
-    border: solid white ;
     display: flex;
-    height: 100px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-around;
-    background-color:  rgb(41, 39, 43);
-    border-radius: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-.tropaDiv:hover {
-    transform: scale(1.02); /* Aumenta el tamaño un 5% */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra para la ilusión de elevación */
-    transition: ease .5s;
-}
-.divisor{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-}
-.divisor h3{
-    color: #CBB26A;
-}
-.divisor h5{
-    color: white;
-    font-size: x-large;
-}
+
+
 .loaderContainer {
     width: 100%;
     height: 100%;
@@ -146,3 +81,59 @@ select{
   @keyframes l13{ 
     100%{transform: rotate(1turn)}
   }
+
+
+  .salidaDiv{
+    width: 100%;
+    border: solid white ;
+    border-radius: 10px;
+    display: flex;
+    height: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(41, 39, 43);
+}
+
+.salidaDiv:hover {
+    transform: scale(1.02); /* Aumenta el tamaño un 5% */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra para la ilusión de elevación */
+    transition: ease .5s;
+}
+
+
+.divisor{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.divisor h3{
+    color: #CBB26A;
+}
+.divisor h5{
+    color: white;
+    font-size: x-large;
+}
+
+.animalesSalida{
+    width: 20%;
+    border: solid black 3px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.peso{
+    background-color: rgb(41, 182, 31);
+    font-size: large;
+    font-weight: bold;
+    padding: 2px;
+}
+.tropa{
+    background-color:rgba(41, 39, 43, 0.745) ;
+    color: white;
+}

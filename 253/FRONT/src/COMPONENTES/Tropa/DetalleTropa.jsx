@@ -166,7 +166,11 @@ export default function DetalleTropa() {
                                                 <div key={animal._id} className={`${css.res} ${animal.estado === 'despachada' ? css.despachado : ''}`}>{animal.peso}</div>
                                             ))}
                                         </div>
-                                       
+                                        <div className={css.infoCol}>
+                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span></h4>
+                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span} >Kg</span></h4>
+                                        </div>
+
                                     </div>
                                     
                                     <div className={css.columna}>
@@ -176,6 +180,10 @@ export default function DetalleTropa() {
                                                 <div key={animal._id} className={`${css.res} ${animal.estado === 'despachada' ? css.despachado : ''}`}>{animal.peso}</div>
                                             ))}
                                         </div>
+                                        <div className={css.infoCol}>
+                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
+                                        </div>
                                     </div>
                                     <div className={css.columna}>
                                         <div className={css.rango}>-110</div>
@@ -183,6 +191,10 @@ export default function DetalleTropa() {
                                             { gruposDeAnimales['-110'].map((animal) => (
                                                 <div key={animal._id} className={`${css.res} ${animal.estado === 'despachada' ? css.despachado : ''}`}>{animal.peso}</div>
                                             ))}
+                                        </div>
+                                        <div className={css.infoCol}>
+                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
                                         </div>
                                     </div>
                                     <div className={css.columna}>
@@ -192,6 +204,10 @@ export default function DetalleTropa() {
                                                 <div key={animal._id} className={`${css.res} ${animal.estado === 'despachada' ? css.despachado : ''}`}>{animal.peso}</div>
                                             ))}
                                         </div>
+                                        <div className={css.infoCol}>
+                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
+                                        </div>
                                     </div>
                                     <div className={css.columna}>
                                         <div className={css.rango}>+120</div>
@@ -199,6 +215,10 @@ export default function DetalleTropa() {
                                             { gruposDeAnimales['+120'].map((animal) => (
                                                 <div key={animal._id} className={`${css.res} ${animal.estado === 'despachada' ? css.despachado : ''}`}>{animal.peso}</div>
                                             ))}
+                                        </div>
+                                        <div className={css.infoCol}>
+                                            <h4>{gruposDeAnimales["+120"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["+120"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
                                         </div>
                                     </div>
                                 </div>

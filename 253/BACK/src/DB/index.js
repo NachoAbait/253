@@ -12,4 +12,5 @@ module.exports = {
   ),
   MediaRes: conn.model("mediares", require("./Schemas/resSchema")),
   Tropa: conn.model("tropas", require("./Schemas/tropaSchema")),
+  Salida: conn.model("salidas", require("./Schemas/salidaSchema")),
 };

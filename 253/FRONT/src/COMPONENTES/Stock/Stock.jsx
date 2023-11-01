@@ -21,7 +21,7 @@ export default function Stock() {
     
     const [selectedFilter, setSelectedFilter] = useState("todas");
     const [filteredStock, setFilteredStock] = useState(Stock);
-console.log(filteredStock)
+
     useEffect(() => {
         dispatch(getStock());
     }, [dispatch]);

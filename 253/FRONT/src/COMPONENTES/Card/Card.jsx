@@ -17,17 +17,12 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick,  
 
                 <div className={css.data2}>
                     <h4>
-                        Tropa
+                        Productor
                     </h4>
                     <h5>
-                        {tropa ? tropa.numero : ""}
+                        {tropa ? tropa.numero : "---"}
                     </h5>
-                    <h4>
-                        Faena
-                    </h4>
-                    <h5>
-                    { tropa ? new Date(tropa.fecha_ingreso).toLocaleDateString() : ""}
-                    </h5>
+                   
                 </div>
                 { observaciones ? <div className={css.alert}>
                     ⚠

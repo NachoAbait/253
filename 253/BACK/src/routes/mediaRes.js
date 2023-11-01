@@ -10,6 +10,7 @@ const {
   getTropa,
   putMediaRes,
   getDetalleTropa,
+  getSalidas
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -32,5 +33,8 @@ router.get("/tropa/:id", getDetalleTropa)
 
 ////////// DISTRIBUIDORES  ///////////////
 router.get("/distribuidor", getDistribuidores);
+
+////////// SALIDAS  ///////////////
+router.get("/salidas", getSalidas);
 
 module.exports = router;

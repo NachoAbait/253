@@ -72,15 +72,14 @@ export default function Tropa() {
         <div className={css.divisor}><h3>Fecha Ingreso</h3> <h5>{new Date(tropa.fecha_ingreso).toLocaleDateString()}</h5></div>
         <div className={css.divisor}><h3>Número</h3><h5>{tropa.numero}</h5> </div>
       <div className={css.divisor}><h3>Productor</h3> <h5>{tropa.productor}</h5></div>
-      <div className={css.divisor}><h3>Cabezas</h3> <h5>{tropa.cabezas}</h5></div>
+      <div className={css.divisor}><h3>½ reses</h3> <h5>{tropa.cabezas * 2}</h5></div>
       
       <div className={css.divisor}><h3>Kg totales</h3> <h5>{tropa.kg_totales}</h5></div>
-      <div className={css.divisor}><h3>Consignatario</h3> <h5>{tropa.consignatario}</h5></div>
+     {/* <div className={css.divisor}><h3>Consignatario</h3> <h5>{tropa.consignatario}</h5></div>*/ }
      
       <div className={css.divisor}><h3>Faena</h3> <h5>{tropa.faena}</h5></div>
-      <div className={css.divisor}><h3>Precio Compra</h3> <h5>{tropa.precio_compra}</h5></div>
-      <div className={css.divisor}><h3>Precio Venta</h3> <h5>{tropa.precio_venta}</h5></div>
-      {/* Agrega aquí cualquier otro dato que quieras mostrar */}
+    
+      
     </div>
                             </Link>
   )) :
@@ -106,7 +105,10 @@ export default function Tropa() {
             <option value=""> Seleccionar... </option>
         </select>
     </div>
-
+<div className={css.input}>
+        <label htmlFor="ingreso">Ingreso</label>
+        <input type="date" name="fecha_ingreso" value={formData.fecha_ingreso || ''} id="ingreso" onChange={handleChange} />
+    </div>
     <div className={css.input}>
         <label htmlFor="Cabezas">Cabezas</label>
         <input type="number" name="cabezas" id="Cabezas" value={formData.cabezas || ''} placeholder="*****" onChange={handleChange} />
@@ -116,17 +118,14 @@ export default function Tropa() {
         <label htmlFor="Kg">Kg totales</label>
         <input type="number" name="kg_totales" id="Kg"  value={formData.kg_totales || ''} placeholder="Kg totales" onChange={handleChange} />
     </div>
-
+                                
+    {/*
     <div className={css.input}>
-        <label htmlFor="consignatario">Consignatario</label>
-        <input type="text" name="consignatario" value={formData.consignatario || ''} placeholder="Consignatario" onChange={handleChange} />
-    </div>
-
-    <div className={css.input}>
-        <label htmlFor="ingreso">Ingreso</label>
-        <input type="date" name="fecha_ingreso" value={formData.fecha_ingreso || ''} id="ingreso" onChange={handleChange} />
-    </div>
-
+            <label htmlFor="consignatario">Consignatario</label>
+            <input type="text" name="consignatario" value={formData.consignatario || ''} placeholder="Consignatario" onChange={handleChange} />
+        </div>
+     */}
+    
     <div className={css.input}>
         <label htmlFor="faena">Tipo faena</label>
         <select name="faena" id="faena" value={formData.faena} onChange={handleChange}>

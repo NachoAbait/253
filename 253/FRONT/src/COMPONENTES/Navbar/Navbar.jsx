@@ -16,8 +16,8 @@ export default function Navbar() {
     function navigateToTropas() {
         navigate('/tropas');
     }
-    function navigateToPanel() {
-        navigate('/panel');
+    function navigateToSalidas() {
+        navigate('/salidas');
     }
     
     
@@ -32,7 +32,7 @@ export default function Navbar() {
                     <li onClick={navigateToIngreso}>Ingreso</li>
                     <li onClick={navigateToStock}>Stock</li>
                     <li onClick={navigateToTropas}>Tropas</li>
-                    <li onClick={navigateToPanel}>Panel</li>
+                    <li onClick={navigateToSalidas}>Salidas</li>
                 </ul>
             </div>
         </div>

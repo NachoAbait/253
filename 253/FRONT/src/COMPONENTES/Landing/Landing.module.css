@@ -1,6 +1,6 @@
 .container{
     position: absolute;
-    background-image: url("https://www.clarin.com/img/2020/12/01/T0vKKYFca_1256x620__1.jpg");
+    background-image: url("https://maxideza.com/wp-content/uploads/2017/08/como-movilizar-al-ganado-de-forma-efectiva-1920.jpg");
     height: 100vh;
     width: 100%;
     background-size: cover;     
@@ -11,7 +11,7 @@
 
 .btn{
     position: absolute;
-    background-color: rgba(255, 0, 0, 0.415);
+    background-color: red;
     color: black;
     font-size: large;
     font-weight: bold;
@@ -19,7 +19,7 @@
     padding: 7px;
     padding-left: 15px;
     padding-right: 15px;
-    bottom: 120px;
+    bottom: 320px;
     cursor: pointer;
     right: 47%;
 }
@@ -35,9 +35,9 @@
     position: relative;
     font-weight: bold;
     font-family: Bahnschrift SemiBold;
-    margin-top: 160px;
+    margin-top: 360px;
     font-size: 120px;
-    color: white;
-    text-shadow: 15px 12px 5px black; /* Desplazamiento horizontal, desplazamiento vertical, desenfoque y color */
+    color: black;
+    text-shadow: 7px 7px 6px white; /* Desplazamiento horizontal, desplazamiento vertical, desenfoque y color */
     width: auto;
 }

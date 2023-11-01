@@ -4,10 +4,11 @@
     border: solid 4px ;
     position: relative;
     user-select: none;
+    background-color: rgba(38, 38, 36, 0.827);
 }
 
 .data1{
-    background-color: rgb(9, 79, 4);
+    background-color: rgb(41, 182, 31);
     height: 40%;
     display: flex;
 }

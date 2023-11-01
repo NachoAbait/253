@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "../COMPONENTES/Landing/Landing";
 import Ingreso from "../COMPONENTES/Ingreso/Ingreso";
 import Stock from "../COMPONENTES/Stock/Stock";
-import Panel from "../COMPONENTES/Panel/Panel";
+import Salida from "../COMPONENTES/Salida/Salida";
 import Tropa from "../COMPONENTES/Tropa/Tropa";
 import DetalleTropa from "../COMPONENTES/Tropa/DetalleTropa";
 
@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/stock" element={<Stock />} />
           <Route exact path="/tropas" element={<Tropa />} />
           <Route exact path="/tropas/:id" element={<DetalleTropa />} />
-          <Route exact path="/panel" element={<Panel />} />
+          <Route exact path="/salidas" element={<Salida />} />
         </Routes>
       </div>
     </BrowserRouter>
