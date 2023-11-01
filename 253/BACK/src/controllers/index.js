@@ -3,6 +3,7 @@ const { MediaRes, Tropa, Distribuidor, Salida } = require("../DB/index.js");
 const getStock = async (req, res) => {
   try {
     const stock = await MediaRes.find({ estado: "camara" }).populate("tropa");
+    console.log(stock);
     res.status(200).json(stock);
   } catch (error) {
     console.error("Error al recuperar el stock:", error.message);
