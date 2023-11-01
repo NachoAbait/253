@@ -8,7 +8,9 @@ import { store } from "./REDUX/STORE/index.js";
 
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
+// axios.defaults.baseURL = "http://localhost:3001";
+
+axios.defaults.baseURL = "https://253-production.up.railway.app/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
