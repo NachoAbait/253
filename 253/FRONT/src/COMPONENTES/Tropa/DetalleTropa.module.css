@@ -1,0 +1,162 @@
+.container{
+    position: relative;
+    background-color: rgb(41, 39, 43);
+    height: calc(100vh - 150px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.maine{
+    background-color:rgba(38, 38, 36, 0.645) ;
+    border: solid 5px #CBB26A;
+    border-radius: 10px;
+    height: 98%;
+    padding: 20px;
+    width: 80%;
+}
+
+.loaderContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader{
+    /* HTML: <div class="loader"></div> */
+
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#CBB26A 94%,#0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%,#CBB26A);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation: l13 1s infinite linear;
+  }
+  @keyframes l13{ 
+    100%{transform: rotate(1turn)}
+  }
+
+  .datos{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: stretch !important; /* Cambiado a stretch */
+    justify-content: space-between;
+}
+
+.dato{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    /* height: 100px; */ /* Comentado para permitir que la altura se ajuste automáticamente */
+   margin-bottom: 30px;
+}
+
+
+  .dato h3{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #CBB26A;
+    font-size: x-large;
+    font-weight: bold;
+  }
+
+  .dato h4{
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+  }
+
+  .animales{
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .columna{
+    border: #000 solid 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19.8%;
+    font-size: larger;
+    font-weight: bold;
+    background-color: #CBB26A;
+    flex-wrap: wrap;
+    margin: 1px;
+  }
+
+  .rango{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: larger;
+    font-weight: bold;
+    background-color: #CBB26A;
+    flex-wrap: wrap;
+  }
+
+  .list{
+    width: 100%;
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    align-items: flex-start;
+  }
+
+  .res{
+    position: relative;
+    border: solid black 2px;
+    font-weight: bold;
+    color: rgb(26, 18, 18);
+    padding: 5px;
+    margin: 3px;
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.689);
+    cursor: pointer;
+  }
+
+  .despachado{
+    background-color: green;
+  }
+
+  .finanza{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: solid 1px white;
+    background-color: #000;
+    border-radius: 10px;
+    align-items: center;
+  }
+
+  .gasto {
+    color: red !important;
+  }
+
+  .profit{
+    color: green !important;
+  }

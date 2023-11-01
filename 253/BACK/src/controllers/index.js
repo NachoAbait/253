@@ -4,7 +4,7 @@ const getStock = async (req, res) => {
   try {
     const stock = await MediaRes.find({ estado: "camara" }).populate("tropa");
     res.status(200).json(stock);
-    console.log(stock)
+    console.log(stock);
   } catch (error) {
     console.error("Error al recuperar el stock:", error.message);
     res.status(500).json({ message: "Error interno del servidor" });
@@ -15,7 +15,7 @@ const postMediaRes = async (req, res) => {
   try {
     const newMediaRes = new MediaRes(req.body);
     await newMediaRes.save();
-    
+
     // Aquí, después de guardar la nueva mediaRes, actualiza la tropa correspondiente
     const tropa = await Tropa.findById(req.body.tropa); // suponiendo que Tropa es el modelo correspondiente a tropaSchema
     if (tropa) {
@@ -29,7 +29,6 @@ const postMediaRes = async (req, res) => {
   }
 };
 
-
 const deleteMediaRes = async (req, res) => {
   try {
     const mediaResId = req.params.id; // Asumiendo que el id se envía como parámetro en la URL
@@ -41,28 +40,27 @@ const deleteMediaRes = async (req, res) => {
 };
 
 const putMediaRes = async (req, res) => {
-  const id = req.params.id;  // Obtiene el ID desde la URL
+  const id = req.params.id; // Obtiene el ID desde la URL
 
   try {
-      // Encuentra la 'res' por ID y actualiza el estado
-      const updatedRes = await MediaRes.findByIdAndUpdate(
-          id, 
-          { estado: "despachada" }, 
-          { new: true }  // Esta opción retorna el documento modificado
-      );
+    // Encuentra la 'res' por ID y actualiza el estado
+    const updatedRes = await MediaRes.findByIdAndUpdate(
+      id,
+      { estado: "despachada" },
+      { new: true } // Esta opción retorna el documento modificado
+    );
 
-      // Si no se encuentra la 'res' con ese ID, se envía un error 404
-      if (!updatedRes) {
-          return res.status(404).json({ message: "Res no encontrada" });
-      }
+    // Si no se encuentra la 'res' con ese ID, se envía un error 404
+    if (!updatedRes) {
+      return res.status(404).json({ message: "Res no encontrada" });
+    }
 
-      res.status(200).json(updatedRes);
+    res.status(200).json(updatedRes);
   } catch (error) {
-      console.error("Error al actualizar la res:", error.message);
-      res.status(500).json({ message: "Error interno del servidor" });
+    console.error("Error al actualizar la res:", error.message);
+    res.status(500).json({ message: "Error interno del servidor" });
   }
 };
-
 
 /////// TROPA ////////////////
 
@@ -99,6 +97,20 @@ const deleteTropa = async (req, res) => {
   }
 };
 
+const getDetalleTropa = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const tropa = await Tropa.findById(id).populate("animales");
+    if (!tropa) {
+      return res.status(404).json({ message: "Tropa no encontrada" });
+    }
+    res.status(200).json(tropa);
+  } catch (error) {
+    console.error("Error al recuperar el tropa:", error.message);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
 /////// DISTRIBUIDORES ////////////////
 const getDistribuidores = async (req, res) => {
   try {
@@ -118,5 +130,6 @@ module.exports = {
   postTropa,
   deleteTropa,
   getDistribuidores,
-  putMediaRes
+  putMediaRes,
+  getDetalleTropa,
 };

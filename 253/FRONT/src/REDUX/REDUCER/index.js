@@ -2,6 +2,7 @@ const initialState = {
   Stock: [],
   Tropas: [],
   Distribuidores: [],
+  DetalleTropa: {},
 };
 
 function rootReducer(state = initialState, action) {
@@ -16,6 +17,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         Tropas: action.payload,
+      };
+    case "GET_DETALLE_TROPA":
+      return {
+        ...state,
+        DetalleTropa: action.payload,
       };
 
     /*//////  RESES  //////////////*/
@@ -32,14 +38,14 @@ function rootReducer(state = initialState, action) {
     case "UPDATE_RES_SUCCESS":
       return {
         ...state,
-        Stock: state.Stock.map(res => 
+        Stock: state.Stock.map((res) =>
           res._id === action.payload._id ? action.payload : res
-        )
+        ),
       };
     case "UPDATE_RES_FAILURE":
       // Aquí podrías manejar el error como quieras.
       return {
-        ...state
+        ...state,
       };
 
     /*//////  DISTRIBUIDORES  //////////////*/

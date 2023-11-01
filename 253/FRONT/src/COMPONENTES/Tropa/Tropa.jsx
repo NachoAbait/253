@@ -4,6 +4,8 @@ import css from "./Tropa.module.css"
 import { postTropa } from "../../REDUX/ACTIONS/postTropa";
 import { getTropas } from "../../REDUX/ACTIONS/getTropas";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
+
 
 export default function Tropa() {
     const dispatch = useDispatch();
@@ -62,7 +64,8 @@ export default function Tropa() {
 
                     </div>
                     <div className={css.main}>
-  { Tropas.length ? Tropas.map(tropa => (
+                        {Tropas.length ? Tropas.map(tropa => (
+       <Link to={`/tropas/${tropa._id}`} key={tropa._id}>
       <div key={tropa._id} className={css.tropaDiv}>
           
 
@@ -79,6 +82,7 @@ export default function Tropa() {
       <div className={css.divisor}><h3>Precio Venta</h3> <h5>{tropa.precio_venta}</h5></div>
       {/* Agrega aquí cualquier otro dato que quieras mostrar */}
     </div>
+                            </Link>
   )) :
     <div className={css.loaderContainer}>
         <div className={css.loader}></div>
