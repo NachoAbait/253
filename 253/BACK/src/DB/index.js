@@ -8,6 +8,7 @@ const MONGO_URI = process.env.MONGO_URI;
 
 const conn = mongoose.createConnection(DB_DEPLOY);
 
+
 module.exports = {
   Distribuidor: conn.model(
     "Distribuidores",
