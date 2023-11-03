@@ -4,6 +4,7 @@ const initialState = {
   Distribuidores: [],
   DetalleTropa: {},
   Salidas: [],
+  Productores: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -62,7 +63,17 @@ function rootReducer(state = initialState, action) {
         ...state,
         Salidas: action.payload,
       };
-
+    ////////    PRODUCTOR  /////////
+    case "GET_PRODUCTORES":
+      return {
+        ...state,
+        Productores: action.payload,
+      };
+    case "POST_PRODUCTOR":
+      return {
+        ...state,
+        Productores: [...state.Productores, action.payload],
+      };
     default:
       return {
         ...state,

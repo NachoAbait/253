@@ -10,7 +10,9 @@ const {
   getTropa,
   putMediaRes,
   getDetalleTropa,
-  getSalidas
+  getSalidas,
+  getProductores,
+  postProductores
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -36,5 +38,9 @@ router.get("/distribuidor", getDistribuidores);
 
 ////////// SALIDAS  ///////////////
 router.get("/salidas", getSalidas);
+
+///////// PRODUCTOR  /////////////
+router.post("/productor", postProductores);
+router.get("/productor", getProductores);
 
 module.exports = router;

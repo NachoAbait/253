@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar"
 import css from "./Tropa.module.css"
 import { postTropa } from "../../REDUX/ACTIONS/postTropa";
 import { getTropas } from "../../REDUX/ACTIONS/getTropas";
+import { getProductores } from "../../REDUX/ACTIONS/getProductores"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
@@ -12,10 +13,11 @@ export default function Tropa() {
 
     useEffect(() => {
         dispatch(getTropas());
+        dispatch(getProductores())
     }, [dispatch]);
 
     const Tropas = useSelector((state) => state.Tropas)
-    
+    const Productores = useSelector((state) => state.Productores); // Obtener la lista de productores
 
     const [formData, setFormData] = useState({
         numero: null,
@@ -103,6 +105,9 @@ export default function Tropa() {
         <label htmlFor="productor">Productor</label>
         <select name="productor" value={formData.productor} id="productor" onChange={handleChange} >
             <option value=""> Seleccionar... </option>
+            {Productores.map(productor => (
+                <option key={productor._id} value={productor._id}>{productor.nombre}</option>
+            ))}
         </select>
     </div>
 <div className={css.input}>

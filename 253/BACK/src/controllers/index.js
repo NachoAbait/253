@@ -1,4 +1,10 @@
-const { MediaRes, Tropa, Distribuidor, Salida } = require("../DB/index.js");
+const {
+  MediaRes,
+  Tropa,
+  Distribuidor,
+  Salida,
+  Productor,
+} = require("../DB/index.js");
 
 const getStock = async (req, res) => {
   try {
@@ -157,6 +163,30 @@ const getSalidas = async (req, res) => {
   }
 };
 
+/////// PRODUCORES ////////////////
+const postProductores = async (req, res) => {
+  try {
+    const nuevoProductor = new Productor(req.body); // Crea una nueva instancia de Productor con los datos del cuerpo de la solicitud
+    const productorGuardado = await nuevoProductor.save(); // Guarda el nuevo productor en la base de datos
+    res.status(201).json(productorGuardado); // Devuelve el nuevo productor guardado
+  } catch (error) {
+    console.error("Error al crear un productor:", error.message);
+    res.status(400).json({ message: "Error al crear el productor" });
+  }
+};
+
+
+const getProductores = async (req, res) => {
+  try {
+    const productores = await Productor.find(); // Busca y obtiene todos los productores en la base de datos
+    res.status(200).json(productores); // Devuelve la lista de productores
+  } catch (error) {
+    console.error("Error al recuperar los productores:", error.message);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+
+
 module.exports = {
   getStock,
   postMediaRes,
@@ -168,4 +198,6 @@ module.exports = {
   putMediaRes,
   getDetalleTropa,
   getSalidas,
+  getProductores,
+  postProductores,
 };

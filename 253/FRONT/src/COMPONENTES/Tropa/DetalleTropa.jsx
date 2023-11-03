@@ -181,8 +181,8 @@ export default function DetalleTropa() {
                                             ))}
                                         </div>
                                         <div className={css.infoCol}>
-                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span> </h4>
-                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
+                                            <h4>{gruposDeAnimales["-100"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["-100"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
                                         </div>
                                     </div>
                                     <div className={css.columna}>
@@ -193,8 +193,8 @@ export default function DetalleTropa() {
                                             ))}
                                         </div>
                                         <div className={css.infoCol}>
-                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span> </h4>
-                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
+                                            <h4>{gruposDeAnimales["-110"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["-110"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
                                         </div>
                                     </div>
                                     <div className={css.columna}>
@@ -205,8 +205,8 @@ export default function DetalleTropa() {
                                             ))}
                                         </div>
                                         <div className={css.infoCol}>
-                                            <h4>{gruposDeAnimales["-90"].length} <span className={css.span}>½</span> </h4>
-                                            <h4>{gruposDeAnimales["-90"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
+                                            <h4>{gruposDeAnimales["-120"].length} <span className={css.span}>½</span> </h4>
+                                            <h4>{gruposDeAnimales["-120"].reduce((total, res) => total + res.peso, 0)} <span className={css.span}>Kg</span></h4>
                                         </div>
                                     </div>
                                     <div className={css.columna}>
