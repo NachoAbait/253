@@ -27,7 +27,7 @@ router.delete("/res/:id", deleteMediaRes);
 /////// TROPA ////////////////
 router.post("/tropa", postTropa);
 
-router.delete("/tropa", deleteTropa);
+router.delete("/tropa/:id", deleteTropa);
 
 router.get("/tropa", getTropa);
 

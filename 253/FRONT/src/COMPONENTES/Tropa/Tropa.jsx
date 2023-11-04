@@ -18,7 +18,7 @@ export default function Tropa() {
 
     const Tropas = useSelector((state) => state.Tropas)
     const Productores = useSelector((state) => state.Productores); // Obtener la lista de productores
-    console.log("Productores", Productores)
+    
 
     const [formData, setFormData] = useState({
         numero: null,

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar"
 import css from "./DetalleTropa.module.css"
-
+import { deleteTropa } from "../../REDUX/ACTIONS/deleteTropa";
 import { getDetalleTropa } from "../../REDUX/ACTIONS/getDetalleTropa";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useParams, redirect } from 'react-router-dom';
 
 export default function DetalleTropa() {
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function DetalleTropa() {
           '-120': [],
           '+120': [],
         };
-        console.log("a",gruposDeAnimales)
+        
     if (Tropa.animales) {
         Tropa.animales.forEach((animal) => {
           if (animal.peso < 90 ) {
@@ -47,6 +47,20 @@ export default function DetalleTropa() {
         dispatch(getDetalleTropa(id));
     }, [dispatch]);
 
+
+    const eliminarTropa = async () => {
+        try {
+            // Envía la solicitud para eliminar la res
+          
+          await dispatch(deleteTropa(Tropa._id));
+  
+          alert("Se eliminó la tropa");
+          redirect("/tropas")
+        } catch (error) {
+          alert("Ocurrió un error al eliminar la tropa. Por favor, inténtalo de nuevo.");
+          console.error("Error al eliminar la res:", error);
+        }
+      };
 
         return (
             <div>
@@ -223,7 +237,9 @@ export default function DetalleTropa() {
                                     </div>
                                 </div>
 
-
+                                <button className={css.eliminar} onClick={eliminarTropa}>
+            X
+          </button>
                             </div>
 
                             

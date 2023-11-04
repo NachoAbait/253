@@ -39,7 +39,7 @@ const deleteMediaRes = async (req, res) => {
   try {
     const mediaResId = req.params.id; // Asumiendo que el id se envía como parámetro en la URL
     await MediaRes.findByIdAndDelete(mediaResId);
-    console.log("eliminada");
+
     res.status(200).json({ message: "Media res eliminada con éxito" });
   } catch (error) {
     res.status(400).json({ message: "Error al eliminar media res", error });
@@ -50,7 +50,6 @@ const putMediaRes = async (req, res) => {
   const id = req.params.id; // Obtiene el ID desde la URL
   const { fecha, distribuidorId } = req.body; // Datos del formulario de salida
 
-  console.log("aca en la contro", fecha, distribuidorId);
   try {
     // Encuentra la 'res' por ID y actualiza el estado
     const updatedRes = await MediaRes.findByIdAndUpdate(

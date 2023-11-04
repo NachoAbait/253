@@ -25,7 +25,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         DetalleTropa: action.payload,
       };
-
+    case "DELETE_TROPA_SUCCESS":
+      // Filtra las tropas para eliminar la que coincida con action.payload (el ID de la tropa)
+      const updatedTropas = state.Tropas.filter(
+        (tropa) => tropa._id !== action.payload
+      );
+      return { ...state, Tropas: updatedTropas };
     /*//////  RESES  //////////////*/
     case "POST_RES":
       return {

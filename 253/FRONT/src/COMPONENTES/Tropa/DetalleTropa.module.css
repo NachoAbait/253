@@ -175,3 +175,19 @@
   .span{
     color:#CBB26A;
   }
+
+  .eliminar{
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+    background-color: red;
+    font-weight: bold;
+    font-size: large;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 20%;
+    justify-content: center;
+}
