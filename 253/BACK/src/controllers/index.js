@@ -158,7 +158,7 @@ const getSalidas = async (req, res) => {
         path: "animales", // Poblar animales (mediares)
         populate: {
           path: "tropa", // Poblar tropa dentro de animales
-          model: "Tropa", // El nombre del modelo de tropa
+          model: "tropas", // El nombre del modelo de tropa
         },
       })
       .populate("distribuidor") // Poblar el distribuidor
