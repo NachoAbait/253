@@ -107,7 +107,7 @@ export default function Tropa() {
         <select name="productor" value={formData.productor} id="productor" onChange={handleChange} >
             <option value=""> Seleccionar... </option>
             {Productores.map(productor => (
-                <option key={productor._id} value={productor._id}>{productor.nombre}</option>
+                <option key={productor._id} value={productor.nombre}>{productor.nombre}</option>
             ))}
         </select>
     </div>
