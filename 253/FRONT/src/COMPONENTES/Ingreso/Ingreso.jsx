@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar"
 import css from "./Ingreso.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { getTropas } from "../../REDUX/ACTIONS/getTropas";
-import { postProductor} from "../../REDUX/ACTIONS/postProductor"
+import { postProductor } from "../../REDUX/ACTIONS/postProductor"
 import {postRes} from "../../REDUX/ACTIONS/postRes"
 
 export default function Ingreso() {
