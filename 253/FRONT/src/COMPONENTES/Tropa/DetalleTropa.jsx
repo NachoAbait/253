@@ -99,7 +99,7 @@ export default function DetalleTropa() {
                                         ½ Reses
                                     </h3>
                                     <h4>
-                                        {Tropa.cabezas / 2}
+                                        {Tropa.cabezas * 2}
                                     </h4>
                                 </div>
                                 <div className={css.dato}>
@@ -151,7 +151,7 @@ export default function DetalleTropa() {
                                         Recupero
                                     </h3>
                                     <h4 className={css.gasto}>
-                                        ${Tropa.faena}
+                                        ${Tropa.recupero? Tropa.recupero : ""}
                                     </h4>
                                 </div>
                                 <div className={css.dato}>
