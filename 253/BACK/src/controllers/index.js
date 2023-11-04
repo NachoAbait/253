@@ -165,8 +165,9 @@ const getSalidas = async (req, res) => {
 
 /////// PRODUCORES ////////////////
 const postProductores = async (req, res) => {
+  const { nombre } = req.body
   try {
-    const nuevoProductor = new Productor(req.body); // Crea una nueva instancia de Productor con los datos del cuerpo de la solicitud
+    const nuevoProductor = new Productor({nombre}); // Crea una nueva instancia de Productor con los datos del cuerpo de la solicitud
     const productorGuardado = await nuevoProductor.save(); // Guarda el nuevo productor en la base de datos
     res.status(201).json(productorGuardado); // Devuelve el nuevo productor guardado
   } catch (error) {

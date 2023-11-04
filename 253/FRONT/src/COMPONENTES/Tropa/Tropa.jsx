@@ -18,6 +18,7 @@ export default function Tropa() {
 
     const Tropas = useSelector((state) => state.Tropas)
     const Productores = useSelector((state) => state.Productores); // Obtener la lista de productores
+    console.log("Productores", Productores)
 
     const [formData, setFormData] = useState({
         numero: null,
@@ -129,6 +130,19 @@ export default function Tropa() {
             <label htmlFor="consignatario">Consignatario</label>
             <input type="text" name="consignatario" value={formData.consignatario || ''} placeholder="Consignatario" onChange={handleChange} />
         </div>
+
+ <div className={css.input}>
+        <label htmlFor="costo">Costo Kg</label>
+        <input type="number" name="precio_compra" id="costo" value={formData.precio_compra || ''} placeholder="$" onChange={handleChange} />
+    </div>
+
+    <div className={css.input}>
+        <label htmlFor="venta">Venta Kg</label>
+        <input type="number" name="precio_venta" id="venta" placeholder="$"   value={formData.precio_venta || ''} onChange={handleChange} />
+    </div>
+
+
+
      */}
     
     <div className={css.input}>
@@ -140,15 +154,7 @@ export default function Tropa() {
         </select>
     </div>
 
-    <div className={css.input}>
-        <label htmlFor="costo">Costo Kg</label>
-        <input type="number" name="precio_compra" id="costo" value={formData.precio_compra || ''} placeholder="$" onChange={handleChange} />
-    </div>
-
-    <div className={css.input}>
-        <label htmlFor="venta">Venta Kg</label>
-        <input type="number" name="precio_venta" id="venta" placeholder="$"   value={formData.precio_venta || ''} onChange={handleChange} />
-    </div>
+   
 
     <button type="submit" className={css.btn}> Añadir </button>
 </form>
