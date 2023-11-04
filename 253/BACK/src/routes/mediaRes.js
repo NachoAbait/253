@@ -12,7 +12,7 @@ const {
   getDetalleTropa,
   getSalidas,
   getProductores,
-  postProductores
+  postProductores,
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -22,7 +22,7 @@ router.post("/res", postMediaRes);
 
 router.put("/res/:id", putMediaRes);
 
-router.delete("/res", deleteMediaRes);
+router.delete("/res/:id", deleteMediaRes);
 
 /////// TROPA ////////////////
 router.post("/tropa", postTropa);
@@ -31,7 +31,7 @@ router.delete("/tropa", deleteTropa);
 
 router.get("/tropa", getTropa);
 
-router.get("/tropa/:id", getDetalleTropa)
+router.get("/tropa/:id", getDetalleTropa);
 
 ////////// DISTRIBUIDORES  ///////////////
 router.get("/distribuidor", getDistribuidores);

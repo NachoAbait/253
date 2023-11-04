@@ -44,11 +44,12 @@ function rootReducer(state = initialState, action) {
           res._id === action.payload._id ? action.payload : res
         ),
       };
-    case "UPDATE_RES_FAILURE":
-      // Aquí podrías manejar el error como quieras.
-      return {
-        ...state,
-      };
+    case "DELETE_RES":
+      // Filtra las reses para eliminar la que coincida con action.payload
+      const updatedStock = state.stock.filter(
+        (res) => res.id !== action.payload
+      );
+      return { ...state, Stock: updatedStock };
 
     /*//////  DISTRIBUIDORES  //////////////*/
     case "GET_DISTRIBUIDORES":

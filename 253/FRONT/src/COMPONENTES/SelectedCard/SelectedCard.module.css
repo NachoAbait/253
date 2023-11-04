@@ -98,3 +98,18 @@
     margin-top: 20px;
     
 }
+
+.eliminar{
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+    background-color: red;
+    font-weight: bold;
+    font-size: large;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 20%;
+
+}

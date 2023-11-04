@@ -4,6 +4,7 @@ import css from "./SelectedCard.module.css";
 import { getDistribuidores } from "../../REDUX/ACTIONS/getDistribuidores";
 import { putRes } from "../../REDUX/ACTIONS/putRes";
 import { getStock } from "../../REDUX/ACTIONS/getStock.js";
+import { deleteRes } from "../../REDUX/ACTIONS/deleteRes";
 
 export default function SelectedCard({ data, deselectRes }) {
   const dispatch = useDispatch();
@@ -46,6 +47,18 @@ export default function SelectedCard({ data, deselectRes }) {
     }
   };
 
+  const eliminarRes = async () => {
+    try {
+      // Envía la solicitud para eliminar la res
+      await dispatch(deleteRes(data._id));
+      dispatch(getStock());
+      alert("Se eliminó la res");
+      deselectRes(); // Otra lógica para deseleccionar la res si es necesario
+    } catch (error) {
+      alert("Ocurrió un error al eliminar la res. Por favor, inténtalo de nuevo.");
+      console.error("Error al eliminar la res:", error);
+    }
+  };
   return (
     <div>
       <div className={css.card}>
@@ -117,7 +130,11 @@ export default function SelectedCard({ data, deselectRes }) {
               Marcar salida
             </button>
           </form>
-        </div>
+
+          
+        </div><button className={css.eliminar} onClick={eliminarRes}>
+            X
+          </button>
       </div>
     </div>
   );
