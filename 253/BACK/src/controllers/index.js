@@ -154,8 +154,16 @@ const getDistribuidores = async (req, res) => {
 const getSalidas = async (req, res) => {
   try {
     const salidas = await Salida.find()
-      .populate("animales")
-      .populate("distribuidor");
+      .populate({
+        path: "animales", // Poblar animales (mediares)
+        populate: {
+          path: "tropa", // Poblar tropa dentro de animales
+          model: "Tropa", // El nombre del modelo de tropa
+        },
+      })
+      .populate("distribuidor") // Poblar el distribuidor
+      .exec();
+
     res.status(200).json(salidas);
   } catch (error) {
     console.error("Error al recuperar el salidas:", error.message);

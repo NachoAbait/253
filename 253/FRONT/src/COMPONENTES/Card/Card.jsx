@@ -2,7 +2,7 @@ import React from "react";
 import css from "./Card.module.css"
 
 export default function Card({ tropa, categoria, peso, observaciones, onClick,  }) {
-    console.log()
+    console.log(tropa)
     return (
         <div>
             <div className={css.card} onClick={onClick}>
@@ -20,7 +20,7 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick,  
                         Productor
                     </h4>
                     <h5>
-                        {tropa ? tropa.numero : "---"}
+                        {tropa ? tropa.productor : "---"}
                     </h5>
                    
                 </div>

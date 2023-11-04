@@ -26,7 +26,7 @@ export default function Salida() {
     }
 
 
-
+    
 
     const calcularKgTotales = (animales) => {
         return animales.reduce((totalKg, res) => totalKg + res.peso, 0);
@@ -62,7 +62,7 @@ export default function Salida() {
                                         {res.peso}
                                     </div>
                                     <div className={css.tropa}>
-                                        <h4>Tropa</h4>
+                                        {res.tropa.nombre}
                                       
                                     </div>
                                 </div>

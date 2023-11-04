@@ -53,8 +53,8 @@
     height: 98%;
     margin: 10px;
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
+    align-content: flex-start; 
 }
 
 
@@ -125,6 +125,8 @@
     border: solid black 3px;
     margin: 5px;
     cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .peso{
@@ -132,8 +134,10 @@
     font-size: large;
     font-weight: bold;
     padding: 2px;
+    width: 100%;
 }
 .tropa{
     background-color:rgba(41, 39, 43, 0.745) ;
     color: white;
+    width: 100%;
 }
