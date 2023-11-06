@@ -239,7 +239,7 @@ export default function DetalleTropa() {
                                 </div>
 
                                 <button className={css.eliminar} onClick={eliminarTropa}>
-            X
+            Eliminar
           </button>
                             </div>
 

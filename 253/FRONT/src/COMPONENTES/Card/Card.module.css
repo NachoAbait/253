@@ -56,3 +56,34 @@
     bottom: 0px;
     right: 3px;
 }
+
+
+
+
+
+/*////////////////// CELULAR /////////////////////*/
+
+
+@media screen and (max-width: 768px) {
+    /* En la vista móvil, ocultar observaciones */
+    .responsive {
+      display: none;
+    }
+
+    .card{
+        width: 50px;
+    }
+
+    .data1{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .peso{
+        border: none;
+    }
+
+    .card:hover{
+        border: solid  red;
+    }
+  }

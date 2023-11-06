@@ -179,8 +179,9 @@
   .eliminar{
     display: flex;
     position: absolute;
-    right: 0;
-    margin: 5px;
+    right: -15px;
+    top: -10px;
+    margin: 0px;
     cursor: pointer;
     background-color: red;
     font-weight: bold;
@@ -188,6 +189,6 @@
     padding: 2px;
     padding-left: 7px;
     padding-right: 7px;
-    border-radius: 20%;
+    border-radius: 10px;
     justify-content: center;
 }

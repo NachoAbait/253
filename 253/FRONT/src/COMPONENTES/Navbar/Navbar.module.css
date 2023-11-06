@@ -70,3 +70,38 @@
     transition: .5s;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+/* ////////////////////  CELULAR //////////////////////// */
+@media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: 120px;
+
+    }
+  
+    .logo {
+        margin-top: 10px;
+      width: 100%;
+      font-size: 40px;
+    }
+  
+.lista{
+    width: 100%;
+}
+
+    .lista ul {
+        display: flex;
+      flex-direction: row;
+      gap: 20px;
+      font-size: 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    width: 90%;
+    }
+  }

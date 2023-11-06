@@ -7,7 +7,7 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick,  
         <div>
             <div className={css.card} onClick={onClick}>
                 <div className={css.data1}>
-                    <div className={css.icono}>
+                    <div className={`${css.icono} ${css.responsive}`}>
                         {categoria}
                     </div>
                     <div className={css.peso}>
@@ -15,7 +15,7 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick,  
                     </div>
                 </div>
 
-                <div className={css.data2}>
+                <div className={`${css.data2} ${css.responsive}`}>
                     <h4>
                         Productor
                     </h4>

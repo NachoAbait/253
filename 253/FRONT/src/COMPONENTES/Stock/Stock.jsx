@@ -137,31 +137,31 @@ export default function Stock() {
 
                     <div className={css.main3}>
                         <div>
-                            <h3>½ Totales</h3>
+                            <h3><span className={css.responsive}>½</span> Totales</h3>
                             <h4>{ totalMedias }</h4>
                         </div>
                         <div>
-                            <h3>kg Totales</h3>
+                            <h3><span className={css.responsive}>½</span> Kg Total</h3>
                             <h4>{ totalKg}</h4>
                         </div>
                         <div>
-                            <h3>½ -90</h3>
+                            <h3> <span className={css.responsive}>½</span> -90</h3>
                             <h4>{menos90}</h4>
                         </div>
                         <div>
-                        <h3>½ -100</h3>
+                        <h3><span className={css.responsive}>½</span> -100</h3>
                             <h4>{entre90y100}</h4>
                         </div>
                         <div>
-                        <h3>½ -110</h3>
+                        <h3><span className={css.responsive}>½</span> -110</h3>
                             <h4>{entre100y110}</h4>
                         </div>
                         <div>
-                        <h3>½ -120</h3>
+                        <h3><span className={css.responsive}>½</span> -120</h3>
                             <h4>{entre110y120 }</h4>
                         </div>
                         <div>
-                        <h3>½ +120</h3>
+                        <h3><span className={css.responsive}>½</span> +120</h3>
                             <h4>{mas120}</h4>
                         </div>
                     </div>
