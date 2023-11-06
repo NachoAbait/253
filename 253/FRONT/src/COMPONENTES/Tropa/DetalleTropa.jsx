@@ -49,18 +49,21 @@ export default function DetalleTropa() {
 
 
     const eliminarTropa = async () => {
-        try {
-            // Envía la solicitud para eliminar la res
-          
-          await dispatch(deleteTropa(Tropa._id));
-  
-          alert("Se eliminó la tropa");
-          redirect("/tropas")
-        } catch (error) {
-          alert("Ocurrió un error al eliminar la tropa. Por favor, inténtalo de nuevo.");
-          console.error("Error al eliminar la res:", error);
+        const confirmDelete = window.confirm("¿Estás seguro que deseas eliminar la tropa?");
+
+        if (confirmDelete) {
+            try {
+                // Envía la solicitud para eliminar la tropa
+                await dispatch(deleteTropa(Tropa._id));
+
+                alert("Se eliminó la tropa");
+                history.push("/tropas"); // Redirige a la página de tropas después de eliminar
+            } catch (error) {
+                alert("Ocurrió un error al eliminar la tropa. Por favor, inténtalo de nuevo.");
+                console.error("Error al eliminar la tropa:", error);
+            }
         }
-      };
+    };
 
         return (
             <div>

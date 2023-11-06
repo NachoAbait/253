@@ -47,18 +47,24 @@ export default function SelectedCard({ data, deselectRes }) {
     }
   };
 
-  const eliminarRes = async () => {
-    try {
-      // Envía la solicitud para eliminar la res
-      await dispatch(deleteRes(data._id));
-      dispatch(getStock());
-      alert("Se eliminó la res");
-      deselectRes(); // Otra lógica para deseleccionar la res si es necesario
-    } catch (error) {
-      alert("Ocurrió un error al eliminar la res. Por favor, inténtalo de nuevo.");
-      console.error("Error al eliminar la res:", error);
+  const eliminarRes = () => {
+    const confirmDelete = window.confirm("¿Estás seguro que deseas eliminar la res?");
+
+    if (confirmDelete) {
+      try {
+        // Envía la solicitud para eliminar la res
+        dispatch(deleteRes(data._id));
+        dispatch(getStock());
+        alert("Se eliminó la res");
+        deselectRes(); // Otra lógica para deseleccionar la res si es necesario
+      } catch (error) {
+        alert("Ocurrió un error al eliminar la res. Por favor, inténtalo de nuevo.");
+        console.error("Error al eliminar la res:", error);
+      }
     }
   };
+
+  
   return (
     <div>
       <div className={css.card}>
