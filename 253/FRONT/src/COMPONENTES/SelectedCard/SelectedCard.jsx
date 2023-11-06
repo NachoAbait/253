@@ -47,13 +47,13 @@ export default function SelectedCard({ data, deselectRes }) {
     }
   };
 
-  const eliminarRes = () => {
+  const eliminarRes = async () => {
     const confirmDelete = window.confirm("¿Estás seguro que deseas eliminar la res?");
 
     if (confirmDelete) {
       try {
         // Envía la solicitud para eliminar la res
-        dispatch(deleteRes(data._id));
+        await dispatch(deleteRes(data._id));
         dispatch(getStock());
         alert("Se eliminó la res");
         deselectRes(); // Otra lógica para deseleccionar la res si es necesario
@@ -64,7 +64,7 @@ export default function SelectedCard({ data, deselectRes }) {
     }
   };
 
-  
+
   return (
     <div>
       <div className={css.card}>

@@ -55,7 +55,6 @@ export default function DetalleTropa() {
             try {
                 // Envía la solicitud para eliminar la tropa
                 await dispatch(deleteTropa(Tropa._id));
-
                 alert("Se eliminó la tropa");
                 redirect("/tropas"); // Redirige a la página de tropas después de eliminar
             } catch (error) {
