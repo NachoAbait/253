@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState , useMemo} from "react";
 import css from "./Navbar.module.css"
 import { useNavigate } from 'react-router-dom';
 
@@ -6,21 +6,13 @@ export default function Navbar() {
 
     let navigate = useNavigate();
 
-    function navigateToIngreso() {
-        navigate('/ingreso');
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    function navigateTo(destination) {
+        setSelectedItem(destination);
+        navigate(destination);
     }
 
-    function navigateToStock() {
-        navigate('/stock');
-    }
-    function navigateToTropas() {
-        navigate('/tropas');
-    }
-    function navigateToSalidas() {
-        navigate('/salidas');
-    }
-    
-    
 
     return (
         <div className={css.container}>
@@ -28,11 +20,31 @@ export default function Navbar() {
                 53
             </div>
             <div className={css.lista}>
-                <ul>
-                    <li onClick={navigateToIngreso}>Ingreso</li>
-                    <li onClick={navigateToStock}>Stock</li>
-                    <li onClick={navigateToTropas}>Tropas</li>
-                    <li onClick={navigateToSalidas}>Salidas</li>
+            <ul>
+                    <li
+                        onClick={() => navigateTo('/ingreso')}
+                        className={selectedItem === '/ingreso' ? css.clicked : ''}
+                    >
+                        Ingreso
+                    </li>
+                    <li
+                        onClick={() => navigateTo('/stock')}
+                        className={selectedItem === '/stock' ? css.clicked : ''}
+                    >
+                        Stock
+                    </li>
+                    <li
+                        onClick={() => navigateTo('/tropas')}
+                        className={selectedItem === '/tropas' ? css.clicked : ''}
+                    >
+                        Tropas
+                    </li>
+                    <li
+                        onClick={() => navigateTo('/salidas')}
+                        className={selectedItem === '/salidas' ? css.clicked : ''}
+                    >
+                        Salidas
+                    </li>
                 </ul>
             </div>
         </div>

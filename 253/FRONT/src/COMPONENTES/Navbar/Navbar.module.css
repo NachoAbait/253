@@ -104,4 +104,11 @@
       margin-bottom: 20px;
     width: 90%;
     }
+
+    .lista li.clicked:after {
+        left: 0px;
+        width: 100%;
+      }
+
+     
   }

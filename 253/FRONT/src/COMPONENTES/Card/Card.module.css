@@ -72,15 +72,18 @@
 
     .card{
         width: 50px;
+        border: solid 2px;
     }
 
     .data1{
         align-items: center;
         justify-content: center;
+        
     }
 
     .peso{
         border: none;
+        font-size: medium;
     }
 
     .card:hover{

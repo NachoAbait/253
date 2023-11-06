@@ -72,12 +72,12 @@ export default function Tropa() {
       <div key={tropa._id} className={css.tropaDiv}>
           
 <div className={css.divisor}><h3>Productor</h3> <h5>{tropa.productor}</h5></div>
-        <div className={css.divisor}><h3>Fecha Ingreso</h3> <h5>{new Date(tropa.fecha_ingreso).toLocaleDateString()}</h5></div>
-        <div className={css.divisor}><h3>Número</h3><h5>{tropa.numero}</h5> </div>
+        <div className={css.divisor}><h3><span className={css.celular}>Fecha </span>Ingreso</h3> <h5>{new Date(tropa.fecha_ingreso).toLocaleDateString()}</h5></div>
+        <div className={`${css.divisor} ${css.celular}`}><h3>Número</h3><h5>{tropa.numero}</h5> </div>
       
-      <div className={css.divisor}><h3>½ reses</h3> <h5>{tropa.cabezas * 2}</h5></div>
+      <div className={css.divisor}><h3>½ <span className={css.celular}>reses</span></h3> <h5>{tropa.cabezas * 2}</h5></div>
       
-      <div className={css.divisor}><h3>Kg totales</h3> <h5>{tropa.kg_totales}</h5></div>
+      <div className={`${css.divisor} ${css.celular}`}><h3>Kg totales</h3> <h5>{tropa.kg_totales}</h5></div>
      {/* <div className={css.divisor}><h3>Consignatario</h3> <h5>{tropa.consignatario}</h5></div>*/ }
      
       <div className={css.divisor}><h3>Faena</h3> <h5>{tropa.faena}</h5></div>

@@ -42,10 +42,10 @@ export default function Salida() {
                     <div className={css.main}>
                         {Salidas.length ? Salidas.map(salida => (
                             <div key={salida._id} className={css.salidaDiv} onClick={()=> handleSalidaClick(salida)}>
-                                <div className={css.divisor}><h3>Fecha </h3> <h5>{new Date(salida.fecha).toLocaleDateString()}</h5></div>
-                                <div className={css.divisor}><h3>½ reses</h3> <h5>{salida.animales.length}</h5></div>
-                                <div className={css.divisor}><h3>Kg totales</h3> <h5>{calcularKgTotales(salida.animales)}</h5></div>
-                                <div className={css.divisor}><h3>Distribuidor</h3> <h5>{salida.distribuidor.nombre}</h5></div>
+                                <div className={`${css.divisor}`}><h3>Fecha </h3> <h5>{new Date(salida.fecha).toLocaleDateString()}</h5></div>
+                                <div className={`${css.divisor} `}><h3> ½<span> reses</span> </h3> <h5>{salida.animales.length}</h5></div>
+                                <div className={`${css.divisor} ${css.celular}`}><h3>Kg totales</h3> <h5>{calcularKgTotales(salida.animales)}</h5></div>
+                                <div className={`${css.divisor}`}><h3>Distribuidor</h3> <h5>{salida.distribuidor.nombre}</h5></div>
                             </div>
                         )) :
                         <div className={css.loaderContainer}>

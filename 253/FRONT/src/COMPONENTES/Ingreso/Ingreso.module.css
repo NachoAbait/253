@@ -70,3 +70,30 @@ input{
     width: 50%;
 }
 
+
+/* Estilos para vista de celular */
+@media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Cambiar a disposición en columna */
+      align-items: center; /* Centrar verticalmente */
+      height: auto; /* Eliminar la altura fija */
+      padding: 10px; /* Agregar espacio entre elementos */
+    }
+  
+    .form {
+      width: 80%; /* Ocupa el 80% del ancho disponible */
+    }
+  
+    .form h1 {
+      margin: 10px 0; /* Reducir el espacio superior e inferior del título */
+    }
+  
+    input, select {
+      width: 100%; /* Ocupa el ancho completo disponible */
+    }
+    
+    .input {
+      margin: 20px 0; /* Reducir el espacio superior e inferior de los elementos de entrada */
+    }
+  }
+  
