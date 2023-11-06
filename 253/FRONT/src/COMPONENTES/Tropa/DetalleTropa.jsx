@@ -57,14 +57,13 @@ export default function DetalleTropa() {
                 await dispatch(deleteTropa(Tropa._id));
 
                 alert("Se eliminó la tropa");
-                history.push("/tropas"); // Redirige a la página de tropas después de eliminar
+                redirect("/tropas"); // Redirige a la página de tropas después de eliminar
             } catch (error) {
                 alert("Ocurrió un error al eliminar la tropa. Por favor, inténtalo de nuevo.");
                 console.error("Error al eliminar la tropa:", error);
             }
         }
     };
-
         return (
             <div>
                 <Navbar></Navbar>
