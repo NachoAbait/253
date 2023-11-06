@@ -103,7 +103,7 @@ export default function Stock() {
                 <div className={css.container}>
                     <div className={css.filtros}>
                     <ul>
-                        <li className={selectedFilter === "todas" ? css.filtroSelected : ""}  onClick={() => handleFilter("todas")}>Todas</li>
+                        <li className={selectedFilter === "Reses" ? css.filtroSelected : ""}  onClick={() => handleFilter("todas")}>Todas</li>
                         <li className={selectedFilter === "-90" ? css.filtroSelected : ""} onClick={() => handleFilter("-90")}>-90</li>
                         <li className={selectedFilter === "-100" ? css.filtroSelected : ""} onClick={() => handleFilter("-100")}>-100</li>
                         <li className={selectedFilter === "-110" ? css.filtroSelected : ""} onClick={() => handleFilter("-110")}>-110</li>
