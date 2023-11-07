@@ -23,7 +23,7 @@ export default function DetalleTropa() {
         
     if (Tropa.animales) {
         Tropa.animales.forEach((animal) => {
-          if (animal.peso < 90 ) {
+          if (animal.peso <= 90 ) {
             gruposDeAnimales['-90'].push(animal);
           } else if (animal.peso > 90 && animal.peso <= 100) {
             gruposDeAnimales['-100'].push(animal);
