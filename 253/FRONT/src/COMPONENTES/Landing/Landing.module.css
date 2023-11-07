@@ -41,3 +41,18 @@
     text-shadow: 7px 7px 6px white; /* Desplazamiento horizontal, desplazamiento vertical, desenfoque y color */
     width: auto;
 }
+
+
+@media screen and (max-width: 768px) {
+   
+   .num{
+    font-size: 70px;
+   }
+   .btn{
+    font-size: medium;
+    right: 38%;
+    bottom: 350px
+   }
+   
+  }
+  

@@ -166,6 +166,7 @@ select{
       grid-template-areas: 
         "main"
         "main2"; /* Definir las áreas para main y main2 */
+        height: auto;
     }
   
     .main {
