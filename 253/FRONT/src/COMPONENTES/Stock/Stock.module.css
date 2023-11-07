@@ -73,6 +73,10 @@
     justify-content: space-around;
     overflow-y: scroll;
 }
+.selected{
+  
+}
+
 .main::-webkit-scrollbar {
     width: 10px;  /* Ancho del scrollbar */
 }

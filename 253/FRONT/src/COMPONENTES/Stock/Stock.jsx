@@ -121,6 +121,7 @@ export default function Stock() {
                                 peso={res.peso}
                                 observaciones={res.observaciones}
                                 onClick={() => handleCardClick(res)}  // 3. Manejador de Eventos en las Cards
+                                isSelected={selectedCard === res}
 
                             />
                         )) :   <div className={css.loaderContainer}>

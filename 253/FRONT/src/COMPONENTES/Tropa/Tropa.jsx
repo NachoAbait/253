@@ -68,7 +68,7 @@ export default function Tropa() {
                     </div>
                     <div className={css.main}>
                         {Tropas.length ? Tropas.map(tropa => (
-       <Link to={`/tropas/${tropa._id}`} key={tropa._id}>
+       <Link to={`/tropas/${tropa._id}`} key={tropa._id} className={css.link}>
       <div key={tropa._id} className={css.tropaDiv}>
           
 <div className={css.divisor}><h3>Productor</h3> <h5>{tropa.productor}</h5></div>

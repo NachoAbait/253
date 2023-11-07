@@ -58,8 +58,12 @@
 }
 
 
-
-
+.selected{
+    background-color:#CBB26A;
+}
+.selected h4{
+    color: black !important;
+}
 
 /*////////////////// CELULAR /////////////////////*/
 

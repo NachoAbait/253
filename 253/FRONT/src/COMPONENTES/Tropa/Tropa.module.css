@@ -6,9 +6,10 @@
     grid-template-columns: 75% 25%;
     grid-template-areas: "main main2";
     padding: 10px;
-    height: auto;
+    height: calc(100vh - 150px);
 }
 
+/* Estilo para los enlaces Link */
 
 
 .main{
@@ -102,7 +103,14 @@ select{
     justify-content: space-around;
     background-color:  rgb(41, 39, 43);
     border-radius: 10px;
+    color: white;
+    
 }
+
+.link {
+    text-decoration: none; /* Elimina el subrayado */
+  }
+  
 
 .tropaDiv:hover {
     transform: scale(1.02); /* Aumenta el tamaño un 5% */
@@ -119,6 +127,11 @@ select{
 }
 .divisor h3{
     color: #CBB26A;
+    font-size: x-large;
+}
+.divisor h5{
+    color: white;
+    font-size: large;
 }
 
 .loaderContainer {

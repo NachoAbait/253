@@ -1,13 +1,13 @@
 import React from "react";
 import css from "./Card.module.css"
 
-export default function Card({ tropa, categoria, peso, observaciones, onClick,  }) {
+export default function Card({ tropa, categoria, peso, observaciones, onClick, isSelected }) {
     console.log(tropa)
     return (
         <div>
             <div className={css.card} onClick={onClick}>
                 <div className={css.data1}>
-                    <div className={`${css.icono} ${css.responsive}`}>
+                    <div className={`${css.icono} ${css.responsive} `}>
                         {categoria}
                     </div>
                     <div className={css.peso}>
@@ -15,7 +15,7 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick,  
                     </div>
                 </div>
 
-                <div className={`${css.data2} ${css.responsive}`}>
+                <div className={`${css.data2} ${css.responsive} ${isSelected? css.selected : ""}`}>
                     <h4>
                         Productor
                     </h4>

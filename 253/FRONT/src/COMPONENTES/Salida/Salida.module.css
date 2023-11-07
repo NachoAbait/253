@@ -145,6 +145,13 @@
     padding: 3px;
 }
 
+.selected{
+    background-color: #CBB26A;
+}
+.selected h3{
+    color: black !important;
+}
+
 
 /* Estilos para vista de celular */
 @media screen and (max-width: 768px) {
