@@ -140,7 +140,7 @@ export default function Ingreso() {
                                 <option value="">Seleccionar...</option>
                                 <option value="NO">Novillo</option>
                                 <option value="NTO">Novillito</option>
-                                <option value="VA">Vaca</option>
+                                <option value="VC">Vaca</option>
                                 <option value="VQ">Vaquillona</option>
                             </select>
                         </div>

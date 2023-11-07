@@ -64,7 +64,9 @@
 .selected h4{
     color: black !important;
 }
-
+.selected2{
+    background-color: rgb(5, 101, 15);
+}
 /*////////////////// CELULAR /////////////////////*/
 
 

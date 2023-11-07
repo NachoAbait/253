@@ -6,7 +6,7 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick, i
     return (
         <div>
             <div className={css.card} onClick={onClick}>
-                <div className={css.data1}>
+                <div className={`${css.data1}  ${isSelected? css.selected2 : ""}`}>
                     <div className={`${css.icono} ${css.responsive} `}>
                         {categoria}
                     </div>
