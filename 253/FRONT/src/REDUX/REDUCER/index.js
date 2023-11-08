@@ -69,6 +69,25 @@ function rootReducer(state = initialState, action) {
         ...state,
         Salidas: action.payload,
       };
+      case "PUT_RES_SALIDA":
+  return {
+    ...state,
+    Salidas: state.Salidas.map((salida) => {
+      if (salida._id === action.payload.salidaId) {
+        // Encuentra la salida específica
+        const updatedAnimales = salida.animales.filter(
+          (animalId) => animalId !== action.payload.resId
+        );
+        return {
+          ...salida,
+          animales: updatedAnimales,
+        };
+      }
+      return salida;
+    }),
+  };
+
+          
     ////////    PRODUCTOR  /////////
     case "GET_PRODUCTORES":
       return {

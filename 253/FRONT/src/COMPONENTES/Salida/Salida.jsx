@@ -4,6 +4,8 @@ import css from "./Salida.module.css"
 import {getSalidas} from "../../REDUX/ACTIONS/getSalidas"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
+import EliminarResSalida from "../Modal/EliminarResSalida";
+import { putResSalida } from "../../REDUX/ACTIONS/putResSalida";
 
 
 export default function Salida() {
@@ -14,9 +16,22 @@ export default function Salida() {
     }, [dispatch]);
 
     const Salidas = useSelector((state) => state.Salidas)
-
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [resToDelete, setResToDelete] = useState(null);
     const [selectedSalida, setselectedSalida] = useState(null);
+
+    const openDeleteModal = (res) => {
+      setShowDeleteModal(true);
+      setResToDelete(res);
+    };
+  
+    const closeDeleteModal = () => {
+      setShowDeleteModal(false);
+      setResToDelete(null);
+    };
+    
     console.log(selectedSalida)
+
     const deselectSalida = () => {
         setselectedSalida(null);  // suponiendo que el nombre de tu estado es `selectedRes` y su valor inicial es `null`.
     };
@@ -57,7 +72,7 @@ export default function Salida() {
                     <div className={css.main2}>
                         {selectedSalida ? selectedSalida.animales.map((res) => {
                             return (
-                                <div className={css.animalesSalida}>
+                                <div className={css.animalesSalida} onClick={() => openDeleteModal(res)}>
                                     <div className={css.peso}>
                                         {res.peso}
                                     </div>
@@ -68,6 +83,16 @@ export default function Salida() {
                             )
                         }): null }
                     </div>
+
+                    {showDeleteModal && (
+                        <EliminarResSalida
+                            res={resToDelete}
+                            distribuidorId={selectedSalida.distribuidor._id}
+                            fecha={selectedSalida.fecha}
+                        onCancel={closeDeleteModal}
+                        />
+                    )}
+
                 </div>
             
             </div>

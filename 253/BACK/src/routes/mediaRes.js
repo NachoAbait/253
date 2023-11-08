@@ -13,6 +13,7 @@ const {
   getSalidas,
   getProductores,
   postProductores,
+  putResSalida
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -38,6 +39,8 @@ router.get("/distribuidor", getDistribuidores);
 
 ////////// SALIDAS  ///////////////
 router.get("/salidas", getSalidas);
+
+router.put("/salidas/:id", putResSalida)
 
 ///////// PRODUCTOR  /////////////
 router.post("/productor", postProductores);

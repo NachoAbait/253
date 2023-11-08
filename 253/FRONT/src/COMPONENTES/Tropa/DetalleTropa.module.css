@@ -136,6 +136,9 @@
     display: flex;
     background-color: rgba(128, 128, 128, 0.689);
     cursor: pointer;
+    min-width: 48px;
+    display: flex;
+    justify-content: center;
   }
 
   .despachado{
