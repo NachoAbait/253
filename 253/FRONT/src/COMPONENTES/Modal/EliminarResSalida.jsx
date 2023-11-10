@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import css from "./EliminarResSalida.module.css";
 import { useDispatch } from "react-redux";
 import { putResSalida } from "../../REDUX/ACTIONS/putResSalida";
+import { getSalidas } from "../../REDUX/ACTIONS/getSalidas";
 
 export default function EliminarResSalida({ res, onCancel, distribuidorId, fecha}) {
   // Este componente muestra un modal para eliminar una res
@@ -12,6 +13,9 @@ export default function EliminarResSalida({ res, onCancel, distribuidorId, fecha
     try {
       // Realiza el dispatch de la acción para actualizar la res y la salida
       await dispatch(putResSalida(res._id, fecha, distribuidorId)); // Asegúrate de tener acceso a fecha y distribuidorId
+
+    // Realiza una solicitud GET para obtener las últimas salidas actualizadas
+    await dispatch(getSalidas());
 
       // Lógica para cerrar el modal
       onCancel();

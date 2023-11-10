@@ -82,18 +82,33 @@ input{
   
     .form {
       width: 80%; /* Ocupa el 80% del ancho disponible */
+      margin: 15px;
     }
   
     .form h1 {
       margin: 10px 0; /* Reducir el espacio superior e inferior del título */
+      font-size: x-large;
     }
   
+    .form label{
+      font-size: large;
+    }
+
+    .form option{
+      font-size: medium !important;
+    }
     input, select {
-      width: 100%; /* Ocupa el ancho completo disponible */
+      width: 50%; /* Ocupa el ancho completo disponible */
+      font-size: small !important;
+
     }
     
     .input {
       margin: 20px 0; /* Reducir el espacio superior e inferior de los elementos de entrada */
+    }
+
+    .btn{
+      font-size: small;
     }
   }
   

@@ -95,8 +95,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
-    
+    margin-top: 24px;
+    background-color: black;
+    padding: 5px; 
+    padding-top: 15px; 
 }
 
 .eliminar{
@@ -113,3 +115,68 @@
     border-radius: 20%;
 
 }
+
+@media screen and (max-width: 600px) {
+    .card{
+        display: flex;
+        position: relative;
+    }
+   .data1{
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 110px;
+   }
+   .icono{
+    width: 100%;
+    border-bottom: solid black 5px;
+   }
+   .peso{
+    width: 100%;
+    border-right: solid black 5px;
+   }
+
+   .data2 h4{
+    font-size: large;
+    color: #CBB26A;
+    font-weight: bold;
+}
+
+.data2 h5{
+    font-size: large;
+    color: white;
+    font-weight: bold;
+}
+
+.data2{
+  
+    width: 75%;
+    height: 110px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.item{
+    width: 30%;
+    margin: 10px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    height: 8px;
+}
+.obser{
+    display: none;
+}
+.form{
+    background-color: black;
+    margin: 0px;
+}
+.form label{
+    font-size: large;
+    margin-top: 3px;
+}
+.salida{
+    margin-right: 40px;
+}
+}
+  

@@ -18,7 +18,7 @@ export default function Tropa() {
 
     const Tropas = useSelector((state) => state.Tropas)
     const Productores = useSelector((state) => state.Productores); // Obtener la lista de productores
-    
+    const sortedTropas = Tropas.slice().sort((a, b) => new Date(b.fecha_ingreso) - new Date(a.fecha_ingreso));
 
     const [formData, setFormData] = useState({
         numero: null,
@@ -67,7 +67,7 @@ export default function Tropa() {
 
                     </div>
                     <div className={css.main}>
-                        {Tropas.length ? Tropas.map(tropa => (
+                        {sortedTropas.length ? sortedTropas.map(tropa => (
        <Link to={`/tropas/${tropa._id}`} key={tropa._id} className={css.link}>
       <div key={tropa._id} className={css.tropaDiv}>
           

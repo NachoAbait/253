@@ -165,7 +165,7 @@
         "main"
         "main2";
         padding-top: 10px;
-        grid-template-rows: 11% 7% 55% 20%;
+        grid-template-rows: 11% 7% 50% 29%;
         height: calc(100vh - 120px);
           
     }
@@ -201,7 +201,7 @@
       margin: 5px;
       margin-top: 0px;
       border: 2px solid white;
-      height: 70px;
+      height: 80px;
     }
     .main3 h3{
         font-size: medium;

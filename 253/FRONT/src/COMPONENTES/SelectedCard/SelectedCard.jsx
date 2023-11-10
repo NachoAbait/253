@@ -82,7 +82,7 @@ export default function SelectedCard({ data, deselectRes }) {
           </div>
 
           <div className={css.item}>
-            <h4>Fecha faena</h4>
+            <h4><span className={css.obser}>Fecha</span> Faena</h4>
             <h5>
               {new Date(data.tropa.fecha_ingreso).toLocaleDateString()}
             </h5>
@@ -93,13 +93,13 @@ export default function SelectedCard({ data, deselectRes }) {
             <h5>{data.tropa.productor ? data.tropa.productor : "---"}</h5>
           </div>
 
-          <div className={css.item}>
+          <div className={ `${css.item} ${css.obser}`}>
             <h4>Observaciones</h4>
             <h5>
               {data.observaciones ? data.observaciones : "---"}
             </h5>
           </div>
-
+</div>
           <form className={css.form} onSubmit={handleSubmit}>
             <div className={css.salida}>
               <label htmlFor="fecha">Salida</label>
@@ -140,7 +140,8 @@ export default function SelectedCard({ data, deselectRes }) {
           </form>
 
           
-        </div><button className={css.eliminar} onClick={eliminarRes}>
+        
+        <button className={css.eliminar} onClick={eliminarRes}>
             X
           </button>
       </div>

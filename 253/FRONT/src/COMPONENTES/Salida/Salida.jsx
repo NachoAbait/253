@@ -8,6 +8,7 @@ import EliminarResSalida from "../Modal/EliminarResSalida";
 import { putResSalida } from "../../REDUX/ACTIONS/putResSalida";
 
 
+
 export default function Salida() {
     const dispatch = useDispatch();
 
@@ -19,6 +20,8 @@ export default function Salida() {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [resToDelete, setResToDelete] = useState(null);
     const [selectedSalida, setselectedSalida] = useState(null);
+    const sortedSalidas = Salidas.slice().sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
 
     const openDeleteModal = (res) => {
       setShowDeleteModal(true);
@@ -27,7 +30,8 @@ export default function Salida() {
   
     const closeDeleteModal = () => {
       setShowDeleteModal(false);
-      setResToDelete(null);
+        setResToDelete(null);
+       
     };
     
     console.log(selectedSalida)
@@ -55,7 +59,7 @@ export default function Salida() {
                 <div className={css.container}>
                    
                     <div className={css.main}>
-                        {Salidas.length ? Salidas.map(salida => (
+                        {sortedSalidas.length ? sortedSalidas.map(salida => (
                             <div key={salida._id} className={`${css.salidaDiv} ${selectedSalida === salida ? css.selected : ''}`} onClick={()=> handleSalidaClick(salida)}>
                                 <div className={`${css.divisor}`}><h3>Fecha </h3> <h5>{new Date(salida.fecha).toLocaleDateString()}</h5></div>
                                 <div className={`${css.divisor} `}><h3> ½<span> reses</span> </h3> <h5>{salida.animales.length}</h5></div>

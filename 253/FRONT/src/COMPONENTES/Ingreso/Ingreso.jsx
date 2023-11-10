@@ -88,35 +88,7 @@ export default function Ingreso() {
         <div>
             <Navbar></Navbar>
             <div className={css.container}>
-            
-
-                
-               <div className={css.form}>
-                <h1>Agregar Productor</h1>
-
-                <form onSubmit={handleSubmitProductor}> {/* Utiliza handleSubmitProductor en lugar de handleSubmit */}
-                    <div className={css.input}>
-                    <label htmlFor="productor">Productor</label> {/* Usamos htmlFor en lugar de for para asociar la etiqueta con el input */}
-                    <input
-                        type="text"
-                        id="productor"
-                        name="productor"
-                        value={formDataProductor.productor}
-                        placeholder="nombre"
-                        onChange={handleChangeProductor} // Usamos handleChangeProductor para este input
-                    />
-                    </div>
-
-                    <button type="submit" className={css.btn}>
-                    Guardar
-                    </button>
-                </form>
-                </div>
-
-               
-                
-
-                <div className={css.form}>
+             <div className={css.form}>
                     <h1>Ingreso de ½ </h1>
 
                     <form onSubmit={handleSubmit}>
@@ -125,8 +97,10 @@ export default function Ingreso() {
                             <label for="tropa"> N° Tropa</label>
                             <select name="tropa" id="tropa" value={formData.tropa} onChange={handleChange}>
                                 <option value=""> Seleccionar... </option>
-                                { Tropas.map(tropa => (
-                                    <option value={tropa._id}>{tropa.numero}</option>
+                                {Tropas.slice(-3).map((tropa) => (
+            <option key={tropa._id} value={tropa._id}>
+                {tropa.numero}
+            </option>
                                 ))}
 
                                 
@@ -164,6 +138,34 @@ export default function Ingreso() {
 
                     
                 </div>
+
+                
+               <div className={css.form}>
+                <h1>Agregar Productor</h1>
+
+                <form onSubmit={handleSubmitProductor}> {/* Utiliza handleSubmitProductor en lugar de handleSubmit */}
+                    <div className={css.input}>
+                    <label htmlFor="productor">Productor</label> {/* Usamos htmlFor en lugar de for para asociar la etiqueta con el input */}
+                    <input
+                        type="text"
+                        id="productor"
+                        name="productor"
+                        value={formDataProductor.productor}
+                        placeholder="nombre"
+                        onChange={handleChangeProductor} // Usamos handleChangeProductor para este input
+                    />
+                    </div>
+
+                    <button type="submit" className={css.btn}>
+                    Guardar
+                    </button>
+                </form>
+                </div>
+
+               
+                
+
+               
                
                 
             </div>
