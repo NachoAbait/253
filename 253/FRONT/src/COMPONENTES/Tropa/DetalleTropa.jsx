@@ -89,7 +89,7 @@ export default function DetalleTropa() {
                                 </div>
                                 <div className={css.dato}>
                                     <h3>
-                                        Cantidad de cabezas
+                                        Cabezas
                                     </h3>
                                     <h4>
                                         {Tropa.cabezas}
@@ -138,7 +138,7 @@ export default function DetalleTropa() {
                                         {Tropa.consignatario}
                                     </h4>
                                 </div>
-                                <div className={css.finanza}>
+                                <div className={`${css.finanza} ${css.mobile}`}>
                                      <div className={css.dato}>
                                     <h3>
                                         Precio compra
@@ -238,7 +238,7 @@ export default function DetalleTropa() {
                                     </div>
                                 </div>
 
-                                <button className={css.eliminar} onClick={eliminarTropa}>
+                                <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
             Eliminar
           </button>
                             </div>

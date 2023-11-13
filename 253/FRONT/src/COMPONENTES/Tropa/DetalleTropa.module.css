@@ -195,3 +195,70 @@
     border-radius: 10px;
     justify-content: center;
 }
+
+@media only screen and (max-width: 768px) {
+  /* Reglas específicas para dispositivos con un ancho máximo de 768px (ajustable según tus necesidades) */
+
+  .container{
+    height: auto;
+  }
+
+  .maine{
+    width: 99%;
+    padding: 0px;
+  }
+  .datos{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+  .dato {
+      width: 40%; /* Cambiado a 100% para dispositivos móviles */
+      margin-bottom: 5px;
+  }
+
+  .animales .columna {
+      width: 48%; /* Cambiado a 48% para dispositivos móviles */
+  }
+
+  .mobile{
+    display: none;
+  }
+
+  .dato h3{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #CBB26A;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .dato h4{
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+  }
+
+  .res{
+    position: relative;
+    border: solid black 1px;
+    font-weight: bold;
+    color: rgb(26, 18, 18);
+    padding: 2px;
+    margin: 3px;
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.689);
+    cursor: pointer;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+  }
+
+  
+  /* Agrega más reglas según sea necesario para hacer otros elementos más responsive */
+}
