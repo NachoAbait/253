@@ -9,6 +9,7 @@ import Stock from "../COMPONENTES/Stock/Stock";
 import Salida from "../COMPONENTES/Salida/Salida";
 import Tropa from "../COMPONENTES/Tropa/Tropa";
 import DetalleTropa from "../COMPONENTES/Tropa/DetalleTropa";
+import Index from "../COMPONENTES/Los Cachorros/index.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/tropas" element={<Tropa />} />
           <Route exact path="/tropas/:id" element={<DetalleTropa />} />
           <Route exact path="/salidas" element={<Salida />} />
+          <Route exact path="/campo" element={<Index />} />
         </Routes>
       </div>
     </BrowserRouter>

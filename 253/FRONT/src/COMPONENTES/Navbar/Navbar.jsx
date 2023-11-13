@@ -1,6 +1,8 @@
 import React, { useEffect, useState , useMemo} from "react";
 import css from "./Navbar.module.css"
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTractor } from "@fortawesome/free-solid-svg-icons"
 
 export default function Navbar() {
 
@@ -13,6 +15,9 @@ export default function Navbar() {
         navigate(destination);
     }
 
+    function navigateToCampo() {
+        navigate('/campo');
+    }
 
     return (
         <div className={css.container}>
@@ -46,6 +51,12 @@ export default function Navbar() {
                         Salidas
                     </li>
                 </ul>
+            </div>
+            <div className={css.campo}>
+                <div    >
+                    <FontAwesomeIcon icon={faTractor} style={{color: "#ffffff",}}className={css.tractor} onClick={navigateToCampo}/>
+                </div>
+                
             </div>
         </div>
     )
