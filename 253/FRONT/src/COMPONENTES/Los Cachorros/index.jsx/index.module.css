@@ -48,7 +48,7 @@
     height: 80%;
     width: 55%;
     border-radius: 10px;
-    margin-left: 300px;
+    margin-left: 250px;
     padding: 20px;
 }
 
@@ -56,3 +56,8 @@
     width: 180px;
     height: 40px;
 }
+
+.selected {
+    background-color: #4c8baf; /* Color de fondo cuando está seleccionado */
+    color: white; /* Color del texto cuando está seleccionado */
+  }

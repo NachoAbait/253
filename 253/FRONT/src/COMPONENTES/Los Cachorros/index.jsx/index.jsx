@@ -9,6 +9,17 @@ import RainCalendar from "../Calendario/Calendario"; // Asegúrate de ajustar la
 export default function Index() {
   const navigate = useNavigate();
 
+  const [selectedOption, setSelectedOption] = useState("");
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    // Aquí puedes realizar otras acciones relacionadas con la opción seleccionada, si es necesario.
+  };
+  const iconClasses = {
+    faMoneyBillTrendUp: selectedOption === "faMoneyBillTrendUp" ? css.selected : "",
+    faCloudRain: selectedOption === "faCloudRain" ? css.selected : "",
+    faCow: selectedOption === "faCow" ? css.selected : "",
+  };
+
   // Simula datos de lluvia para los eventos del calendario
   const initialEvents = [
     { start: new Date(), end: new Date(), title: "Lluvia", rainfall: 10 },
@@ -35,21 +46,39 @@ export default function Index() {
       <Navbar />
       <div className={css.container}>
         <div className={css.sideBar}>
-          <ul>
-            <li>
-              <FontAwesomeIcon icon={faMoneyBillTrendUp} style={{ color: "#ffffff" }} className={css.icono} />
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faCloudRain} style={{ color: "#ffffff" }} className={css.icono} />
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faCow} style={{ color: "#ffffff" }} className={css.icono} />
-            </li>
-          </ul>
+        <ul>
+  <li
+    onClick={() => handleOptionClick("faMoneyBillTrendUp")}
+    className={iconClasses.faMoneyBillTrendUp}
+  >
+    <FontAwesomeIcon icon={faMoneyBillTrendUp} style={{ color: "#ffffff" }} className={css.icono} />
+  </li>
+  <li
+    onClick={() => handleOptionClick("faCloudRain")}
+    className={iconClasses.faCloudRain}
+  >
+    <FontAwesomeIcon icon={faCloudRain} style={{ color: "#ffffff" }} className={css.icono} />
+  </li>
+  <li
+    onClick={() => handleOptionClick("faCow")}
+    className={iconClasses.faCow}
+  >
+    <FontAwesomeIcon icon={faCow} style={{ color: "#ffffff" }} className={css.icono} />
+  </li>
+</ul>
+
+
         </div>
-        <div className={css.main}>
-          <RainCalendar events={events} onDayDoubleClick={handleDayClick}/>
-        </div>
+        {selectedOption === "" ? null : (
+    <div className={css.main}>
+      {selectedOption === "faCloudRain" && (
+        <RainCalendar events={events} onDayDoubleClick={handleDayClick} />
+      )}
+    </div>
+  )}
+        
+
+        
       </div>
     </div>
   );

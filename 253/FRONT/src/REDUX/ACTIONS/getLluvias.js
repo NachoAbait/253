@@ -12,10 +12,10 @@ export const getLluvias = () => {
       // Asegúrate de parsear las fechas adecuadamente
       const eventosLluvia = response.data.map((lluvia) => ({
         id: lluvia._id,
-        title: `${lluvia.milimetros} mm`,
+        title: `${lluvia.rainfall} mm`,
         start: moment(lluvia.date).toDate(), // Ajusta esto según el campo de fecha en tu base de datos
         end:  moment(lluvia.date).toDate(), // Puedes ajustar esto si es necesario
-        rainfall: lluvia.milimetros,
+        rainfall: lluvia.rainfall,
       }));
     console.log("Datos de lluvias obtenidos:", eventosLluvia);
       dispatch({ type: "GET_LLUVIAS_SUCCESS", payload: eventosLluvia });
