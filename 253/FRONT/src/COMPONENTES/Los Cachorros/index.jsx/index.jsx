@@ -3,8 +3,11 @@ import css from "./index.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoneyBillTrendUp, faCloudRain, faCow } from "@fortawesome/free-solid-svg-icons";
+import { faMoneyBillTrendUp, faCloudRain, faCow, faListCheck} from "@fortawesome/free-solid-svg-icons";
 import RainCalendar from "../Calendario/Calendario"; // Asegúrate de ajustar la ruta según la ubicación real del componente
+import Movimientos from "../Movimientos/Movimientos";
+import Hacienda from "../Hacienda/Hacienda";
+import Inversiones from "../Inversiones/Inversiones";
 
 export default function Index() {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ export default function Index() {
     faMoneyBillTrendUp: selectedOption === "faMoneyBillTrendUp" ? css.selected : "",
     faCloudRain: selectedOption === "faCloudRain" ? css.selected : "",
     faCow: selectedOption === "faCow" ? css.selected : "",
+    faListCheck: selectedOption === "faListCheck" ? css.selected : ""
   };
 
   // Simula datos de lluvia para los eventos del calendario
@@ -41,12 +45,21 @@ export default function Index() {
     setEvents([...events, newEvent]);
   };  
 
+
+
   return (
     <div>
       <Navbar />
       <div className={css.container}>
         <div className={css.sideBar}>
-        <ul>
+          <ul>
+          
+            <li
+            onClick={() => handleOptionClick("faListCheck")}
+            className={iconClasses.faListCheck}>
+              <FontAwesomeIcon icon={faListCheck} style={{color: "#ffffff",}} className={css.icono} />
+            </li>
+            
   <li
     onClick={() => handleOptionClick("faMoneyBillTrendUp")}
     className={iconClasses.faMoneyBillTrendUp}
@@ -70,12 +83,26 @@ export default function Index() {
 
         </div>
         {selectedOption === "" ? null : (
-    <div className={css.main}>
-      {selectedOption === "faCloudRain" && (
-        <RainCalendar events={events} onDayDoubleClick={handleDayClick} />
-      )}
-    </div>
-  )}
+          <div className={css.main}>
+            
+            {selectedOption === "faListCheck" && (
+              <Movimientos/>
+            )}
+
+            {selectedOption === "faCloudRain" && (
+              <RainCalendar events={events} onDayDoubleClick={handleDayClick} />
+            )}
+
+            {selectedOption === "faMoneyBillTrendUp" && (
+              <Inversiones></Inversiones>
+            )}
+
+            {selectedOption === "faCow" && (
+              <Hacienda></Hacienda>
+            )}
+
+        </div>
+        )}
         
 
         
