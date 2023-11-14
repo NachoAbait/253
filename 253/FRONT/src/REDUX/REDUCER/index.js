@@ -5,6 +5,7 @@ const initialState = {
   DetalleTropa: {},
   Salidas: [],
   Productores: [],
+  Lluvias: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -69,25 +70,24 @@ function rootReducer(state = initialState, action) {
         ...state,
         Salidas: action.payload,
       };
-      case "PUT_RES_SALIDA":
-  return {
-    ...state,
-    Salidas: state.Salidas.map((salida) => {
-      if (salida._id === action.payload.salidaId) {
-        // Encuentra la salida específica
-        const updatedAnimales = salida.animales.filter(
-          (animalId) => animalId !== action.payload.resId
-        );
-        return {
-          ...salida,
-          animales: updatedAnimales,
-        };
-      }
-      return salida;
-    }),
-  };
+    case "PUT_RES_SALIDA":
+      return {
+        ...state,
+        Salidas: state.Salidas.map((salida) => {
+          if (salida._id === action.payload.salidaId) {
+            // Encuentra la salida específica
+            const updatedAnimales = salida.animales.filter(
+              (animalId) => animalId !== action.payload.resId
+            );
+            return {
+              ...salida,
+              animales: updatedAnimales,
+            };
+          }
+          return salida;
+        }),
+      };
 
-          
     ////////    PRODUCTOR  /////////
     case "GET_PRODUCTORES":
       return {
@@ -99,6 +99,32 @@ function rootReducer(state = initialState, action) {
         ...state,
         Productores: [...state.Productores, action.payload],
       };
+
+    //////   LLUVIAS ///////////
+    case "POST_LLUVIA_SUCCESS":
+      return {
+        ...state,
+        Lluvias: [...state.Lluvias, action.payload],
+      };
+      case "GET_LLUVIAS_SUCCESS":
+        return {
+          ...state,
+          Lluvias: action.payload.map(lluvia => ({
+            id: lluvia._id, // Ajusta esto según el campo de identificación en tu base de datos
+            title: `${lluvia.rainfall} mm`,
+            start: new Date(lluvia.date), // Ajusta esto según el campo de fecha en tu base de datos
+            end: new Date(lluvia.date), // Puedes ajustar esto si es necesario
+            rainfall: lluvia.rainfall,
+          })),
+        };
+      
+    case "DELETE_LLUVIA_SUCCESS":
+      const updatedLluvias = state.Lluvias.filter(
+        (lluvia) => lluvia._id !== action.payload
+      );
+      return { ...state, Lluvias: updatedLluvias };
+      A;
+
     default:
       return {
         ...state,

@@ -17,4 +17,5 @@ module.exports = {
   Tropa: conn.model("tropas", require("./Schemas/tropaSchema")),
   Salida: conn.model("salidas", require("./Schemas/salidaSchema")),
   Productor: conn.model("productor", require("./Schemas/productorSchema")),
+  Lluvia: conn.model("lluvias", require("./Schemas/lluvias")),
 };

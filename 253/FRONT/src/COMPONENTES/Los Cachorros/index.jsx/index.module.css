@@ -1,23 +1,24 @@
 
 .container {
     position: relative;
-    background: url("https://fondosmil.com/fondo/58456.jpg") ;
+    background: url("https://c.wallhere.com/photos/66/42/1920x1080_px_field-1231589.jpg!d") center center/cover   ;
     height: calc(100vh - 150px);
     display: flex;
     padding: 30px;
-    justify-content: center;
+    padding-left: 130px ;
     align-items: center;
 }
 
 
 .sideBar{
     height: 80%;
-    width: 15%;
-    background-color: rgb(41, 39, 43);
+    width: 10%;
+    background-color: rgba(0, 0, 0, 0.464);
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .sideBar ul{
@@ -28,24 +29,27 @@
 
 .sideBar li{
  width: 100%;
- margin: 40px;
  border-radius: 10px;
  height: 70px;
  display: flex;
  justify-content: center;
  align-items: center;
  cursor: pointer;
+ margin-bottom: 80px;
+ margin-top: 80px;
 }
 
 .sideBar li:hover{
-    background-color: #CBB26A;
+    background-color: black;
 }
 
 .main{
-    background-color: rgb(41, 39, 43);
+    background-color: rgba(255, 255, 255, 0.861);
     height: 80%;
     width: 55%;
     border-radius: 10px;
+    margin-left: 300px;
+    padding: 20px;
 }
 
 .icono{

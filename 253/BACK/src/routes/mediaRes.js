@@ -13,7 +13,10 @@ const {
   getSalidas,
   getProductores,
   postProductores,
-  putResSalida
+  putResSalida,
+  getLluvias,
+  postLluvia,
+  deleteLluvia,
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -40,10 +43,15 @@ router.get("/distribuidor", getDistribuidores);
 ////////// SALIDAS  ///////////////
 router.get("/salidas", getSalidas);
 
-router.put("/salidas/:id", putResSalida)
+router.put("/salidas/:id", putResSalida);
 
 ///////// PRODUCTOR  /////////////
 router.post("/productor", postProductores);
 router.get("/productor", getProductores);
+
+//////////  LLUVIAS /////////////////
+router.get("/lluvia", getLluvias);
+router.delete("/lluvia/:id", deleteLluvia);
+router.post("/lluvia", postLluvia);
 
 module.exports = router;
