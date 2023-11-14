@@ -61,3 +61,17 @@
     background-color: #4c8baf; /* Color de fondo cuando está seleccionado */
     color: white; /* Color del texto cuando está seleccionado */
   }
+
+
+
+  @media screen and (max-width: 768px) {
+    .container {
+        height: calc(100vh - 120px);
+        flex-direction: column; /* Cambia la dirección principal a 'column' en dispositivos móviles */
+    }
+
+    .main {
+        margin-left: 0; /* Ajusta el margen izquierdo para ocupar el espacio completo en dispositivos móviles */
+    }
+}
+  

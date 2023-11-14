@@ -172,7 +172,7 @@ select{
     .main {
       width: 100%; /* Ocupa el 80% del ancho disponible */
       margin: 10px auto; /* Centrar horizontalmente */
-      height: 500px;
+      height: 400px;
       padding: 0%;
     }
   
@@ -199,7 +199,10 @@ select{
     color: white;
     font-size: small;
 }
-    
+.divisor h3{
+    color: #CBB26A;
+    font-size: large;
+}
 .celular{
     display: none;
 }

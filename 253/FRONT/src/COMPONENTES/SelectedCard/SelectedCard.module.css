@@ -125,44 +125,46 @@
     width: 25%;
     display: flex;
     flex-wrap: wrap;
-    height: 110px;
+    height: 90px;
    }
    .icono{
     width: 100%;
     border-bottom: solid black 5px;
+    height: 50%;
    }
    .peso{
     width: 100%;
     border-right: solid black 5px;
+    height: 50%;
    }
 
    .data2 h4{
-    font-size: large;
+    font-size: medium;
     color: #CBB26A;
     font-weight: bold;
-}
-
-.data2 h5{
-    font-size: large;
-    color: white;
-    font-weight: bold;
-}
-
-.data2{
-  
-    width: 75%;
-    height: 110px;
     margin: 0px;
-    display: flex;
-    justify-content: center;
-}
+    }
+
+    .data2 h5{
+        font-size: small;
+        color: white;
+        font-weight: bold;
+        margin: 0px;
+    }
+
+    .data2{
+        width: 75%;
+        height: 90px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+    }
 
 .item{
     width: 30%;
-    margin: 10px;
     margin-bottom: 0px;
     margin-top: 2px;
-    height: 8px;
+    height: 30%;
 }
 .obser{
     display: none;
@@ -170,13 +172,24 @@
 .form{
     background-color: black;
     margin: 0px;
+    padding: 0px;
+}
+.form select{
+    height: 20px;
+    font-size: medium;
+}
+.form input{
+    height: 20px;
 }
 .form label{
-    font-size: large;
-    margin-top: 3px;
+    font-size: medium;
 }
 .salida{
     margin-right: 40px;
 }
+.eliminar{
+    font-size: small;
+}
+
 }
   

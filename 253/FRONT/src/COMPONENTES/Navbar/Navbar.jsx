@@ -24,6 +24,11 @@ export default function Navbar() {
             <div className={css.logo}>
                 53
             </div>
+
+            <div className={css.responsive}>
+                <FontAwesomeIcon icon={faTractor} style={{color: "#ffffff",}}className={css.tractor} onClick={navigateToCampo}/>
+            </div>
+
             <div className={css.lista}>
             <ul>
                     <li

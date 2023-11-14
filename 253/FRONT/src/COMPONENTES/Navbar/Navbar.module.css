@@ -86,41 +86,83 @@
 }
 
 
+.lista li.clicked {
+    color: #e2c469;
+    font-size: larger;
+}
 
+.lista li.clicked:after {
+    left: 0;
+    width: 100%;
+    background-color: #e2c469;
+}
+
+.responsive{
+    display: none;
+}
 
 
 /* ////////////////////  CELULAR //////////////////////// */
 @media screen and (max-width: 768px) {
     .container {
-      flex-direction: column;
+      display: flex;
       height: 120px;
-
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
     }
   
     .logo {
-        margin-top: 10px;
-      width: 100%;
+    margin-top: 10px;
+      width: 50%;
       font-size: 40px;
+      height: 50%;
     }
   
-.lista{
-    width: 100%;
-}
+    .responsive{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50%;
+    }
+
+    .lista{
+        position: relative;
+        width: 100%;
+        z-index: 999;
+        height: auto;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .lista ul {
         display: flex;
       flex-direction: row;
-      gap: 20px;
+      gap: 5px !important;
       font-size: 20px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    width: 90%;
+        width: 100%;
+        margin-bottom: 20px;
+        position: relative;
+        
+        justify-content: space-evenly;
     }
-
+   
     .lista li.clicked:after {
         left: 0px;
         width: 100%;
       }
 
-     
+      .campo{
+        display: none;
+      }
+    
+      .tractor{
+        height: 40%;
+        margin-top: 10px;
+      }
+    
   }

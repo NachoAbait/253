@@ -99,7 +99,7 @@
 
 .salidaDiv:hover {
     transform: scale(1.02); /* Aumenta el tamaño un 5% */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra para la ilusión de elevación */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.471); /* Añade una sombra para la ilusión de elevación */
     transition: ease .5s;
 }
 
@@ -164,11 +164,14 @@
         height: calc(100vh - 120px);
         
     }
-  
+    .divisor h3{
+        color: #CBB26A;
+        font-size: large;
+    }
     .main {
       width: 100%; /* Ocupa el 80% del ancho disponible */
       margin: 10px auto; /* Centrar horizontalmente */
-      height: 400px;
+      height: 250px;
       padding: 3px;
     }
   
@@ -200,6 +203,14 @@
     }
     .celular{
         display: none;
+    }
+    
+
+    .selected{
+        background-color: #CBB26A;
+    }
+    .selected h3{
+        color: black !important;
     }
   }
   

@@ -124,6 +124,8 @@
     flex-wrap: wrap;
     align-content: flex-start; /* Añade esta propiedad */
     min-height: 250px;
+    overflow-y: scroll;
+    max-height: 250px;
   }
   
   .res{
@@ -132,7 +134,7 @@
     font-weight: bold;
     color: rgb(26, 18, 18);
     padding: 5px;
-    margin: 3px;
+    margin: 1px;
     display: flex;
     background-color: rgba(128, 128, 128, 0.689);
     cursor: pointer;
@@ -201,11 +203,15 @@
 
   .container{
     height: auto;
+    width: 100% !important;
+    padding: 0;
+    border: none !important;
   }
 
   .maine{
     width: 99%;
     padding: 0px;
+    border: none;
   }
   .datos{
   display: flex;
@@ -248,8 +254,8 @@
     border: solid black 1px;
     font-weight: bold;
     color: rgb(26, 18, 18);
-    padding: 2px;
-    margin: 3px;
+    padding: 1px;
+    margin: 2px;
     display: flex;
     background-color: rgba(128, 128, 128, 0.689);
     cursor: pointer;
@@ -258,7 +264,12 @@
     justify-content: center;
     font-size: medium;
   }
-
-  
+  .list{
+    max-height: 100px;
+    overflow-y: scroll;
+  }
+  .columna{
+    margin: 3px;
+  }
   /* Agrega más reglas según sea necesario para hacer otros elementos más responsive */
 }

@@ -165,7 +165,7 @@
         "main"
         "main2";
         padding-top: 10px;
-        grid-template-rows: 11% 7% 50% 29%;
+        grid-template-rows: 11% 7% 45% 32%;
         height: calc(100vh - 120px);
           
     }
@@ -189,7 +189,7 @@
     }
   
     .filtros li {
-      font-size: 16px; /* Ajusta el tamaño de fuente para dispositivos móviles */
+      font-size: 14px; /* Ajusta el tamaño de fuente para dispositivos móviles */
     }
   
     .main {
@@ -201,7 +201,7 @@
       margin: 5px;
       margin-top: 0px;
       border: 2px solid white;
-      height: 80px;
+      height: 60px;
     }
     .main3 h3{
         font-size: medium;
