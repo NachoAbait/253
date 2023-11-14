@@ -106,24 +106,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         Lluvias: [...state.Lluvias, action.payload],
       };
-      case "GET_LLUVIAS_SUCCESS":
-        return {
-          ...state,
-          Lluvias: action.payload.map(lluvia => ({
-            id: lluvia._id, // Ajusta esto según el campo de identificación en tu base de datos
-            title: `${lluvia.rainfall} mm`,
-            start: new Date(lluvia.date), // Ajusta esto según el campo de fecha en tu base de datos
-            end: new Date(lluvia.date), // Puedes ajustar esto si es necesario
-            rainfall: lluvia.rainfall,
-          })),
-        };
-      
+    // En tu reducer
+    case "GET_LLUVIAS_SUCCESS":
+      return {
+        ...state,
+        Lluvias: action.payload,
+      };
+
     case "DELETE_LLUVIA_SUCCESS":
       const updatedLluvias = state.Lluvias.filter(
         (lluvia) => lluvia._id !== action.payload
       );
       return { ...state, Lluvias: updatedLluvias };
-      A;
 
     default:
       return {

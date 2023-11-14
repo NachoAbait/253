@@ -237,12 +237,12 @@ const getProductores = async (req, res) => {
 //////// LLUVIAS //////////////
 const postLluvia = async (req, res) => {
   try {
-    const { fecha, milimetros } = req.body;
+    const { date, rainfall } = req.body;
 
     // Crea una nueva instancia de Lluvia utilizando el modelo
     const nuevaLluvia = new Lluvia({
-      fecha,
-      milimetros,
+      date,
+      rainfall,
     });
 
     // Guarda la nueva entrada en la base de datos

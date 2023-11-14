@@ -1,11 +1,11 @@
 const { Schema } = require("mongoose");
 
 const lluviaSchema = new Schema({
-  fecha: {
+  date: {
     type: Date,
     required: true,
   },
-  milimetros: {
+  rainfall: {
     type: Number,
     required: true,
   },

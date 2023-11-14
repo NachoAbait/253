@@ -1,19 +1,21 @@
-// RainCalendar.js
-import React, { useState , useEffect} from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { connect } from 'react-redux';
-import { postLluvia } from "../../../REDUX/ACTIONS/postLluvia" 
+import { postLluvia } from "../../../REDUX/ACTIONS/postLluvia";
+import { getLluvias } from '../../../REDUX/ACTIONS/getLluvias';
 
 const localizer = momentLocalizer(moment);
 
-const RainCalendar = ({ events, postLluvia }) => {
+const RainCalendar = () => {
+  const dispatch = useDispatch();
+  const lluvias = useSelector((state) => state.Lluvias);
 
   useEffect(() => {
     // Cargar lluvias desde la base de datos al montar el componente
-    getLluvias();
-  }, [getLluvias]);
+    dispatch(getLluvias());
+  }, [dispatch]);
 
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -24,7 +26,7 @@ const RainCalendar = ({ events, postLluvia }) => {
         const rainfall = Number(rainfallInput);
 
         // Dispatch a la acción para enviar la solicitud al backend
-        postLluvia(slotInfo.start, rainfall);
+        dispatch(postLluvia(slotInfo.start, rainfall));
 
         // Resto del código...
       }
@@ -53,12 +55,14 @@ const RainCalendar = ({ events, postLluvia }) => {
     </div>
   );
 
+  console.log('Datos de lluvias en el componente:', lluvias);
+
   return (
     <div>
       <h2>Calendario de Lluvia</h2>
       <Calendar
         localizer={localizer}
-        events={events}
+        events={lluvias} // Usa lluvias directamente aquí
         startAccessor="start"
         endAccessor="end"
         selectable
@@ -73,4 +77,4 @@ const RainCalendar = ({ events, postLluvia }) => {
   );
 };
 
-export default connect(null, { postLluvia })(RainCalendar);
+export default RainCalendar;

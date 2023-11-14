@@ -1,12 +1,12 @@
 // actions.js
 import axios from "axios";
 
-export const postLluvia = (fecha, milimetros) => {
+export const postLluvia = (date, rainfall) => {
   return async (dispatch) => {
     try {
       const response = await axios.post("/lluvia", {
-        fecha,
-        milimetros,
+        date,
+        rainfall,
       });
 
       dispatch({ type: "POST_LLUVIA_SUCCESS", payload: response.data });
