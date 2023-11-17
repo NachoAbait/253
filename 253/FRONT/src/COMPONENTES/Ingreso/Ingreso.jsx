@@ -48,7 +48,7 @@ export default function Ingreso() {
                 observaciones: ''
             });
         } catch (error) {
-            // Puedes mostrar un mensaje al usuario aquí, por ejemplo:
+            // Puedes mostrar un mensaje al usuario aquí, por  ejemplo:
             alert('Ocurrió un error al agregar la res. Por favor, verifica los datos y vuelve a intentarlo.');
             // También puedes, por ejemplo, guardar el error en el estado para mostrarlo en la interfaz de usuario.
             console.error("Error al agregar la res:", error); // Esto es útil para debugging
