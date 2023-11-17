@@ -9,10 +9,7 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 3001;
 const corsOptions = {
-  origin: "https://253-nachoabait.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
+  origin: "*",
 };
 
 // SERVIDOR
@@ -28,7 +25,6 @@ server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(express.json());
-
 
 //RUTAS
 server.use("/", mediaRes);
