@@ -39,7 +39,7 @@ export default function Ingreso() {
         e.preventDefault();
         
         try {
-            await dispatch(postRes(formData)); // Asumiendo que postRes es una operación asíncrona
+            await dispatch(postRes(formData)); // Asumiendo que postRes es una oper ación asíncrona
             alert(`Se agrego una nueva res a la tropa ${formData.tropa}`);
             setFormData({
                 tropa: '',
