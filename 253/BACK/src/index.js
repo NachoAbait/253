@@ -21,14 +21,14 @@ async function main() {
   await server.listen(PORT);
   console.log(`Server running on port ${PORT}`);
 }
-
+server.use(cors(corsOptions));
 //MIDDLEWARES
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(express.json());
-server.use(cors(corsOptions));
+
 
 //RUTAS
 server.use("/", mediaRes);
