@@ -271,5 +271,8 @@
   .columna{
     margin: 3px;
   }
+  .despachado{
+    background-color: rgb(41, 182, 31);
+  }
   /* Agrega más reglas según sea necesario para hacer otros elementos más responsive */
 }
