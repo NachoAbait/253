@@ -14,9 +14,6 @@ const {
   getProductores,
   postProductores,
   putResSalida,
-  getLluvias,
-  postLluvia,
-  deleteLluvia,
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -48,10 +45,5 @@ router.put("/salidas/:id", putResSalida);
 ///////// PRODUCTOR  /////////////
 router.post("/productor", postProductores);
 router.get("/productor", getProductores);
-
-//////////  LLUVIAS /////////////////
-router.get("/lluvia", getLluvias);
-router.delete("/lluvia/:id", deleteLluvia);
-router.post("/lluvia", postLluvia);
 
 module.exports = router;

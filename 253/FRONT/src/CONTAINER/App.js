@@ -22,7 +22,6 @@ function App() {
           <Route exact path="/tropas" element={<Tropa />} />
           <Route exact path="/tropas/:id" element={<DetalleTropa />} />
           <Route exact path="/salidas" element={<Salida />} />
-          <Route exact path="/campo" element={<Index />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -234,55 +234,6 @@ const getProductores = async (req, res) => {
   }
 };
 
-//////// LLUVIAS //////////////
-const postLluvia = async (req, res) => {
-  try {
-    const { date, rainfall } = req.body;
-
-    // Crea una nueva instancia de Lluvia utilizando el modelo
-    const nuevaLluvia = new Lluvia({
-      date,
-      rainfall,
-    });
-
-    // Guarda la nueva entrada en la base de datos
-    await nuevaLluvia.save();
-
-    res
-      .status(201)
-      .json({ mensaje: "Entrada de lluvia agregada correctamente" });
-  } catch (error) {
-    console.error("Error al agregar entrada de lluvia:", error);
-    res.status(500).json({ mensaje: "Error al agregar entrada de lluvia" });
-  }
-};
-
-const deleteLluvia = async (req, res) => {
-  try {
-    const idLluvia = req.params.id;
-
-    // Elimina la entrada de lluvia por ID
-    await Lluvia.findByIdAndDelete(idLluvia);
-
-    res.json({ mensaje: "Entrada de lluvia eliminada correctamente" });
-  } catch (error) {
-    console.error("Error al eliminar entrada de lluvia:", error);
-    res.status(500).json({ mensaje: "Error al eliminar entrada de lluvia" });
-  }
-};
-
-const getLluvias = async (req, res) => {
-  try {
-    // Obtiene todas las entradas de lluvia de la base de datos
-    const lluvias = await Lluvia.find();
-
-    res.json(lluvias);
-  } catch (error) {
-    console.error("Error al obtener entradas de lluvia:", error);
-    res.status(500).json({ mensaje: "Error al obtener entradas de lluvia" });
-  }
-};
-
 module.exports = {
   getStock,
   postMediaRes,
@@ -297,7 +248,4 @@ module.exports = {
   getProductores,
   postProductores,
   putResSalida,
-  getLluvias,
-  postLluvia,
-  deleteLluvia,
 };
