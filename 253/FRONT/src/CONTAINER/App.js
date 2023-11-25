@@ -9,7 +9,7 @@ import Stock from "../COMPONENTES/Stock/Stock";
 import Salida from "../COMPONENTES/Salida/Salida";
 import Tropa from "../COMPONENTES/Tropa/Tropa";
 import DetalleTropa from "../COMPONENTES/Tropa/DetalleTropa";
-import Index from "../COMPONENTES/Los Cachorros/index.jsx";
+
 
 function App() {
   return (
