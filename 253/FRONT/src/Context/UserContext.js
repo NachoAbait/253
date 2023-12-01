@@ -4,12 +4,10 @@ import login from "../REDUX/ACTIONS/logIn.js";
 import verifyToken from "../REDUX/ACTIONS/verifyToken.js";
 import createUser from "../REDUX/ACTIONS/signup.js";
 
-
 // Crea el contexto de usuario
 export const UserContext = createContext();
 
 export const useAuth = () => {
-  
   const context = useContext(UserContext);
 
   if (!context) {
@@ -22,7 +20,7 @@ export const useAuth = () => {
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
-  
+
   // Función para establecer los datos del usuario una vez que se haya registrado
   const signup = (userData) => {
     dispatch(createUser(userData))
@@ -46,11 +44,10 @@ export const UserProvider = ({ children }) => {
     await dispatch(login(userData))
       .then((response) => {
         setUser(response);
-        
       })
       .catch((error) => {
         // Error en la creación del usuario
-        alert(error);
+        return { error: error };
       });
   };
 
