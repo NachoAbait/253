@@ -41,14 +41,19 @@ export const UserProvider = ({ children }) => {
 
   // Función para iniciar sesión
   const signin = async (userData) => {
-    await dispatch(login(userData))
-      .then((response) => {
-        setUser(response);
-      })
-      .catch((error) => {
-        // Error en la creación del usuario
+    try {
+      const response = await dispatch(login(userData));
+      setUser(response);
+    } catch (error) {
+      // Error en la creación del usuario
+      if (error.response && error.response.data && error.response.data.error) {
         alert(error.response.data.error);
-      });
+      } else {
+        // Mensaje de error genérico o específico
+        console.error(error);
+        alert("An error occurred during login. Please try again.");
+      }
+    }
   };
 
   // Función para eliminar los datos del usuario al cerrar sesión
