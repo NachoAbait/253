@@ -302,7 +302,7 @@ const logIn = async (req, res) => {
     res.status(201).json({
       token, // incluimos el token en la respuesta
       id: userFound._id,
-      user: userFound.usuario,
+      usuario: userFound.usuario,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -322,7 +322,7 @@ const verifyToken = async (req, res) => {
 
     return res.json({
       id: userFound._id,
-      user: userFound.usuario,
+      usuario: userFound.usuario,
     });
   });
 };
