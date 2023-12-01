@@ -3,12 +3,16 @@ import css from "./Navbar.module.css"
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTractor } from "@fortawesome/free-solid-svg-icons"
+import { useAuth } from "../../Context/UserContext";
 
 export default function Navbar() {
 
     let navigate = useNavigate();
-
     const [selectedItem, setSelectedItem] = useState(null);
+
+    const { signin, user } = useAuth()
+    console.log("user", user)
+
 
     function navigateTo(destination) {
         setSelectedItem(destination);
@@ -54,6 +58,10 @@ export default function Navbar() {
                     </li>
                 </ul>
             </div>
+
+            {user ? <div>
+                {user.usuario}
+            </div>: null}
             
         </div>
     )
