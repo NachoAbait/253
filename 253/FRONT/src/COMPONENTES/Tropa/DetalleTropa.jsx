@@ -41,7 +41,15 @@ export default function DetalleTropa() {
         // Manejar el caso en el que Tropa.animales no está definida o es undefined
       }
       
-      
+      const calcularKilosTotales = () => {
+        let kilosTotales = 0;
+
+        if (Tropa.animales) {
+            kilosTotales = Tropa.animales.reduce((total, animal) => total + animal.peso, 0);
+        }
+
+        return kilosTotales;
+    }; 
 
     useEffect(() => {
         dispatch(getDetalleTropa(id));
@@ -97,14 +105,6 @@ export default function DetalleTropa() {
                                 </div>
                                 <div className={css.dato}>
                                     <h3>
-                                        ½ Reses
-                                    </h3>
-                                    <h4>
-                                        {Tropa.cabezas * 2}
-                                    </h4>
-                                </div>
-                                <div className={css.dato}>
-                                    <h3>
                                         Fecha ingreso
                                     </h3>
                                     <h4>
@@ -116,7 +116,7 @@ export default function DetalleTropa() {
                                         Kg totales
                                     </h3>
                                     <h4>
-                                        {Tropa.kg_totales}
+                                        {calcularKilosTotales()} Kg
                                     </h4>
                                 </div>
                                 

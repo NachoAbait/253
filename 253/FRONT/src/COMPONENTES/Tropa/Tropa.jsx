@@ -120,7 +120,7 @@ export default function Tropa() {
         <input type="date" name="fecha_ingreso" value={formData.fecha_ingreso || ''} id="ingreso" onChange={handleChange} />
     </div>
     <div className={css.input}>
-        <label htmlFor="Cabezas">Cabezas</label>
+        <label htmlFor="Cabezas">1/2</label>
         <input type="number" name="cabezas" id="Cabezas" value={formData.cabezas || ''} placeholder="*****" onChange={handleChange} />
     </div>
 
