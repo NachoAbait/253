@@ -10,12 +10,15 @@ import { useAuth } from "../../Context/UserContext";
 
 export default function Tropa() {
     const dispatch = useDispatch();
+    const [isAdmin, setIsAdmin] = useState(false);
+
     const { user } = useAuth()
 
     useEffect(() => {
         dispatch(getTropas());
         dispatch(getProductores())
-    }, [dispatch]);
+        setIsAdmin(user.isAdmin || false);
+    }, [dispatch, user.isAdmin]);
 
     const Tropas = useSelector((state) => state.Tropas)
     const Productores = useSelector((state) => state.Productores); // Obtener la lista de productores
@@ -63,7 +66,7 @@ export default function Tropa() {
             <div>
                 <Navbar></Navbar>
             
-                <div className={css.container}>
+                <div className={`${css.container} ${isAdmin ? '' : css.nonAdminContainer}`}>
                     <div className={css.filtros}>
 
                     </div>

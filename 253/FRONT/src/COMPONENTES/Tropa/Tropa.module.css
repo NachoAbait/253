@@ -9,6 +9,11 @@
     height: calc(100vh - 150px);
 }
 
+
+.nonAdminContainer {
+    grid-template-areas: "main";
+    place-content: center;
+ }
 /* Estilo para los enlaces Link */
 
 
