@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import login from "../REDUX/ACTIONS/logIn.js";
 import verifyToken from "../REDUX/ACTIONS/verifyToken.js";
 import createUser from "../REDUX/ACTIONS/signup.js";
-import { useNavigate } from 'react-router-dom';
+
 
 // Crea el contexto de usuario
 export const UserContext = createContext();
@@ -22,7 +22,7 @@ export const useAuth = () => {
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
-  let navigate = useNavigate();
+  
   // Función para establecer los datos del usuario una vez que se haya registrado
   const signup = (userData) => {
     dispatch(createUser(userData))
@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
     await dispatch(login(userData))
       .then((response) => {
         setUser(response);
-        navigate('/stock');
+        
       })
       .catch((error) => {
         // Error en la creación del usuario
