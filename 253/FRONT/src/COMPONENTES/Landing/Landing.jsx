@@ -21,11 +21,7 @@ export default function Landing() {
     }
 
    
-    function handleLogin() {
-        alert(`Usuario: ${username}, Contraseña: ${password}`);
-        closeModal();
-    }
-
+   
 
 
   const handleSubmit = (e) => {
@@ -43,9 +39,9 @@ export default function Landing() {
     }
 
     signin(userData)
-    .then(() => handleLogin())
+    .then((response) => alert(response))
     .catch((error) => {
-        // Manejar el error, si es necesario
+        
         console.error(error);
     });
     };
