@@ -19,9 +19,7 @@ export default function Navbar() {
         navigate(destination);
     }
 
-    function navigateToCampo() {
-        navigate('/campo');
-    }
+   
 
     return (
         <div className={css.container}>

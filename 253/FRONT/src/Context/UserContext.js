@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 // Crea el contexto de usuario
 export const UserContext = createContext();
-let navigate = useNavigate();
+
 export const useAuth = () => {
   
   const context = useContext(UserContext);
@@ -22,7 +22,7 @@ export const useAuth = () => {
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
-
+  let navigate = useNavigate();
   // Función para establecer los datos del usuario una vez que se haya registrado
   const signup = (userData) => {
     dispatch(createUser(userData))
