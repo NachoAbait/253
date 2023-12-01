@@ -263,7 +263,7 @@ const signup = async (req, res) => {
     // Guardar el usuario en la base de datos
     const userSaved = await newUser.save();
 
-    console.log("isAdmin", userSaved.isAdmin)
+    console.log("isAdmin", userSaved.isAdmin);
     //Creamos el token
     const token = await createAccessToken({ id: userSaved._id });
 
@@ -289,13 +289,13 @@ const logIn = async (req, res) => {
     // Verificar si el usuario ya existe en la base de datos
     const userFound = await Usuario.findOne({ usuario });
     if (!userFound) {
-      return res.status(400).json({ error: "User not found" });
+      return res.status(404).json({ error: "User not found" });
     }
 
     // comparamos las contraseñas
     const isMatch = await bcrypt.compare(contraseña, userFound.contraseña);
     if (!isMatch) {
-      return res.status(400).json({ error: "Incorrect contraseña" });
+      return res.status(401).json({ error: "Incorrect contraseña" });
     }
 
     //Creamos el token
