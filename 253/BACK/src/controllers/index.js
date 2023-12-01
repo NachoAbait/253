@@ -257,6 +257,7 @@ const signup = async (req, res) => {
     const newUser = new Usuario({
       usuario,
       contraseña: passwordHash,
+      isAdmin: false,
     });
 
     // Guardar el usuario en la base de datos
@@ -303,6 +304,7 @@ const logIn = async (req, res) => {
       token, // incluimos el token en la respuesta
       id: userFound._id,
       usuario: userFound.usuario,
+      isAdmin: userFound.isAdmin,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
