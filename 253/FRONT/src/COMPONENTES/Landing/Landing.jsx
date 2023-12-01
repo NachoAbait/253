@@ -22,7 +22,6 @@ export default function Landing() {
 
    
    
-
     const handleSubmit = async (e) => {
         e.preventDefault();
       
@@ -43,18 +42,17 @@ export default function Landing() {
           navigate("/stock");
         } catch (error) {
           // Error en el inicio de sesión
-          if (error.response && error.response.data && error.response.data.error) {
+          if (error.message) {
             // Mensaje de error específico del backend
-            alert(error.response.data.error);
+            if (error.message === "Invalid password") {
+              alert("Incorrect password. Please try again.");
+            } else {
+              alert(`An error occurred: ${error.message}`);
+            }
           } else {
             // Mensaje de error genérico o específico
             console.error(error);
-      
-            if (error.message) {
-              alert(`An error occurred: ${error.message}`);
-            } else {
-              alert("An error occurred during login. Please try again.");
-            }
+            alert("An error occurred during login. Please try again.");
           }
         }
       };
