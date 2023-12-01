@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import EliminarResSalida from "../Modal/EliminarResSalida";
 import { putResSalida } from "../../REDUX/ACTIONS/putResSalida";
+import { useAuth } from "../../Context/UserContext";
 
 
 
 export default function Salida() {
     const dispatch = useDispatch();
-
+    const { signin, user } = useAuth()
+    
     useEffect(() => {
         dispatch(getSalidas());
     }, [dispatch]);
@@ -34,7 +36,6 @@ export default function Salida() {
        
     };
     
-    console.log(selectedSalida)
 
     const deselectSalida = () => {
         setselectedSalida(null);  // suponiendo que el nombre de tu estado es `selectedRes` y su valor inicial es `null`.
@@ -88,7 +89,7 @@ export default function Salida() {
                         }): null }
                     </div>
 
-                    {showDeleteModal && (
+                    {showDeleteModal && user.isAdmin &&  (
                         <EliminarResSalida
                             res={resToDelete}
                             distribuidorId={selectedSalida.distribuidor._id}
