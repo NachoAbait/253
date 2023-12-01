@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
       })
       .catch((error) => {
         // Error en la creación del usuario
-        alert(error.response.data.error);
+        alert(error.response);
       });
   };
 
