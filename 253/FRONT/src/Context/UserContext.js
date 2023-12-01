@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
       setUser(response);
     } catch (error) {
       // Error en la creación del usuario
-      if (error.message) {
+      if (error.message.error) {
         // Utiliza el mensaje de error lanzado por la acción login
         alert(error);
       } else {
@@ -56,7 +56,6 @@ export const UserProvider = ({ children }) => {
       }
     }
   };
-  
 
   // Función para eliminar los datos del usuario al cerrar sesión
   const logout = () => {
