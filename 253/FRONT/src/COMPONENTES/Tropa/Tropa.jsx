@@ -66,7 +66,7 @@ export default function Tropa() {
             <div>
                 <Navbar></Navbar>
             
-                <div className={`${css.container} ${isAdmin ? '' : css.nonAdminContainer}`}>
+                <div className={`${isAdmin ? css.container : css.nonAdminContainer}`}>
                     <div className={css.filtros}>
 
                     </div>

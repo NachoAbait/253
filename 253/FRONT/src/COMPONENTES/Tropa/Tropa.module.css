@@ -11,7 +11,13 @@
 
 
 .nonAdminContainer {
+    position: relative;
+    background-color: rgb(41, 39, 43);
+    display: grid;
+    grid-template-columns: 75%;
     grid-template-areas: "main";
+    padding: 10px;
+    height: calc(100vh - 150px);
     place-content: center;
  }
 /* Estilo para los enlaces Link */
