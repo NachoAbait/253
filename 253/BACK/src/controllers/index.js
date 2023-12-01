@@ -8,9 +8,9 @@ const {
 } = require("../DB/index.js");
 
 const bcrypt = require("bcryptjs") ;
-import { createAccessToken } from "../libs/jwt.js";
-import jwt from "jsonwebtoken";
-import { TOKEN_SECRET } from "../config.js";
+const { createAccessToken } = require("../libs/jwt.js") ;
+const jwt=  require("jsonwebtoken") ;
+const { TOKEN_SECRET }=  require("../config.js");
 
 const getStock = async (req, res) => {
   try {
