@@ -242,11 +242,7 @@ export default function DetalleTropa() {
                                     </div>
                                 </div>
 
-                                {user.isAdmin ? 
-                                    <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
-                                        Eliminar
-                                    </button>
-                                : null}
+                               
                                 
                             </div>
 
@@ -257,7 +253,11 @@ export default function DetalleTropa() {
                             </div>
                         }  
                     </div>
-                   
+                    {user.isAdmin ? 
+                                    <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
+                                        Eliminar
+                                    </button>
+                                : null}
                 </div>
             
             </div>
