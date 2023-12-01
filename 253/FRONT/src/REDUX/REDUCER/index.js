@@ -5,7 +5,11 @@ const initialState = {
   DetalleTropa: {},
   Salidas: [],
   Productores: [],
-  Lluvias: [],
+  user: {
+    isAuthenticated: false,
+    isAdmin: false,
+    // Otros datos del usuario si es necesario
+  },
 };
 
 function rootReducer(state = initialState, action) {
@@ -100,24 +104,24 @@ function rootReducer(state = initialState, action) {
         Productores: [...state.Productores, action.payload],
       };
 
-    //////   LLUVIAS ///////////
-    case "POST_LLUVIA_SUCCESS":
+    //////   LOGIN   ///////////
+    case "LOGIN_SUCCESS":
       return {
         ...state,
-        Lluvias: [...state.Lluvias, action.payload],
+        user: {
+          isAuthenticated: true,
+          isAdmin: action.payload.isAdmin,
+          // Otros datos del usuario si es necesario
+        },
       };
-    // En tu reducer
-    case "GET_LLUVIAS_SUCCESS":
+    case "LOGIN_FAILURE":
       return {
         ...state,
-        Lluvias: action.payload,
+        user: {
+          isAuthenticated: false,
+          isAdmin: false,
+        },
       };
-
-    case "DELETE_LLUVIA_SUCCESS":
-      const updatedLluvias = state.Lluvias.filter(
-        (lluvia) => lluvia._id !== action.payload
-      );
-      return { ...state, Lluvias: updatedLluvias };
 
     default:
       return {

@@ -42,6 +42,58 @@
     width: auto;
 }
 
+/* Añadido para el modal */
+
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContent {
+    max-width: 400px;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(41, 39, 43);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    position: fixed;
+    padding-top: 70px ;
+}
+
+.modalContent input{
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    
+}
+.boton{
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: red;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
    
@@ -56,3 +108,5 @@
    
   }
   
+
+

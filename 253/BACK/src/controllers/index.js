@@ -4,8 +4,13 @@ const {
   Distribuidor,
   Salida,
   Productor,
-  Lluvia,
+  Usuario,
 } = require("../DB/index.js");
+
+import bcrypt from "bcryptjs";
+import { createAccessToken } from "../libs/jwt.js";
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 const getStock = async (req, res) => {
   try {
@@ -234,6 +239,94 @@ const getProductores = async (req, res) => {
   }
 };
 
+//////////LOGIN//////////////
+
+const signup = async (req, res) => {
+  try {
+    const { usuario, contraseña } = req.body;
+    // Verificar si el usuario ya existe en la base de datos
+    const existingUser = await UserModel.findOne({ usuario });
+    if (existingUser) {
+      return res.status(409).json({ error: "User already exists" });
+    }
+    // hasheamos la contraseña
+    const passwordHash = await bcrypt.hash(contraseña, 10);
+
+    // Sino, crear un nuevo usuario
+    const newUser = new UserModel({
+      usuario,
+      contraseña: passwordHash,
+    });
+
+    // Guardar el usuario en la base de datos
+    const userSaved = await newUser.save();
+
+    //Creamos el token
+    const token = await createAccessToken({ id: userSaved._id });
+
+    //Creamos la cookie
+    res.cookie("token", token, {
+      sameSite: "none",
+      secure: true,
+    });
+
+    res.status(201).json({
+      id: userSaved._id,
+      user: userSaved.user,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const logIn = async (req, res) => {
+  const { usuario, contraseña } = req.body;
+  try {
+    // Verificar si el usuario ya existe en la base de datos
+    const userFound = await UserModel.findOne({ usuario });
+    if (!userFound) {
+      return res.status(400).json({ error: "User not found" });
+    }
+
+    // comparamos las contraseñas
+    const isMatch = await bcrypt.compare(contraseña, userFound.contraseña);
+    if (!isMatch) {
+      return res.status(400).json({ error: "Incorrect contraseña" });
+    }
+
+    //Creamos el token
+    const token = await createAccessToken({ id: userFound._id });
+
+    // Respondemos con el token y los detalles del usuario
+    res.status(201).json({
+      token, // incluimos el token en la respuesta
+      id: userFound._id,
+      user: userFound.user,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const verifyToken = async (req, res) => {
+  const { token } = req.cookies;
+
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
+
+  jwt.verify(token, TOKEN_SECRET, async (err, user) => {
+    if (err) return res.status(401).json({ message: "Unauthorized" });
+    const userFound = await UserModel.findById(user.id);
+
+    if (!userFound) return res.satus(401).json({ message: "Unauthorized" });
+
+    return res.json({
+      id: userFound._id,
+      user: userFound.user,
+      email: userFound.email,
+    });
+  });
+};
+
 module.exports = {
   getStock,
   postMediaRes,
@@ -248,4 +341,7 @@ module.exports = {
   getProductores,
   postProductores,
   putResSalida,
+  logIn,
+  signup,
+  verifyToken,
 };
