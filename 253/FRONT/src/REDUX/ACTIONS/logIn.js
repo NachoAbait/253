@@ -14,7 +14,7 @@ const login = (userData) => async (dispatch) => {
     } else {
       // Otros errores
       // Aquí puedes manejar otros errores de la solicitud.
-      throw new Error("Error: " + error.message);
+      throw new Error("Errorr: " + error.message);
     }
   }
 };
