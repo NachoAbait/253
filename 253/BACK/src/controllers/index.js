@@ -7,7 +7,7 @@ const {
   Usuario,
 } = require("../DB/index.js");
 
-import bcrypt from "bcryptjs";
+const bcrypt = require("bcryptjs") ;
 import { createAccessToken } from "../libs/jwt.js";
 import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
