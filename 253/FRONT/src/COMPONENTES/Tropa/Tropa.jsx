@@ -81,7 +81,7 @@ export default function Tropa() {
       
       <div className={css.divisor}><h3>½ <span className={css.celular}>reses</span></h3> <h5>{tropa.cabezas * 2}</h5></div>
       
-      <div className={`${css.divisor} ${css.celular}`}><h3>Kg totales</h3> <h5>{tropa.kg_totales}</h5></div>
+    { /*<div className={`${css.divisor} ${css.celular}`}><h3>Kg totales</h3> <h5>{tropa.kg_totales}</h5></div>*/ }
      {/* <div className={css.divisor}><h3>Consignatario</h3> <h5>{tropa.consignatario}</h5></div>*/ }
      
       <div className={css.divisor}><h3>Faena</h3> <h5>{tropa.faena}</h5></div>
