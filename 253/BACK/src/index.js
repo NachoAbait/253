@@ -10,7 +10,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 
 const corsOptions = {
-  origin: "https://reparto253.vercel.app/", // update to match the domain you will make the request from
+  origin: "https://reparto253.vercel.app", // update to match the domain you will make the request from
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
