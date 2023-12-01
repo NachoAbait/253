@@ -96,7 +96,7 @@
     background-color: #a09358;  /* Color de fondo del pulgar del scrollbar cuando se pasa el cursor sobre él */
 }
 .main2{
-    background-color:rgba(255, 255, 255, 0.801) ;
+    background-color:rgba(10, 10, 10, 0.801) ;
     border: solid 5px #CBB26A;
     border-radius: 10px;
     grid-area: main2;

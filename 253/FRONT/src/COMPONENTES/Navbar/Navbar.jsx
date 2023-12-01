@@ -11,7 +11,7 @@ export default function Navbar() {
     const [selectedItem, setSelectedItem] = useState(null);
 
     const { signin, user } = useAuth()
-    console.log("user", user)
+    
 
 
     function navigateTo(destination) {

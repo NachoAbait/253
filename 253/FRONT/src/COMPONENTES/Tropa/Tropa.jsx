@@ -6,10 +6,11 @@ import { getTropas } from "../../REDUX/ACTIONS/getTropas";
 import { getProductores } from "../../REDUX/ACTIONS/getProductores"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
-
+import { useAuth } from "../../Context/UserContext";
 
 export default function Tropa() {
     const dispatch = useDispatch();
+    const { user } = useAuth()
 
     useEffect(() => {
         dispatch(getTropas());
@@ -91,7 +92,7 @@ export default function Tropa() {
     </div>
 }
 </div>
-
+                    {user.isAdmin ? 
                     <div className={css.main2}>
                     <div className={css.form}>
                     <h1>Ingresar tropa </h1>
@@ -163,6 +164,13 @@ export default function Tropa() {
 
                 </div>
                     </div>
+                    : null}
+                    
+
+
+
+
+
                 </div>
             
             </div>
