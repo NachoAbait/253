@@ -1,1 +1,1 @@
-export const TOKEN_SECRET = "nachito";
+module.exports.TOKEN_SECRET = "nachito";
