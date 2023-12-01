@@ -23,7 +23,6 @@ export default function Landing() {
    
    
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
       
@@ -41,17 +40,21 @@ export default function Landing() {
         try {
           await signin(userData);
           // El inicio de sesión fue exitoso, puedes redirigir o hacer otras acciones necesarias
-            
-            navigate("/stock")
+          navigate("/stock");
         } catch (error) {
           // Error en el inicio de sesión
           if (error.response && error.response.data && error.response.data.error) {
             // Mensaje de error específico del backend
             alert(error.response.data.error);
           } else {
-            // Mensaje de error genérico
-            console.error("error", error);
-            alert("An error occurred during login. Please try again.");
+            // Mensaje de error genérico o específico
+            console.error(error);
+      
+            if (error.message) {
+              alert(`An error occurred: ${error.message}`);
+            } else {
+              alert("An error occurred during login. Please try again.");
+            }
           }
         }
       };
