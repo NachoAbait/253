@@ -1,6 +1,6 @@
 //Creamos un token
-import jwt from "jsonwebtoken";
-import { TOKEN_SECRET } from "../config.js";
+const jwt = require("jsonwebtoken");
+const { TOKEN_SECRET } = require("../config.js");
 
 export function createAccessToken(payload) {
   return new Promise((resolve, rejected) => {

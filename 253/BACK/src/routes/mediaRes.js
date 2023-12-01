@@ -16,7 +16,7 @@ const {
   putResSalida,
   logIn,
   signup,
-  verifyToken
+  verifyToken,
 } = require("../controllers/index.js");
 
 ////// MEDIA RES ///////////
@@ -49,9 +49,8 @@ router.put("/salidas/:id", putResSalida);
 router.post("/productor", postProductores);
 router.get("/productor", getProductores);
 
-
 ///////// USUARIOS //////////////////
-router.post("/sigup", signup);
+router.post("/signup", signup);
 router.post("/login", logIn);
-router.get("verify", verifyToken)
+router.get("verify", verifyToken);
 module.exports = router;
