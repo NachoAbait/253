@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTropas } from "../../REDUX/ACTIONS/getTropas";
 import { postProductor } from "../../REDUX/ACTIONS/postProductor"
 import {postRes} from "../../REDUX/ACTIONS/postRes"
+import { useAuth } from "../../Context/UserContext";
 
 export default function Ingreso() {
 
