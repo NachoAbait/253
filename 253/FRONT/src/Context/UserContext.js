@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 
 // Crea el contexto de usuario
 export const UserContext = createContext();
-
+let navigate = useNavigate();
 export const useAuth = () => {
-  let navigate = useNavigate();
+  
   const context = useContext(UserContext);
 
   if (!context) {
