@@ -47,7 +47,7 @@ export default function Landing() {
             if (error.message === "Invalid password") {
               alert("Incorrect password. Please try again.");
             } else {
-              alert(`An error occurred: ${error.message}`);
+              alert(`${error.message}`);
             }
           } else {
             // Mensaje de error genérico o específico
