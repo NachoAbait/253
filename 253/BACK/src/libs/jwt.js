@@ -1,8 +1,7 @@
-//Creamos un token
 const jwt = require("jsonwebtoken");
 const { TOKEN_SECRET } = require("../config.js");
 
-export function createAccessToken(payload) {
+function createAccessToken(payload) {
   return new Promise((resolve, rejected) => {
     jwt.sign(
       payload, //(id del usuario)
@@ -17,3 +16,7 @@ export function createAccessToken(payload) {
     );
   });
 }
+
+module.exports = {
+  createAccessToken,
+};

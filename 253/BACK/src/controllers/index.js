@@ -7,10 +7,10 @@ const {
   Usuario,
 } = require("../DB/index.js");
 
-const bcrypt = require("bcryptjs") ;
-const { createAccessToken } = require("../libs/jwt.js") ;
-const jwt=  require("jsonwebtoken") ;
-const { TOKEN_SECRET }=  require("../config.js");
+const bcrypt = require("bcryptjs");
+const { createAccessToken } = require("../libs/jwt.js");
+const jwt = require("jsonwebtoken");
+const { TOKEN_SECRET } = require("../config.js");
 
 const getStock = async (req, res) => {
   try {
@@ -244,6 +244,7 @@ const getProductores = async (req, res) => {
 const signup = async (req, res) => {
   try {
     const { usuario, contraseña } = req.body;
+    console.log("llegue al back", usuario);
     // Verificar si el usuario ya existe en la base de datos
     const existingUser = await UserModel.findOne({ usuario });
     if (existingUser) {
