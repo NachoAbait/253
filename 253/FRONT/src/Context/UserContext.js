@@ -48,7 +48,7 @@ export const UserProvider = ({ children }) => {
       // Error en la creación del usuario
       if (error.message) {
         // Utiliza el mensaje de error lanzado por la acción login
-        alert(error.message);
+        alert(error.message.data);
       } else {
         // Mensaje de error genérico o específico
         console.error(error);
