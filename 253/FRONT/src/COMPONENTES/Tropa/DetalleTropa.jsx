@@ -97,7 +97,7 @@ export default function DetalleTropa() {
                                 </div>
                                 <div className={css.dato}>
                                     <h3>
-                                        1/2
+                                    ½ Reses
                                     </h3>
                                     <h4>
                                         {Tropa.cabezas}
