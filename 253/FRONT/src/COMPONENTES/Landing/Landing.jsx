@@ -20,23 +20,12 @@ export default function Landing() {
         setIsModalOpen(false);
     }
 
-    function navigateToHome() {
-        navigate('/stock');
-    }
-
+   
     function handleLogin() {
         alert(`Usuario: ${username}, Contraseña: ${password}`);
         closeModal();
     }
 
-
-    async function handleLogin() {
-            // Tu lógica de autenticación aquí
-
-            // Si la autenticación es exitosa, redirige a la página deseada
-            closeModal();
-            navigate('/stock'); // Reemplaza '/stock' con la ruta que desees
-        }
 
 
   const handleSubmit = (e) => {

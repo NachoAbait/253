@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import login from "../REDUX/ACTIONS/logIn.js";
 import verifyToken from "../REDUX/ACTIONS/verifyToken.js";
 import createUser from "../REDUX/ACTIONS/signup.js";
+import { useNavigate } from 'react-router-dom';
 
 // Crea el contexto de usuario
 export const UserContext = createContext();
 
 export const useAuth = () => {
+  let navigate = useNavigate();
   const context = useContext(UserContext);
+
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
@@ -43,8 +46,7 @@ export const UserProvider = ({ children }) => {
     await dispatch(login(userData))
       .then((response) => {
         setUser(response);
-        console.log("datauser");
-        console.log(userData);
+        navigate('/stock');
       })
       .catch((error) => {
         // Error en la creación del usuario
