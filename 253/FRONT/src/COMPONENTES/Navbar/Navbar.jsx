@@ -59,8 +59,8 @@ export default function Navbar() {
                 </ul>
             </div>
 
-            {user ? <div>
-                {user.usuario}
+            {user ? <div className={css.user}>
+                Hola, {user.usuario}
             </div>: null}
             
         </div>

@@ -101,6 +101,17 @@
     display: none;
 }
 
+.user{
+    position: relative;
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: xx-large;
+    font-family: revert;
+}
+
 
 /* ////////////////////  CELULAR //////////////////////// */
 @media screen and (max-width: 768px) {
