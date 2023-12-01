@@ -5,9 +5,11 @@ import { getDistribuidores } from "../../REDUX/ACTIONS/getDistribuidores";
 import { putRes } from "../../REDUX/ACTIONS/putRes";
 import { getStock } from "../../REDUX/ACTIONS/getStock.js";
 import { deleteRes } from "../../REDUX/ACTIONS/deleteRes";
+import { useAuth } from "../../Context/UserContext";
 
 export default function SelectedCard({ data, deselectRes }) {
   const dispatch = useDispatch();
+  const { user } = useAuth()
 
   useEffect(() => {
     dispatch(getDistribuidores());
@@ -100,7 +102,8 @@ export default function SelectedCard({ data, deselectRes }) {
             </h5>
           </div>
 </div>
-          <form className={css.form} onSubmit={handleSubmit}>
+        {user.isAdmin ? 
+        <form className={css.form} onSubmit={handleSubmit}>
             <div className={css.salida}>
               <label htmlFor="fecha">Salida</label>
               <input
@@ -138,12 +141,14 @@ export default function SelectedCard({ data, deselectRes }) {
               Marcar salida
             </button>
           </form>
+        : null}
+          
 
           
-        
-        <button className={css.eliminar} onClick={eliminarRes}>
+        { user.isAdmin ? <button className={css.eliminar} onClick={eliminarRes}>
             X
-          </button>
+          </button>: null}
+        
       </div>
     </div>
   );
