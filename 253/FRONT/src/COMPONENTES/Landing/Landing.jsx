@@ -41,13 +41,22 @@ export default function Landing() {
         try {
           await signin(userData);
           // El inicio de sesión fue exitoso, puedes redirigir o hacer otras acciones necesarias
-            alert("Login successful");
-            navigate("/stock")
+          navigate("/stock")
         } catch (error) {
           // Error en el inicio de sesión
           if (error.response && error.response.data && error.response.data.error) {
             // Mensaje de error específico del backend
-            alert(error.response.data.error);
+            const errorMessage = error.response.data.error;
+      
+            // Mostrar un mensaje más específico para el usuario
+            if (errorMessage === "User not found") {
+              alert("User not found. Please check your username.");
+            } else if (errorMessage === "Incorrect contraseña") {
+              alert("Incorrect password. Please check your password.");
+            } else {
+              // Otro mensaje de error específico
+              alert(errorMessage);
+            }
           } else {
             // Mensaje de error genérico
             console.error(error);
