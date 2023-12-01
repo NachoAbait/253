@@ -31,13 +31,14 @@ export default function Navbar() {
 
           
             <div className={css.lista}>
-            <ul>
-                    <li
+                <ul>
+                    { user.isAdmin? <li
                         onClick={() => navigateTo('/ingreso')}
                         className={selectedItem === '/ingreso' ? css.clicked : ''}
                     >
                         Ingreso
-                    </li>
+                    </li>: null}
+                    
                     <li
                         onClick={() => navigateTo('/stock')}
                         className={selectedItem === '/stock' ? css.clicked : ''}
