@@ -24,27 +24,38 @@ export default function Landing() {
    
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const { userName, password } = e.target;
-
-    const userData = {
-      usuario: userName.value,
-      contraseña: password.value
-    };
-
-    if ( userData.usuario === "" || userData.contraseña === "") {
-      return alert("You must complete all fields");
-    }
-
-    signin(userData)
-    .then((response) => alert(response))
-    .catch((error) => {
-        
-        console.error(error);
-    });
-    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+      
+        const { userName, password } = e.target;
+      
+        const userData = {
+          usuario: userName.value,
+          contraseña: password.value
+        };
+      
+        if (userData.usuario === "" || userData.contraseña === "") {
+          return alert("You must complete all fields");
+        }
+      
+        try {
+          await signin(userData);
+          // El inicio de sesión fue exitoso, puedes redirigir o hacer otras acciones necesarias
+            alert("Login successful");
+            navigate("/stock")
+        } catch (error) {
+          // Error en el inicio de sesión
+          if (error.response && error.response.data && error.response.data.error) {
+            // Mensaje de error específico del backend
+            alert(error.response.data.error);
+          } else {
+            // Mensaje de error genérico
+            console.error(error);
+            alert("An error occurred during login. Please try again.");
+          }
+        }
+      };
+      
     
     
 
