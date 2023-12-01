@@ -5,13 +5,13 @@ import { deleteTropa } from "../../REDUX/ACTIONS/deleteTropa";
 import { getDetalleTropa } from "../../REDUX/ACTIONS/getDetalleTropa";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, redirect } from 'react-router-dom';
+import { useAuth } from "../../Context/UserContext";
 
 export default function DetalleTropa() {
     const dispatch = useDispatch();
-
     const { id } = useParams();
-
     const Tropa = useSelector((state) => state.DetalleTropa)
+    const { user } = useAuth()
 
     const gruposDeAnimales = {
           '-90': [],
@@ -138,6 +138,8 @@ export default function DetalleTropa() {
                                         {Tropa.consignatario}
                                     </h4>
                                 </div>
+
+                                {user.isAdmin ? 
                                 <div className={`${css.finanza} ${css.mobile}`}>
                                      <div className={css.dato}>
                                     <h3>
@@ -172,6 +174,8 @@ export default function DetalleTropa() {
                                     </h4>
                                 </div>
                                 </div>
+                                : null}
+                                
                                
                                 <div className={css.animales}>
                                     <div className={css.columna}>
@@ -238,9 +242,12 @@ export default function DetalleTropa() {
                                     </div>
                                 </div>
 
-                                <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
-            Eliminar
-          </button>
+                                {user.isAdmin ? 
+                                    <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
+                                        Eliminar
+                                    </button>
+                                : null}
+                                
                             </div>
 
                             
