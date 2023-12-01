@@ -263,6 +263,7 @@ const signup = async (req, res) => {
     // Guardar el usuario en la base de datos
     const userSaved = await newUser.save();
 
+    console.log("isAdmin", userSaved.isAdmin)
     //Creamos el token
     const token = await createAccessToken({ id: userSaved._id });
 
@@ -274,7 +275,8 @@ const signup = async (req, res) => {
 
     res.status(201).json({
       id: userSaved._id,
-      user: userSaved.user,
+      user: userSaved.usuario,
+      isAdmin: userSaved.isAdmin,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
