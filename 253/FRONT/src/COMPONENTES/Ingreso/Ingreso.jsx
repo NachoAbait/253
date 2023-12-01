@@ -9,6 +9,9 @@ import {postRes} from "../../REDUX/ACTIONS/postRes"
 export default function Ingreso() {
 
     const dispatch = useDispatch();
+    const { signin, user } = useAuth()
+    console.log("user", user)
+
 
     useEffect(() => {
         dispatch(getTropas());
