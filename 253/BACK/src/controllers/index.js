@@ -246,7 +246,7 @@ const signup = async (req, res) => {
     const { usuario, contraseña } = req.body;
     console.log("llegue al back", usuario);
     // Verificar si el usuario ya existe en la base de datos
-    const existingUser = await UserModel.findOne({ usuario });
+    const existingUser = await Usuario.findOne({ usuario });
     if (existingUser) {
       return res.status(409).json({ error: "User already exists" });
     }
@@ -254,7 +254,7 @@ const signup = async (req, res) => {
     const passwordHash = await bcrypt.hash(contraseña, 10);
 
     // Sino, crear un nuevo usuario
-    const newUser = new UserModel({
+    const newUser = new Usuario({
       usuario,
       contraseña: passwordHash,
     });
@@ -284,7 +284,7 @@ const logIn = async (req, res) => {
   const { usuario, contraseña } = req.body;
   try {
     // Verificar si el usuario ya existe en la base de datos
-    const userFound = await UserModel.findOne({ usuario });
+    const userFound = await Usuario.findOne({ usuario });
     if (!userFound) {
       return res.status(400).json({ error: "User not found" });
     }
@@ -316,7 +316,7 @@ const verifyToken = async (req, res) => {
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
     if (err) return res.status(401).json({ message: "Unauthorized" });
-    const userFound = await UserModel.findById(user.id);
+    const userFound = await Usuario.findById(user.id);
 
     if (!userFound) return res.satus(401).json({ message: "Unauthorized" });
 
