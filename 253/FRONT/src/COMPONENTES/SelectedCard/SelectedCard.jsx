@@ -102,7 +102,7 @@ export default function SelectedCard({ data, deselectRes }) {
             </h5>
           </div>
 </div>
-        {user.isAdmin ? 
+        { user && user.isAdmin ? 
         <form className={css.form} onSubmit={handleSubmit}>
             <div className={css.salida}>
               <label htmlFor="fecha">Salida</label>
@@ -145,7 +145,7 @@ export default function SelectedCard({ data, deselectRes }) {
           
 
           
-        { user.isAdmin ? <button className={css.eliminar} onClick={eliminarRes}>
+        { user && user.isAdmin ? <button className={css.eliminar} onClick={eliminarRes}>
             X
           </button>: null}
         

@@ -52,5 +52,5 @@ router.get("/productor", getProductores);
 ///////// USUARIOS //////////////////
 router.post("/signup", signup);
 router.post("/login", logIn);
-router.get("verify", verifyToken);
+router.get("/verify", verifyToken);
 module.exports = router;
