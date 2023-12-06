@@ -318,9 +318,8 @@ const logIn = async (req, res) => {
 };
 
 const verifyToken = async (req, res) => {
-  const  token  = req.params.token;
-  console.log("token", token);
-
+  const token = req.params.token;
+  
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
@@ -329,9 +328,12 @@ const verifyToken = async (req, res) => {
 
     if (!userFound) return res.satus(401).json({ message: "Unauthorized" });
 
+    console.log(userFound);
+
     return res.json({
       id: userFound._id,
       usuario: userFound.usuario,
+      isAdmin: userFound.isAdmin,
     });
   });
 };
