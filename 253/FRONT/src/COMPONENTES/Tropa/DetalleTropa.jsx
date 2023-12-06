@@ -139,7 +139,7 @@ export default function DetalleTropa() {
                                     </h4>
                                 </div>
 
-                                {user.isAdmin ? 
+                                {user && user.isAdmin ? 
                                 <div className={`${css.finanza} ${css.mobile}`}>
                                      <div className={css.dato}>
                                     <h3>
