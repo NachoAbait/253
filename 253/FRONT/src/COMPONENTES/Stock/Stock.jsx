@@ -34,6 +34,7 @@ export default function Stock() {
     setSelectedCard(null);
   };
 
+  
   const handleCardClick = (cardData) => {
     if (isSelectionMode) {
       // Si estamos en modo selección, agrega o quita la res del array de seleccionadas
@@ -66,7 +67,9 @@ export default function Stock() {
     setSelectedReses([]);
   };
 
-  console.log("Seleccion", selectedReses)
+const deselectedReses = () => {
+    setSelectedReses([])
+  }
 
   
   function applyFilter(filterName) {
@@ -208,7 +211,7 @@ export default function Stock() {
   {isSelectionMode && selectedReses.length > 0 ? (
     <SelectedReses selectedReses={selectedReses} />
   ) : (
-    selectedCard && <SelectedCard data={selectedCard} deselectRes={deselectRes} />
+    selectedCard && <SelectedCard data={selectedCard} deselectRes={deselectedReses} />
   )}
 </div>
       </div>
