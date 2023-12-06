@@ -30,7 +30,7 @@ export default function Navbar() {
           
             <div className={css.lista}>
                 <ul>
-                    { user.isAdmin? <li
+                    {user &&  user.isAdmin? <li
                         onClick={() => navigateTo('/ingreso')}
                         className={selectedItem === '/ingreso' ? css.clicked : ''}
                     >

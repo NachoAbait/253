@@ -8,7 +8,7 @@ import { store } from "./REDUX/STORE/index.js";
 import { UserProvider } from "../src/Context/UserContext.js";
 import axios from "axios";
 
-//axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "http://localhost:3001/";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "https://253-production.up.railway.app/";
