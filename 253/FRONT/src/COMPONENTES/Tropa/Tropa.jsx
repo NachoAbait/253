@@ -95,7 +95,7 @@ export default function Tropa() {
     </div>
 }
 </div>
-                    {user.isAdmin ? 
+                    {user && user.isAdmin ? 
                     <div className={css.main2}>
                     <div className={css.form}>
                     <h1>Ingresar tropa </h1>
