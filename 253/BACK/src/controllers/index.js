@@ -53,7 +53,7 @@ const deleteMediaRes = async (req, res) => {
 };
 
 const putMediaRes = async (req, res) => {
-  const ids = req.params.ids.split(","); // Obtiene un array de IDs desde la URL
+  const ids = req.params.id.split(","); // Obtiene un array de IDs desde la URL
   const { fecha, distribuidorId } = req.body; // Datos del formulario de salida
 
   try {
