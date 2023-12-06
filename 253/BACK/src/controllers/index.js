@@ -59,7 +59,7 @@ const putMediaRes = async (req, res) => {
   try {
     // Encuentra las 'res' por IDs y actualiza el estado
     const resesToUpdate = await MediaRes.find({ _id: { $in: ids } });
-    
+
     if (!resesToUpdate || resesToUpdate.length === 0) {
       return res.status(404).json({ message: "Res no encontrada" });
     }
@@ -99,7 +99,6 @@ const putMediaRes = async (req, res) => {
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };
-
 
 const putResSalida = async (req, res) => {
   const id = req.params.id; // Obtiene el ID desde la URL
@@ -319,7 +318,8 @@ const logIn = async (req, res) => {
 };
 
 const verifyToken = async (req, res) => {
-  const { token } = req.cookies;
+  const token = localStorage.getItem("token");
+  console.log("token", token);
 
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
