@@ -318,7 +318,7 @@ const logIn = async (req, res) => {
 };
 
 const verifyToken = async (req, res) => {
-  const token = localStorage.getItem("token");
+  const { token } = req.body;
   console.log("token", token);
 
   if (!token) return res.status(401).json({ message: "Unauthorized" });
