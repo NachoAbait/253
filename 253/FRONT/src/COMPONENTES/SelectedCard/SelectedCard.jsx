@@ -22,7 +22,7 @@ export default function SelectedCard({ data, deselectRes }) {
     fecha: null, // Nuevo campo para la fecha de salida
     distribuidor: "", // Nuevo campo para el distribuidor
   });
-  console.log("hola", formData)
+  
   
   const handleSubmit = async (e) => {
     e.preventDefault();

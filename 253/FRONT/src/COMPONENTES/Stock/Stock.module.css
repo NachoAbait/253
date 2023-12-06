@@ -149,7 +149,32 @@
     100%{transform: rotate(1turn)}
   }
 
-
+  .btnSeleccion {
+    /* Agrega los estilos que quieras para el botón */
+    border: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: medium;
+    flex-wrap: wrap;
+    width: 100px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el botón cuando está activado */
+  .buttonActive {
+    background-color: red;
+    color: white;
+  }
+  
+  /* Estilos para el botón cuando está desactivado */
+  .buttonInactive {
+    background-color: #555;
+    color: clack;
+    background-color: #4ca0af;
+  }
 
 
 

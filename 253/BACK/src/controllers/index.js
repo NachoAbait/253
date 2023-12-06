@@ -97,40 +97,43 @@ const putMediaRes = async (req, res) => {
 };
 
 const putResSalida = async (req, res) => {
-  const id = req.params.id; // Obtiene el ID desde la URL
+  const ids = req.params.ids.split(","); // Obtiene un array de IDs desde la URL
   const { fecha, distribuidorId } = req.body; // Datos del formulario de salida
 
   try {
-    // Encuentra la 'res' por ID y actualiza el estado
-    const updatedRes = await MediaRes.findByIdAndUpdate(
-      id,
-      { estado: "camara" }, // Cambia el estado a "camara"
-      { new: true } // Esta opción retorna el documento modificado
+    // Encuentra las 'res' por IDs y actualiza el estado
+    const updatedRes = await MediaRes.updateMany(
+      { _id: { $in: ids } },
+      { estado: "camara" },
+      { new: true }
     );
 
-    // Si no se encuentra la 'res' con ese ID, se envía un error 404
-    if (!updatedRes) {
+    // Si no se encuentra ninguna 'res' con esos IDs, se envía un error 404
+    if (!updatedRes || updatedRes.nModified === 0) {
       return res.status(404).json({ message: "Res no encontrada" });
     }
 
-    // Busca y actualiza la 'salida' para eliminar la res del array "animales"
+    // Busca y actualiza la 'salida' para eliminar las reses del array "animales"
     const salidaExistente = await Salida.findOne({
       fecha: fecha,
       distribuidor: distribuidorId,
     });
 
     if (salidaExistente) {
-      // Encuentra la posición de la res en el array "animales" y elimínala
-      const index = salidaExistente.animales.indexOf(updatedRes._id);
-      if (index !== -1) {
-        salidaExistente.animales.splice(index, 1);
-        await salidaExistente.save();
-      }
+      // Encuentra las posiciones de las reses en el array "animales" y elimínalas
+      ids.forEach(async (id) => {
+        const index = salidaExistente.animales.indexOf(id);
+        if (index !== -1) {
+          salidaExistente.animales.splice(index, 1);
+        }
+      });
+
+      await salidaExistente.save();
     }
 
-    res.status(200).json(updatedRes);
+    res.status(200).json({ message: "Res actualizada exitosamente" });
   } catch (error) {
-    console.error("Error al actualizar la res:", error.message);
+    console.error("Error al actualizar las reses:", error.message);
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };

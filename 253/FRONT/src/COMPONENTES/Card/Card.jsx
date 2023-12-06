@@ -2,7 +2,7 @@ import React from "react";
 import css from "./Card.module.css"
 
 export default function Card({ tropa, categoria, peso, observaciones, onClick, isSelected }) {
-    console.log(tropa)
+    
     return (
         <div>
             <div className={css.card} onClick={onClick}>
