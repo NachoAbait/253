@@ -17,8 +17,12 @@ export default function Tropa() {
     useEffect(() => {
         dispatch(getTropas());
         dispatch(getProductores())
-        setIsAdmin(user.isAdmin || false);
-    }, [dispatch, user.isAdmin]);
+        if (user && user.isAdmin) {
+            setIsAdmin(true);
+          } else {
+            setIsAdmin(false);
+          }
+    }, [dispatch, user]);
 
     const Tropas = useSelector((state) => state.Tropas)
     const Productores = useSelector((state) => state.Productores); // Obtener la lista de productores
