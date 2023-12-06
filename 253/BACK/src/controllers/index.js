@@ -58,16 +58,18 @@ const putMediaRes = async (req, res) => {
 
   try {
     // Encuentra las 'res' por IDs y actualiza el estado
+    const resesToUpdate = await MediaRes.find({ _id: { $in: ids } });
+    
+    if (!resesToUpdate || resesToUpdate.length === 0) {
+      return res.status(404).json({ message: "Res no encontrada" });
+    }
+
+    // Actualiza el estado de las reses encontradas
     const updatedRes = await MediaRes.updateMany(
       { _id: { $in: ids } },
       { estado: "despachada" },
       { new: true }
     );
-
-    // Si no se encuentra ninguna 'res' con esos IDs, se envía un error 404
-    if (!updatedRes || updatedRes.nModified === 0) {
-      return res.status(404).json({ message: "Res no encontrada" });
-    }
 
     // Ahora, registra la salida con fecha y distribuidor
     const salidaExistente = await Salida.findOne({
@@ -77,7 +79,7 @@ const putMediaRes = async (req, res) => {
 
     if (salidaExistente) {
       // Si la salida existe, agrega los IDs de las media res a la propiedad 'animales'
-      updatedRes.forEach((res) => {
+      resesToUpdate.forEach((res) => {
         salidaExistente.animales.push(res._id);
       });
       await salidaExistente.save();
@@ -86,7 +88,7 @@ const putMediaRes = async (req, res) => {
       const nuevaSalida = new Salida({
         fecha: fecha,
         distribuidor: distribuidorId,
-        animales: updatedRes.map((res) => res._id),
+        animales: resesToUpdate.map((res) => res._id),
       });
       await nuevaSalida.save();
     }
@@ -97,6 +99,7 @@ const putMediaRes = async (req, res) => {
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };
+
 
 const putResSalida = async (req, res) => {
   const id = req.params.id; // Obtiene el ID desde la URL
