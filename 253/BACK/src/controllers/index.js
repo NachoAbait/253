@@ -138,6 +138,7 @@ const putResSalida = async (req, res) => {
   }
 };
 
+
 /////// TROPA ////////////////
 
 const getTropa = async (req, res) => {

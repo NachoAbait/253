@@ -12,6 +12,7 @@ export function putRes(resIds, fecha, distribuidorId) {
         distribuidorId: distribuidorId,
       };
 
+      // Utiliza join para formatear el array como una cadena de texto
       const response = await axios.put(`/res/${resIds.join(',')}`, salidaData);
       const updatedRes = response.data;
 
