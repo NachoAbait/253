@@ -209,9 +209,9 @@ const deselectedReses = () => {
 
         <div className={css.main2}>
   {isSelectionMode && selectedReses.length > 0 ? (
-    <SelectedReses selectedReses={selectedReses} />
+    <SelectedReses selectedReses={selectedReses} deselectRes={deselectedReses} />
   ) : (
-    selectedCard && <SelectedCard data={selectedCard} />
+    selectedCard && <SelectedCard data={selectedCard} deselectRes={deselectRes} />
   )}
 </div>
       </div>

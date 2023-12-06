@@ -8,7 +8,7 @@ import { putRes } from "../../REDUX/ACTIONS/putRes";
 import { getStock } from "../../REDUX/ACTIONS/getStock.js";
 
 
-export default function SelectedReses({ selectedReses  }) {
+export default function SelectedReses({ selectedReses, deselectRes }) {
   const dispatch = useDispatch();
   const { user } = useAuth()
 
@@ -42,7 +42,7 @@ export default function SelectedReses({ selectedReses  }) {
       await dispatch(putRes(resIds, formData.fecha, formData.distribuidor));
       dispatch(getStock());
       alert("Se despacharon las reses seleccionadas");
-      
+      deselectRes()
       setFormData({
         fecha: "",
         distribuidor: "",
