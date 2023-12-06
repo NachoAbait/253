@@ -211,7 +211,7 @@ const deselectedReses = () => {
   {isSelectionMode && selectedReses.length > 0 ? (
     <SelectedReses selectedReses={selectedReses} />
   ) : (
-    selectedCard && <SelectedCard data={selectedCard} deselectRes={deselectedReses} />
+    selectedCard && <SelectedCard data={selectedCard} />
   )}
 </div>
       </div>
