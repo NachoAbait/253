@@ -24,39 +24,51 @@ export default function Ingreso() {
     const [formData, setFormData] = useState({
         tropa: '',
         categoria: '',
-        peso: '',
+        kilos: [],  // Nuevo campo para manejar los kilos de todas las reses
         observaciones: ''
     });
+    
+    
     console.log(formData)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+        
+        if (name === 'kilos') {
+            // Dividir la entrada por comas y convertirla en un array de números
+            const kilosArray = value.split(',').map(kilo => kilo.trim());
+            setFormData(prevState => ({
+                ...prevState,
+                kilos: kilosArray
+            }));
+        } else {
+            setFormData(prevState => ({
+                ...prevState,
+                [name]: value.trim()
+            }));
+        }
     };
+    
     
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+    
         try {
-            await dispatch(postRes(formData)); // Asumiendo que postRes es una oper ación asíncrona
-            alert(`Se agrego una nueva res a la tropa ${formData.tropa}`);
+            await dispatch(postRes(formData)); // Asumiendo que postRes es una operación asíncrona
+            alert(`Se agregaron las reses a la tropa ${formData.tropa}`);
             setFormData({
                 tropa: '',
                 categoria: '',
-                peso: '',
+                kilos: [],
                 observaciones: ''
             });
         } catch (error) {
-            // Puedes mostrar un mensaje al usuario aquí, por  ejemplo:
-            alert('Ocurrió un error al agregar la res. Por favor, verifica los datos y vuelve a intentarlo.');
-            // También puedes, por ejemplo, guardar el error en el estado para mostrarlo en la interfaz de usuario.
-            console.error("Error al agregar la res:", error); // Esto es útil para debugging
+            alert('Ocurrió un error al agregar las reses. Por favor, verifica los datos y vuelve a intentarlo.');
+            console.error("Error al agregar las reses:", error);
         }
-    }
+    };
+    
     
 
     //////////////// form productor////////////////////
@@ -123,9 +135,16 @@ export default function Ingreso() {
                         </div>
 
                         <div className={css.input}>
-                            <label for="peso">Kg</label>
-                            <input type="number" name="peso" id="peso" value={formData.peso}  placeholder="****" onChange={handleChange}/>
-                        </div>
+    <label htmlFor="kilos">Kilos </label>
+    <input
+        type="text"
+        id="kilos"
+        name="kilos"
+        value={formData.kilos.join(',')}
+        placeholder="Ejemplo: 100,150,80"
+        onChange={handleChange}
+    />
+</div>
 
                     
                         

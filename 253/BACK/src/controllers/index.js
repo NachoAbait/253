@@ -25,19 +25,33 @@ const getStock = async (req, res) => {
 
 const postMediaRes = async (req, res) => {
   try {
-    const newMediaRes = new MediaRes(req.body);
-    await newMediaRes.save();
+    const { tropa, categoria, kilos, observaciones } = req.body;
 
-    // Aquí, después de guardar la nueva mediaRes, actualiza la tropa correspondiente
-    const tropa = await Tropa.findById(req.body.tropa); // suponiendo que Tropa es el modelo correspondiente a tropaSchema
-    if (tropa) {
-      tropa.animales.push(newMediaRes._id);
-      await tropa.save();
+    // Itera sobre el array de kilos y crea una nueva instancia de MediaRes para cada uno
+    const nuevasReses = [];
+    for (const kilo of kilos) {
+      const nuevaRes = new MediaRes({
+        tropa,
+        categoria,
+        peso: kilo,
+        observaciones,
+      });
+      await nuevaRes.save();
+      nuevasReses.push(nuevaRes);
     }
 
-    res.status(201).json(newMediaRes);
+    // Actualiza la tropa correspondiente con los nuevos IDs de las reses
+    const tropaActualizada = await Tropa.findById(tropa);
+    if (tropaActualizada) {
+      tropaActualizada.animales = tropaActualizada.animales.concat(
+        nuevasReses.map((res) => res._id)
+      );
+      await tropaActualizada.save();
+    }
+
+    res.status(201).json(nuevasReses);
   } catch (error) {
-    res.status(400).json({ message: "Error al agregar media res", error });
+    res.status(400).json({ message: "Error al agregar las reses", error });
   }
 };
 
@@ -319,7 +333,7 @@ const logIn = async (req, res) => {
 
 const verifyToken = async (req, res) => {
   const token = req.params.token;
-  
+
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
