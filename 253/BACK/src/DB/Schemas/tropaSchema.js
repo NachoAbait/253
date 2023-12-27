@@ -3,8 +3,8 @@ const { Schema } = require("mongoose");
 const tropaSchema = new Schema({
   numero: { type: Number, required: true },
   productor: String,
-  cabezas: { type: Number, required: true },
-  kg_totales: { type: Number, required: true, min: 0 },
+  cabezas: { type: Number },
+  kg_totales: { type: Number },
   consignatario: String,
   fecha_ingreso: { type: Date, required: true },
   faena: { type: String, enum: ["Parcial", "Total"], required: true },
