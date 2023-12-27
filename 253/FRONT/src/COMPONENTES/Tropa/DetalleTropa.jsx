@@ -100,7 +100,7 @@ export default function DetalleTropa() {
                                     ½ Reses
                                     </h3>
                                     <h4>
-                                        {Tropa.cabezas}
+                                        {Tropa.animales.length}
                                     </h4>
                                 </div>
                                 <div className={css.dato}>

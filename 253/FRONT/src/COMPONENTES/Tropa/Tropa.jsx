@@ -89,10 +89,12 @@ export default function Tropa() {
                                     <div className={`${css.divisor} ${css.celular}`}><h3>Número</h3>
                                         <h5>{tropa.numero}</h5>
                                     </div>
-      
-                                    <div className={css.divisor}><h3>½ <span className={css.celular}>reses</span></h3>
-                                        <h5>{tropa.cabezas}</h5>
+                                    { /*
+                                     <div className={css.divisor}><h3>½ <span className={css.celular}>reses</span></h3>
+                                        <h5>{tropa.animales.length - 1}</h5>
                                     </div>
+                        */}
+                                   
       
     { /*<div className={`${css.divisor} ${css.celular}`}><h3>Kg totales</h3> <h5>{tropa.kg_totales}</h5></div>*/ }
      {/* <div className={css.divisor}><h3>Consignatario</h3> <h5>{tropa.consignatario}</h5></div>*/ }
@@ -131,7 +133,8 @@ export default function Tropa() {
 <div className={css.input}>
         <label htmlFor="ingreso">Ingreso</label>
         <input type="date" name="fecha_ingreso" value={formData.fecha_ingreso || ''} id="ingreso" onChange={handleChange} />
-    </div>
+    </div> 
+    {/*
     <div className={css.input}>
         <label htmlFor="Cabezas">1/2</label>
         <input type="number" name="cabezas" id="Cabezas" value={formData.cabezas || ''} placeholder="*****" onChange={handleChange} />
@@ -142,7 +145,7 @@ export default function Tropa() {
         <input type="number" name="kg_totales" id="Kg"  value={formData.kg_totales || ''} placeholder="Kg totales" onChange={handleChange} />
     </div>
                                 
-    {/*
+   
     <div className={css.input}>
             <label htmlFor="consignatario">Consignatario</label>
             <input type="text" name="consignatario" value={formData.consignatario || ''} placeholder="Consignatario" onChange={handleChange} />
@@ -160,7 +163,7 @@ export default function Tropa() {
 
 
 
-     */}
+     
     
     <div className={css.input}>
         <label htmlFor="faena">Tipo faena</label>
@@ -170,7 +173,7 @@ export default function Tropa() {
             <option value="Total"> Total</option>
         </select>
     </div>
-
+*/}
    
 
     <button type="submit" className={css.btn}> Añadir </button>

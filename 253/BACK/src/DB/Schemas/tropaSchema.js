@@ -7,7 +7,7 @@ const tropaSchema = new Schema({
   kg_totales: { type: Number },
   consignatario: String,
   fecha_ingreso: { type: Date, required: true },
-  faena: { type: String, enum: ["Parcial", "Total"], required: true },
+  faena: { type: String, enum: ["Parcial", "Total"]},
   precio_compra: { type: Number, min: 0 },
   precio_venta: { type: Number, min: 0 },
   precio_faena: { type: Number, min: 0 },
