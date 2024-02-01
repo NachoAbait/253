@@ -12,7 +12,7 @@
 
 
 .main{
-    background-color:white ;
+    background-color:rgba(255, 255, 255, 0.563) ;
     border: solid 5px #CBB26A;
     border-radius: 10px;
     height: 98%;
@@ -46,7 +46,7 @@
 
 
 .main2{
-    background-color:white;
+    background-color:black;
     border: solid 5px #CBB26A;
     border-radius: 10px;
     grid-area: main2;
@@ -94,13 +94,14 @@
     padding: 10px;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(41, 39, 43);
+    background-color: rgba(0, 0, 0, 0.838);
 }
 
 .salidaDiv:hover {
     transform: scale(1.02); /* Aumenta el tamaño un 5% */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.471); /* Añade una sombra para la ilusión de elevación */
     transition: ease .5s;
+    border: solid #CBB26A ;
 }
 
 
@@ -123,7 +124,7 @@
 
 .animalesSalida{
     width: 22%;
-    border: solid black 3px;
+    border: solid  #CBB26A 3px;
     margin: 5px;
     cursor: pointer;
     display: flex;
@@ -138,7 +139,7 @@
     width: 100%;
 }
 .tropa{
-    background-color:rgba(41, 39, 43, 0.745) ;
+    background-color:rgba(93, 92, 95, 0.889) ;
     color: white;
     width: 100%;
     font-size: small;
@@ -147,7 +148,7 @@
 }
 
 .selected{
-    background-color: #CBB26A;
+    background-color: #cbb36ad2;
 }
 .selected h3{
     color: black !important;

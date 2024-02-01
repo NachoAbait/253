@@ -120,62 +120,7 @@ export default function DetalleTropa() {
                                     </h4>
                                 </div>
                                 
-                                
-                                <div className={css.dato}>
-                                    <h3>
-                                        Faena
-                                    </h3>
-                                    <h4>
-                                        {Tropa.faena}
-                                    </h4>
-                                </div>
-                               
-                               <div className={css.dato}>
-                                    <h3>
-                                        Consignatario
-                                    </h3>
-                                    <h4>
-                                        {Tropa.consignatario}
-                                    </h4>
-                                </div>
-
-                                {user && user.isAdmin ? 
-                                <div className={`${css.finanza} ${css.mobile}`}>
-                                     <div className={css.dato}>
-                                    <h3>
-                                        Precio compra
-                                    </h3>
-                                    <h4 className={css.gasto}>
-                                        ${Tropa.precio_compra}
-                                    </h4>
-                                </div>
-                                <div className={css.dato}>
-                                    <h3 >
-                                        Recupero
-                                    </h3>
-                                    <h4 className={css.gasto}>
-                                        ${Tropa.recupero? Tropa.recupero : ""}
-                                    </h4>
-                                </div>
-                                <div className={css.dato}>
-                                    <h3>
-                                        Precio venta
-                                    </h3>
-                                    <h4>
-                                        ${Tropa.precio_venta}
-                                    </h4>
-                                </div>
-                                <div className={css.dato}>
-                                    <h3>
-                                        Diferencia
-                                    </h3>
-                                    <h4 className={css.profit}>
-                                            ${Tropa.precio_venta - Tropa.precio_compra} / ${Tropa.kg_totales * Tropa.precio_venta - Tropa.precio_compra }
-                                    </h4>
-                                </div>
-                                </div>
-                                : null}
-                                
+                            
                                
                                 <div className={css.animales}>
                                     <div className={css.columna}>
@@ -242,7 +187,11 @@ export default function DetalleTropa() {
                                     </div>
                                 </div>
 
-                               
+                               {user.isAdmin ? 
+                                    <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
+                                        Eliminar
+                                    </button>
+                                : null}
                                 
                             </div>
 
@@ -253,11 +202,7 @@ export default function DetalleTropa() {
                             </div>
                         }  
                     </div>
-                    {user.isAdmin ? 
-                                    <button className={`${css.eliminar} ${css.mobile}`} onClick={eliminarTropa}>
-                                        Eliminar
-                                    </button>
-                                : null}
+                    
                 </div>
             
             </div>

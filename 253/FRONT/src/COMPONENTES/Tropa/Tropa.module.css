@@ -24,7 +24,7 @@
 
 
 .main{
-    background-color:white;
+    background-color:rgb(182, 175, 175);
     border: solid 5px #CBB26A;
     border-radius: 10px;
     height: 98%;
@@ -57,7 +57,7 @@
 }
 
 .main2{
-    background-color:rgba(38, 38, 36, 0.645) ;
+    background-color:black ;
     border: solid 5px #CBB26A;
     border-radius: 10px;
     grid-area: main2;
@@ -121,7 +121,7 @@ select{
     padding: 10px;
     align-items: center;
     justify-content: space-around;
-    background-color:  rgb(41, 39, 43);
+    background-color:  rgba(0, 0, 0, 0.838);;
     border-radius: 10px;
     color: white;
     
