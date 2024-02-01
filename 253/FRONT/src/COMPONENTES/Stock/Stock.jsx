@@ -7,10 +7,12 @@ import { getStock } from "../../REDUX/ACTIONS/getStock.js";
 import SelectedCard from "../SelectedCard/SelectedCard";
 import { getDistribuidores } from "../../REDUX/ACTIONS/getDistribuidores";
 import SelectedReses from "../SelectedReses/SelectedReses.jsx";
+import { useAuth } from "../../Context/UserContext";
+
 
 export default function Stock() {
   const dispatch = useDispatch();
-
+  const { user } = useAuth()
   const rawStock = useSelector((state) => state.Stock);
 
   const Stock = useMemo(() => {
@@ -136,9 +138,13 @@ const deselectedReses = () => {
             <li className={selectedFilter === "+120" ? css.filtroSelected : ""} onClick={() => handleFilter("+120")}>
               +120
             </li>
+            { user && user.isAdmin ? 
             <button className={`${css.btnSeleccion} ${isSelectionMode ? css.buttonActive : css.buttonInactive}`} onClick={toggleSelectionMode}>
   {isSelectionMode ? "Desactivar Selección" : "Activar Selección"}
-</button>
+            </button> : null
+            }
+            
+            
           </ul>
         </div>
         <div className={css.main}>
