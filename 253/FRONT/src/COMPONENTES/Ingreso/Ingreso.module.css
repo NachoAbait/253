@@ -76,7 +76,7 @@ input{
     .container {
       flex-direction: column; /* Cambiar a disposición en columna */
       align-items: center; /* Centrar verticalmente */
-      height: calc(100vh - 120px);
+      height: calc(100vh - 140px);
       padding: 10px; /* Agregar espacio entre elementos */
     }
   
