@@ -76,7 +76,7 @@ input{
     .container {
       flex-direction: column; /* Cambiar a disposición en columna */
       align-items: center; /* Centrar verticalmente */
-      height: auto; /* Eliminar la altura fija */
+      height: calc(100vh - 120px);
       padding: 10px; /* Agregar espacio entre elementos */
     }
   
@@ -87,24 +87,27 @@ input{
   
     .form h1 {
       margin: 10px 0; /* Reducir el espacio superior e inferior del título */
-      font-size: x-large;
+      font-size: large;
     }
   
     .form label{
-      font-size: large;
+      font-size: medium;
+      margin: 0px;
     }
 
     .form option{
       font-size: medium !important;
+      width: 70%;
+      margin: 0px;
     }
     input, select {
-      width: 50%; /* Ocupa el ancho completo disponible */
+      width: 50% !important; /* Ocupa el ancho completo disponible */
       font-size: small !important;
-
+      margin: 0px;
     }
     
     .input {
-      margin: 20px 0; /* Reducir el espacio superior e inferior de los elementos de entrada */
+      margin: 10px 0; /* Reducir el espacio superior e inferior de los elementos de entrada */
     }
 
     .btn{

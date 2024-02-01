@@ -172,14 +172,14 @@
     .main {
       width: 100%; /* Ocupa el 80% del ancho disponible */
       margin: 10px auto; /* Centrar horizontalmente */
-      height: 250px;
+      height: 350px;
       padding: 3px;
     }
   
     .main2 {
       width: 100%; /* Ocupa el 80% del ancho disponible */
       margin: 10px auto; /* Centrar horizontalmente */
-      height: 250px;
+      height: 260px;
       display: flex;
       overflow-y: scroll;
     }
@@ -212,6 +212,21 @@
     }
     .selected h3{
         color: black !important;
+    }
+    .animalesSalida{
+        width: 17%;
+        border: solid  white 1px;
+        margin: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .peso{
+
+    }
+
+    .tropa{
+        display: none;
     }
   }
   

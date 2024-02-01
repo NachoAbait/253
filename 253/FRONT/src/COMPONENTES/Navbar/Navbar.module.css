@@ -175,5 +175,17 @@
         height: 40%;
         margin-top: 10px;
       }
+      .user{
+        position: absolute;
+        display: flex;
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: large;
+        font-family: revert;
+        right: 0px;
+        top: 20px;
+    }
     
   }

@@ -120,22 +120,31 @@
     .card{
         display: flex;
         position: relative;
+        justify-content: center;
+        height: 70%;
+        width: 100%;
+        background-color: rgba(33, 33, 33, 0.46);
+        
+        padding: 10px;
     }
    .data1{
-    width: 25%;
+    width: 20%;
     display: flex;
     flex-wrap: wrap;
     height: 90px;
+    
    }
    .icono{
     width: 100%;
     border-bottom: solid black 5px;
     height: 50%;
+    font-size: x-large;
    }
    .peso{
     width: 100%;
     border-right: solid black 5px;
     height: 50%;
+    font-size: x-large;
    }
 
    .data2 h4{
@@ -153,7 +162,7 @@
     }
 
     .data2{
-        width: 75%;
+        width: 70%;
         height: 90px;
         margin: 0px;
         display: flex;
@@ -170,9 +179,7 @@
     display: none;
 }
 .form{
-    background-color: black;
-    margin: 0px;
-    padding: 0px;
+    display: none;
 }
 .form select{
     height: 20px;
@@ -189,6 +196,9 @@
 }
 .eliminar{
     font-size: small;
+    position: absolute;
+    top: -30px;
+    right: 10px;
 }
 
 }
