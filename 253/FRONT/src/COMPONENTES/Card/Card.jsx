@@ -15,18 +15,18 @@ export default function Card({ tropa, categoria, peso, observaciones, onClick, i
                     </div>
                 </div>
 
-                <div className={`${css.data2} ${css.responsive} ${isSelected? css.selected : ""}`}>
-                    <h4>
+                <div className={`${css.data2}  ${isSelected? css.selected : ""}`}>
+                    <h4 className={css.responsive}>
                         Productor
                     </h4>
                     <h5>
                         {tropa ? tropa.productor : "---"}
                     </h5>
-                   
-                </div>
-                { observaciones ? <div className={css.alert}>
+                </div >
+
+                { observaciones ? <div className={`${css.alert} ${css.responsive}`}>
                     ⚠
-                </div>: null}
+                </div> : null}
                 
 
                 

@@ -105,7 +105,7 @@ export default function DetalleTropa() {
                                 </div>
                                 <div className={css.dato}>
                                     <h3>
-                                        Fecha ingreso
+                                   Ingreso
                                     </h3>
                                     <h4>
                                         { new Date(Tropa.fecha_ingreso).toLocaleDateString() }

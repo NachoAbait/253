@@ -189,15 +189,26 @@ select{
       grid-template-areas: 
         "main"
         "main2"; /* Definir las áreas para main y main2 */
-        height: calc(100vh - 140px);
-
+    height: calc(100vh - 120px)
     }
-  
+
+   
+    .nonAdminContainer {
+        position: relative;
+        background-color: rgb(41, 39, 43);
+        display: grid;
+        grid-template-columns: 95%;
+        grid-template-areas: "main";
+        height: calc(100vh - 120px);
+        place-content: center;
+        
+     }
+
     .main {
       width: 100%; /* Ocupa el 80% del ancho disponible */
       margin: 10px auto; /* Centrar horizontalmente */
-      height: 400px;
-      padding: 0%;
+      height: 600px;
+      padding: 1%;
     }
   
     .main2 {

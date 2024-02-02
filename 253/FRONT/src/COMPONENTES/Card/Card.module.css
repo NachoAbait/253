@@ -13,6 +13,9 @@
     display: flex;
 }
 
+.data2{
+    overflow-x: hidden;
+}
 
 .data2 h5{
     color: white;

@@ -11,12 +11,16 @@ import { useAuth } from "../../Context/UserContext";
 export default function Tropa() {
     const dispatch = useDispatch();
     const [isAdmin, setIsAdmin] = useState(false);
-
+    const [isMobile, setIsMobile] = useState(false); // Nueva variable de estado
     const { user } = useAuth()
 
     useEffect(() => {
         dispatch(getTropas());
         dispatch(getProductores())
+
+        const isMobileDevice = window.innerWidth <= 768;
+        setIsMobile(isMobileDevice);
+
         if (user && user.isAdmin) {
             setIsAdmin(true);
           } else {
@@ -71,10 +75,8 @@ export default function Tropa() {
                 <Navbar></Navbar>
             
                 <div className={`${isAdmin ? css.container : css.nonAdminContainer}`}>
-                    <div className={css.filtros}>
-
-                    </div>
-                    <div className={css.main}>
+                    
+                    <div className={`${css.main} ${isMobile && !isAdmin ? css.responsive : ""}`}>
                         {sortedTropas.length ? sortedTropas.map(tropa => (
        <Link to={`/tropas/${tropa._id}`} key={tropa._id} className={css.link}>
       <div key={tropa._id} className={css.tropaDiv}>
