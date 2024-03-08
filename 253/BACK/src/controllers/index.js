@@ -58,7 +58,27 @@ const postMediaRes = async (req, res) => {
 const deleteMediaRes = async (req, res) => {
   try {
     const mediaResId = req.params.id; // Asumiendo que el id se envía como parámetro en la URL
-    await MediaRes.findByIdAndDelete(mediaResId);
+
+    // Encuentra la media res por su ID y elimínala del stock general
+    const deletedMediaRes = await MediaRes.findByIdAndDelete(mediaResId);
+
+    if (!deletedMediaRes) {
+      // Si la media res no se encuentra, devuelve un mensaje de error
+      return res.status(404).json({ message: "Media res no encontrada" });
+    }
+
+    // Busca la tropa a la que pertenece la media res eliminada
+    const tropaId = deletedMediaRes.tropa; // Asumiendo que el ID de la tropa está almacenado en el atributo 'tropa' de la media res
+    const tropa = await Tropa.findById(tropaId);
+
+    if (!tropa) {
+      // Si la tropa no se encuentra, devuelve un mensaje de error
+      return res.status(404).json({ message: "Tropa no encontrada" });
+    }
+
+    // Elimina la media res de la lista de reses de la tropa
+    tropa.animales.pull(mediaResId); // Asumiendo que 'reses' es el nombre del campo que almacena las reses en el esquema de Tropa
+    await tropa.save(); // Guarda los cambios en la tropa
 
     res.status(200).json({ message: "Media res eliminada con éxito" });
   } catch (error) {
