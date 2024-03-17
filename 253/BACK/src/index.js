@@ -14,7 +14,7 @@ const corsOptions = {
   //origin: "http://localhost:3000", // update to match the domain you will make the request from
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: ["Content-Type", "Authorization"], 
   preflightContinue: false,
   optionsSuccessStatus: 204,
 };
